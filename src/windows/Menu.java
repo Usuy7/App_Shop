@@ -41,7 +41,7 @@ public class Menu extends javax.swing.JFrame {
         PROVIDER = new javax.swing.JButton();
         ORDERS = new javax.swing.JButton();
         EXIT = new javax.swing.JButton();
-        fondo = new javax.swing.JLabel();
+        Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -170,7 +170,6 @@ public class Menu extends javax.swing.JFrame {
         EXIT.setBorderPainted(false);
         EXIT.setContentAreaFilled(false);
         EXIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        EXIT.setOpaque(false);
         EXIT.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_error-B.png"))); // NOI18N
         EXIT.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_error.png"))); // NOI18N
         EXIT.addActionListener(new java.awt.event.ActionListener() {
@@ -180,13 +179,13 @@ public class Menu extends javax.swing.JFrame {
         });
         getContentPane().add(EXIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, 50, 50));
 
-        fondo.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        fondo.setForeground(new java.awt.Color(52, 73, 94));
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_menu.jpg"))); // NOI18N
-        fondo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        fondo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        fondo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        Background.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        Background.setForeground(new java.awt.Color(52, 73, 94));
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_menu.jpg"))); // NOI18N
+        Background.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Background.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Background.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -245,6 +244,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Background;
     private javax.swing.JButton CUSTOMERS;
     private javax.swing.JButton EXIT;
     private javax.swing.JButton LOG_OUT;
@@ -254,6 +254,5 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton PROVIDER;
     private javax.swing.JButton SALES;
     private javax.swing.JButton WAREHOUSE;
-    private javax.swing.JLabel fondo;
     // End of variables declaration//GEN-END:variables
 }

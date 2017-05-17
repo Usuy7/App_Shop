@@ -27,24 +27,24 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        login = new javax.swing.JButton();
+        LOGIN = new javax.swing.JButton();
         user = new javax.swing.JLabel();
         txt_user = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
-        exit = new javax.swing.JButton();
-        fondo = new javax.swing.JLabel();
+        EXIT = new javax.swing.JButton();
+        Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        login.setBackground(new java.awt.Color(0, 0, 0));
-        login.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        login.setForeground(new java.awt.Color(255, 255, 255));
-        login.setText("login");
-        login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        login.setOpaque(false);
-        getContentPane().add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, 80, 40));
+        LOGIN.setBackground(new java.awt.Color(0, 0, 0));
+        LOGIN.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        LOGIN.setForeground(new java.awt.Color(255, 255, 255));
+        LOGIN.setText("login");
+        LOGIN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LOGIN.setOpaque(false);
+        getContentPane().add(LOGIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, 80, 40));
 
         user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_user.png"))); // NOI18N
         getContentPane().add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, -1, -1));
@@ -63,34 +63,34 @@ public class Login extends javax.swing.JFrame {
         jPasswordField1.setBorder(null);
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 322, 120, 30));
 
-        exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_error-A.png"))); // NOI18N
-        exit.setBorder(null);
-        exit.setBorderPainted(false);
-        exit.setContentAreaFilled(false);
-        exit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        exit.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_error-B.png"))); // NOI18N
-        exit.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_error.png"))); // NOI18N
-        exit.addActionListener(new java.awt.event.ActionListener() {
+        EXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_error-A.png"))); // NOI18N
+        EXIT.setBorder(null);
+        EXIT.setBorderPainted(false);
+        EXIT.setContentAreaFilled(false);
+        EXIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        EXIT.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_error-B.png"))); // NOI18N
+        EXIT.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_error.png"))); // NOI18N
+        EXIT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitActionPerformed(evt);
+                EXITActionPerformed(evt);
             }
         });
-        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 40, 30));
+        getContentPane().add(EXIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 40, 30));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_login.jpg"))); // NOI18N
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_login.jpg"))); // NOI18N
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+    private void EXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EXITActionPerformed
     // BOTON EXIT
         
         int answer = JOptionPane.showConfirmDialog(null, "You are closing the application, do you want to continue?", "SIGNAL" ,JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
         if (JOptionPane.OK_OPTION == answer){
             System.exit(0);
         }else{}
-    }//GEN-LAST:event_exitActionPerformed
+    }//GEN-LAST:event_EXITActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,10 +128,10 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton exit;
-    private javax.swing.JLabel fondo;
+    private javax.swing.JLabel Background;
+    private javax.swing.JButton EXIT;
+    private javax.swing.JButton LOGIN;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JButton login;
     private javax.swing.JTextField txt_user;
     private javax.swing.JLabel user;
     // End of variables declaration//GEN-END:variables

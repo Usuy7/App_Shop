@@ -33,7 +33,7 @@ public class Products extends javax.swing.JFrame {
     private void initComponents() {
 
         Title = new javax.swing.JLabel();
-        Search = new javax.swing.JButton();
+        SEARCH = new javax.swing.JButton();
         txt_search = new javax.swing.JTextField();
         NEW = new javax.swing.JButton();
         EDIT = new javax.swing.JButton();
@@ -41,7 +41,7 @@ public class Products extends javax.swing.JFrame {
         SAVE = new javax.swing.JButton();
         Table = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        fondo = new javax.swing.JLabel();
+        Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -53,25 +53,25 @@ public class Products extends javax.swing.JFrame {
         Title.setText("PRODUCTS");
         getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 150, 40));
 
-        Search.setBackground(new java.awt.Color(25, 25, 25));
-        Search.setForeground(new java.awt.Color(51, 51, 51));
-        Search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search-A.png"))); // NOI18N
-        Search.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Search.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search-B.png"))); // NOI18N
-        Search.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search.png"))); // NOI18N
-        Search.addActionListener(new java.awt.event.ActionListener() {
+        SEARCH.setBackground(new java.awt.Color(25, 25, 25));
+        SEARCH.setForeground(new java.awt.Color(51, 51, 51));
+        SEARCH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search-A.png"))); // NOI18N
+        SEARCH.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SEARCH.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search-B.png"))); // NOI18N
+        SEARCH.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search.png"))); // NOI18N
+        SEARCH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SearchActionPerformed(evt);
+                SEARCHActionPerformed(evt);
             }
         });
-        getContentPane().add(Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 102, 50, 50));
+        getContentPane().add(SEARCH, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 102, 50, -1));
 
         txt_search.setBackground(new java.awt.Color(51, 51, 51));
         txt_search.setForeground(new java.awt.Color(219, 219, 219));
         txt_search.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_search.setBorder(null);
         txt_search.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(txt_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 160, 40));
+        getContentPane().add(txt_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 160, 48));
 
         NEW.setBackground(new java.awt.Color(25, 25, 25));
         NEW.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_añadir-A.png"))); // NOI18N
@@ -157,16 +157,16 @@ public class Products extends javax.swing.JFrame {
 
         getContentPane().add(Table, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 820, 420));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_productos.jpg"))); // NOI18N
-        fondo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_productos.jpg"))); // NOI18N
+        Background.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
+    private void SEARCHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SEARCHActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SearchActionPerformed
+    }//GEN-LAST:event_SEARCHActionPerformed
 
     private void DELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEActionPerformed
         // TODO add your handling code here:
@@ -213,14 +213,14 @@ public class Products extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Background;
     private javax.swing.JButton DELETE;
     private javax.swing.JButton EDIT;
     private javax.swing.JButton NEW;
     private javax.swing.JButton SAVE;
-    private javax.swing.JButton Search;
+    private javax.swing.JButton SEARCH;
     private javax.swing.JScrollPane Table;
     private javax.swing.JLabel Title;
-    private javax.swing.JLabel fondo;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txt_search;
     // End of variables declaration//GEN-END:variables
