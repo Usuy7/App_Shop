@@ -44,27 +44,29 @@ public class Customers extends javax.swing.JFrame {
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(900, 610));
+        setMinimumSize(new java.awt.Dimension(0, 0));
         setPreferredSize(new java.awt.Dimension(900, 610));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Title.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         Title.setForeground(new java.awt.Color(52, 73, 94));
         Title.setText("CUSTOMERS");
-        getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 180, 40));
+        getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 170, 40));
 
         SEARCH.setBackground(new java.awt.Color(25, 25, 25));
         SEARCH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search-A.png"))); // NOI18N
         SEARCH.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SEARCH.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search-B.png"))); // NOI18N
         SEARCH.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search.png"))); // NOI18N
-        getContentPane().add(SEARCH, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 50, -1));
+        getContentPane().add(SEARCH, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 50, 50));
 
         txt_search.setBackground(new java.awt.Color(51, 51, 51));
+        txt_search.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         txt_search.setForeground(new java.awt.Color(219, 219, 219));
         txt_search.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_search.setBorder(null);
-        getContentPane().add(txt_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 160, 48));
+        getContentPane().add(txt_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 160, 40));
 
         NEW.setBackground(new java.awt.Color(25, 25, 25));
         NEW.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_añadir-A.png"))); // NOI18N
@@ -140,7 +142,7 @@ public class Customers extends javax.swing.JFrame {
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_productos.jpg"))); // NOI18N
         Background.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

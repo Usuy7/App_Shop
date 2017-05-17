@@ -45,6 +45,7 @@ public class Products extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setMinimumSize(new java.awt.Dimension(0, 0));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -64,21 +65,22 @@ public class Products extends javax.swing.JFrame {
                 SEARCHActionPerformed(evt);
             }
         });
-        getContentPane().add(SEARCH, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 102, 50, -1));
+        getContentPane().add(SEARCH, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 50, 50));
 
         txt_search.setBackground(new java.awt.Color(51, 51, 51));
+        txt_search.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         txt_search.setForeground(new java.awt.Color(219, 219, 219));
         txt_search.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_search.setBorder(null);
-        txt_search.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(txt_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 160, 48));
+        txt_search.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        getContentPane().add(txt_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 160, 40));
 
         NEW.setBackground(new java.awt.Color(25, 25, 25));
         NEW.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_añadir-A.png"))); // NOI18N
         NEW.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         NEW.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_añadir-B.png"))); // NOI18N
         NEW.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_añadir.png"))); // NOI18N
-        getContentPane().add(NEW, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 90, 60, 60));
+        getContentPane().add(NEW, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 60, 60));
 
         EDIT.setBackground(new java.awt.Color(25, 25, 25));
         EDIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_edit-A.png"))); // NOI18N
@@ -90,7 +92,7 @@ public class Products extends javax.swing.JFrame {
                 EDITActionPerformed(evt);
             }
         });
-        getContentPane().add(EDIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, 60, 60));
+        getContentPane().add(EDIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, 60, 60));
 
         DELETE.setBackground(new java.awt.Color(25, 25, 25));
         DELETE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_borrar-A.png"))); // NOI18N
@@ -102,7 +104,7 @@ public class Products extends javax.swing.JFrame {
                 DELETEActionPerformed(evt);
             }
         });
-        getContentPane().add(DELETE, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 90, 60, 60));
+        getContentPane().add(DELETE, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 60, 60));
 
         SAVE.setBackground(new java.awt.Color(25, 25, 25));
         SAVE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar-A.png"))); // NOI18N
@@ -110,7 +112,7 @@ public class Products extends javax.swing.JFrame {
         SAVE.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar-B.png"))); // NOI18N
         SAVE.setRolloverEnabled(true);
         SAVE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar.png"))); // NOI18N
-        getContentPane().add(SAVE, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 90, 60, 60));
+        getContentPane().add(SAVE, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 80, 60, 60));
 
         jTable1.setBackground(new java.awt.Color(51, 51, 51));
         jTable1.setForeground(new java.awt.Color(219, 219, 219));
@@ -155,11 +157,11 @@ public class Products extends javax.swing.JFrame {
         });
         Table.setViewportView(jTable1);
 
-        getContentPane().add(Table, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 820, 430));
+        getContentPane().add(Table, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 820, 440));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_productos.jpg"))); // NOI18N
         Background.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -7,7 +7,7 @@ package windows;
 
 /**
  *
- * @author AlumMati
+ * @author Javier
  */
 public class Personal extends javax.swing.JFrame {
 
