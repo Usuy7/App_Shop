@@ -51,7 +51,7 @@ public class Products extends javax.swing.JFrame {
         Title.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         Title.setForeground(new java.awt.Color(52, 73, 94));
         Title.setText("PRODUCTS");
-        getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 150, 40));
+        getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 150, 40));
 
         SEARCH.setBackground(new java.awt.Color(25, 25, 25));
         SEARCH.setForeground(new java.awt.Color(51, 51, 51));
@@ -155,11 +155,11 @@ public class Products extends javax.swing.JFrame {
         });
         Table.setViewportView(jTable1);
 
-        getContentPane().add(Table, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 820, 420));
+        getContentPane().add(Table, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 820, 430));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_productos.jpg"))); // NOI18N
         Background.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
