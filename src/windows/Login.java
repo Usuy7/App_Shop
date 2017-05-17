@@ -1,13 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package windows;
+
+import javax.swing.ImageIcon;
 
 /**
  *
- * @author AlumMati
+ * @author Javier
  */
 public class Login extends javax.swing.JFrame {
 
@@ -16,6 +13,8 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
     }
 
     /**
@@ -27,18 +26,43 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        login = new javax.swing.JButton();
+        user = new javax.swing.JLabel();
+        txt_user = new javax.swing.JTextField();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        fondo = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        login.setBackground(new java.awt.Color(0, 0, 0));
+        login.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        login.setForeground(new java.awt.Color(255, 255, 255));
+        login.setText("login");
+        login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        login.setOpaque(false);
+        getContentPane().add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, 80, 40));
+
+        user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_user.png"))); // NOI18N
+        getContentPane().add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, -1, -1));
+
+        txt_user.setBackground(new java.awt.Color(51, 51, 51));
+        txt_user.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_user.setForeground(new java.awt.Color(204, 204, 204));
+        txt_user.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_user.setBorder(null);
+        getContentPane().add(txt_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, 120, 30));
+
+        jPasswordField1.setBackground(new java.awt.Color(51, 51, 51));
+        jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPasswordField1.setForeground(new java.awt.Color(204, 204, 204));
+        jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPasswordField1.setBorder(null);
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 322, 120, 30));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_login.jpg"))); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -79,5 +103,10 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel fondo;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JButton login;
+    private javax.swing.JTextField txt_user;
+    private javax.swing.JLabel user;
     // End of variables declaration//GEN-END:variables
 }
