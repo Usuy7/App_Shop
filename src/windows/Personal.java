@@ -5,6 +5,8 @@
  */
 package windows;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Javier
@@ -16,6 +18,9 @@ public class Personal extends javax.swing.JFrame {
      */
     public Personal() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
+        SAVE.setVisible(false);
     }
 
     /**
