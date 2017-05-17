@@ -47,13 +47,14 @@ public class Personal extends javax.swing.JFrame {
         jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(880, 610));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Title.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         Title.setForeground(new java.awt.Color(52, 73, 94));
         Title.setText("PERSONAL");
-        getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 160, 40));
+        getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 160, 40));
 
         SEARCH.setBackground(new java.awt.Color(25, 25, 25));
         SEARCH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search-A.png"))); // NOI18N
@@ -63,7 +64,7 @@ public class Personal extends javax.swing.JFrame {
         getContentPane().add(SEARCH, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 50, 50));
 
         txt_search.setBackground(new java.awt.Color(51, 51, 51));
-        txt_search.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        txt_search.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_search.setForeground(new java.awt.Color(219, 219, 219));
         txt_search.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(txt_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 160, 40));

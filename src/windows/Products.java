@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author AlumMati
+ * @author Javier
  */
 public class Products extends javax.swing.JFrame {
 
@@ -46,6 +46,7 @@ public class Products extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(0, 0));
+        setPreferredSize(new java.awt.Dimension(880, 610));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -68,7 +69,7 @@ public class Products extends javax.swing.JFrame {
         getContentPane().add(SEARCH, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 50, 50));
 
         txt_search.setBackground(new java.awt.Color(51, 51, 51));
-        txt_search.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        txt_search.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_search.setForeground(new java.awt.Color(219, 219, 219));
         txt_search.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_search.setBorder(null);
