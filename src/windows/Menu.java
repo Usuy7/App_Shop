@@ -182,7 +182,7 @@ public class Menu extends javax.swing.JFrame {
         Background.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         Background.setForeground(new java.awt.Color(52, 73, 94));
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_menu.jpg"))); // NOI18N
-        Background.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Background.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Background.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Background.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
