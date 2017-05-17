@@ -198,7 +198,7 @@ public class Menu extends javax.swing.JFrame {
         
         int answer = JOptionPane.showConfirmDialog(null, "You are closing the application, do you want to continue?", "SIGNAL" ,JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
         if (JOptionPane.OK_OPTION == answer){
-            System.exit(0);
+           System.exit(0);
         }else{}
     }//GEN-LAST:event_EXITActionPerformed
 
