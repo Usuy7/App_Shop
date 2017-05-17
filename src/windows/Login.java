@@ -86,7 +86,7 @@ public class Login extends javax.swing.JFrame {
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
     // BOTON EXIT
         
-        int answer = JOptionPane.showConfirmDialog(null, "¿Está saliendo de la aplicación, desesa continuar?", "AVISO" ,JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+        int answer = JOptionPane.showConfirmDialog(null, "You are closing the application, do you want to continue?", "SIGNAL" ,JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
         if (JOptionPane.OK_OPTION == answer){
             System.exit(0);
         }else{}

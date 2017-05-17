@@ -5,6 +5,7 @@
  */
 package windows;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +19,8 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
     }
 
     /**
@@ -41,6 +44,7 @@ public class Menu extends javax.swing.JFrame {
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PRODUCTS.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -163,6 +167,8 @@ public class Menu extends javax.swing.JFrame {
 
         EXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_error-A.png"))); // NOI18N
         EXIT.setBorder(null);
+        EXIT.setBorderPainted(false);
+        EXIT.setContentAreaFilled(false);
         EXIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         EXIT.setOpaque(false);
         EXIT.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_error-B.png"))); // NOI18N
@@ -190,14 +196,14 @@ public class Menu extends javax.swing.JFrame {
         
         // JOptionPane.showMessageDialog(null,"Los datos del nuevo producto se han guardado correctamente", "INFORMACIÓN", JOptionPane.INFORMATION_MESSAGE); MENSAJE DE AVISO
         
-        int answer = JOptionPane.showConfirmDialog(null, "¿Está saliendo de la aplicación, desesa continuar?", "AVISO" ,JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+        int answer = JOptionPane.showConfirmDialog(null, "You are closing the application, do you want to continue?", "SIGNAL" ,JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
         if (JOptionPane.OK_OPTION == answer){
             System.exit(0);
         }else{}
     }//GEN-LAST:event_EXITActionPerformed
 
     private void LOG_OUTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOG_OUTActionPerformed
-           int answer = JOptionPane.showConfirmDialog(null, "¿Está cerrando la sesión, desesa continuar?", "AVISO" ,JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+           int answer = JOptionPane.showConfirmDialog(null, "You are closing session, do you want to continue?", "SIGNAL" ,JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (JOptionPane.OK_OPTION == answer){
             System.exit(0);
         }else{}
