@@ -20,6 +20,7 @@ public class Products extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
+        SAVE.setVisible(false);
     }
 
     /**
@@ -37,11 +38,13 @@ public class Products extends javax.swing.JFrame {
         NEW = new javax.swing.JButton();
         EDIT = new javax.swing.JButton();
         DELETE = new javax.swing.JButton();
+        SAVE = new javax.swing.JButton();
         Table = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -101,6 +104,14 @@ public class Products extends javax.swing.JFrame {
         });
         getContentPane().add(DELETE, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 90, 60, 60));
 
+        SAVE.setBackground(new java.awt.Color(25, 25, 25));
+        SAVE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar-A.png"))); // NOI18N
+        SAVE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SAVE.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar-B.png"))); // NOI18N
+        SAVE.setRolloverEnabled(true);
+        SAVE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar.png"))); // NOI18N
+        getContentPane().add(SAVE, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 90, 60, 60));
+
         jTable1.setBackground(new java.awt.Color(51, 51, 51));
         jTable1.setForeground(new java.awt.Color(219, 219, 219));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -147,7 +158,7 @@ public class Products extends javax.swing.JFrame {
         getContentPane().add(Table, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 820, 410));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_productos.jpg"))); // NOI18N
-        fondo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        fondo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
 
         pack();
@@ -205,6 +216,7 @@ public class Products extends javax.swing.JFrame {
     private javax.swing.JButton DELETE;
     private javax.swing.JButton EDIT;
     private javax.swing.JButton NEW;
+    private javax.swing.JButton SAVE;
     private javax.swing.JButton Search;
     private javax.swing.JScrollPane Table;
     private javax.swing.JLabel Title;
