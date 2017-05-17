@@ -141,6 +141,7 @@ public class Products extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null}
             },
             new String [] {
@@ -157,7 +158,7 @@ public class Products extends javax.swing.JFrame {
         });
         Table.setViewportView(jTable1);
 
-        getContentPane().add(Table, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 820, 440));
+        getContentPane().add(Table, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 820, 430));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_productos.jpg"))); // NOI18N
         Background.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
