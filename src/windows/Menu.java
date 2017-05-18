@@ -87,7 +87,7 @@ public class Menu extends javax.swing.JFrame {
         PERSONAL.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_personal.png"))); // NOI18N
         PERSONAL.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         PERSONAL.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(PERSONAL, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 80, 120, 150));
+        getContentPane().add(PERSONAL, new org.netbeans.lib.awtextra.AbsoluteConstraints(586, 80, 130, 150));
 
         CUSTOMERS.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         CUSTOMERS.setForeground(new java.awt.Color(52, 73, 94));
