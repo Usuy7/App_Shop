@@ -76,10 +76,10 @@ public class Orders extends javax.swing.JFrame {
         getContentPane().add(NEW, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 60, 60));
 
         EDIT.setBackground(new java.awt.Color(25, 25, 25));
-        EDIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_edit-B.png"))); // NOI18N
+        EDIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_edit-A.png"))); // NOI18N
         EDIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         EDIT.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_edit-B.png"))); // NOI18N
-        EDIT.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_edit-A.png"))); // NOI18N
+        EDIT.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_edit.png"))); // NOI18N
         getContentPane().add(EDIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, 60, 60));
 
         DELETE.setBackground(new java.awt.Color(25, 25, 25));
