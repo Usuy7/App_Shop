@@ -6,6 +6,9 @@
 package windows;
 
 import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableColumnModel;
 
 /**
  *
@@ -21,6 +24,15 @@ public class Personal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
         SAVE.setVisible(false);
+        
+        // ALIGN DATA TABLE LEFT
+        TableColumnModel columnModel = jTable1.getColumnModel();
+        DefaultTableCellRenderer t = new DefaultTableCellRenderer();
+        t.setHorizontalAlignment(SwingConstants.LEFT);
+        jTable1.getColumnModel().getColumn(0).setCellRenderer(t);
+        jTable1.getColumnModel().getColumn(3).setCellRenderer(t);
+        jTable1.getColumnModel().getColumn(5).setCellRenderer(t);
+        jTable1.getColumnModel().getColumn(6).setCellRenderer(t); 
     }
 
     /**
@@ -53,7 +65,7 @@ public class Personal extends javax.swing.JFrame {
         Title.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         Title.setForeground(new java.awt.Color(52, 73, 94));
         Title.setText("PERSONAL");
-        getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 160, 40));
+        getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, 30));
 
         SEARCH.setBackground(new java.awt.Color(25, 25, 25));
         SEARCH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search-A.png"))); // NOI18N
@@ -66,6 +78,12 @@ public class Personal extends javax.swing.JFrame {
         txt_search.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_search.setForeground(new java.awt.Color(219, 219, 219));
         txt_search.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_search.setBorder(null);
+        txt_search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_searchActionPerformed(evt);
+            }
+        });
         getContentPane().add(txt_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 160, 40));
 
         NEW.setBackground(new java.awt.Color(25, 25, 25));
@@ -73,65 +91,65 @@ public class Personal extends javax.swing.JFrame {
         NEW.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         NEW.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_añadir-B.png"))); // NOI18N
         NEW.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_añadir.png"))); // NOI18N
-        getContentPane().add(NEW, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 60, 60));
+        getContentPane().add(NEW, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, 60, 60));
 
         EDIT.setBackground(new java.awt.Color(25, 25, 25));
         EDIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_edit-A.png"))); // NOI18N
         EDIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         EDIT.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_edit-B.png"))); // NOI18N
         EDIT.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_edit.png"))); // NOI18N
-        getContentPane().add(EDIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, 60, 60));
+        getContentPane().add(EDIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 60, 60));
 
         DELETE.setBackground(new java.awt.Color(25, 25, 25));
         DELETE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_borrar-A.png"))); // NOI18N
         DELETE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         DELETE.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_borrar-B.png"))); // NOI18N
         DELETE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_borrar.png"))); // NOI18N
-        getContentPane().add(DELETE, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 60, 60));
+        getContentPane().add(DELETE, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 80, 60, 60));
 
         SAVE.setBackground(new java.awt.Color(25, 25, 25));
         SAVE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar-A.png"))); // NOI18N
         SAVE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SAVE.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar-B.png"))); // NOI18N
         SAVE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar.png"))); // NOI18N
-        getContentPane().add(SAVE, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 80, 60, 60));
+        getContentPane().add(SAVE, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 80, 60, 60));
 
         jTable1.setBackground(new java.awt.Color(51, 51, 51));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Surnames", "Position", "DContract", "Salary", "Workday", "Birthdate ", "Phone"
+                "ID", "Name", "Surname", "Position", "DContract", "Salary", "Workday", "Birthdate ", "Phone", "Login", "Passwoord"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -141,13 +159,17 @@ public class Personal extends javax.swing.JFrame {
         jTable1.setRowHeight(15);
         Table.setViewportView(jTable1);
 
-        getContentPane().add(Table, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 820, 430));
+        getContentPane().add(Table, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 830, 430));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_productos.jpg"))); // NOI18N
-        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 600));
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txt_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_searchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_searchActionPerformed
 
     /**
      * @param args the command line arguments

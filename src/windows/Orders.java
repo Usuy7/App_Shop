@@ -6,6 +6,9 @@
 package windows;
 
 import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableColumnModel;
 
 /**
  *
@@ -21,6 +24,15 @@ public class Orders extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
         SAVE.setVisible(false);
+        
+        // ALIGN DATA TABLE LEFT
+        TableColumnModel columnModel = jTable1.getColumnModel();
+        DefaultTableCellRenderer t = new DefaultTableCellRenderer();
+        t.setHorizontalAlignment(SwingConstants.LEFT);
+        jTable1.getColumnModel().getColumn(0).setCellRenderer(t);
+        jTable1.getColumnModel().getColumn(1).setCellRenderer(t);
+        jTable1.getColumnModel().getColumn(2).setCellRenderer(t);
+        jTable1.getColumnModel().getColumn(3).setCellRenderer(t);
     }
 
     /**

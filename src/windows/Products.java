@@ -6,6 +6,12 @@
 package windows;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
+
 
 /**
  *
@@ -16,11 +22,25 @@ public class Products extends javax.swing.JFrame {
     /**
      * Creates new form Productos
      */
+    
+    DefaultTableModel model;
+    
+    
     public Products() {
         initComponents();
         this.setLocationRelativeTo(null);
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
         SAVE.setVisible(false);
+        
+        // ALIGN DATA TABLE LEFT
+        TableColumnModel columnModel = jTable1.getColumnModel();
+        DefaultTableCellRenderer t = new DefaultTableCellRenderer();
+        t.setHorizontalAlignment(SwingConstants.LEFT);
+        jTable1.getColumnModel().getColumn(0).setCellRenderer(t);
+        jTable1.getColumnModel().getColumn(3).setCellRenderer(t);
+        jTable1.getColumnModel().getColumn(4).setCellRenderer(t);
+        jTable1.getColumnModel().getColumn(5).setCellRenderer(t);
+        jTable1.getColumnModel().getColumn(6).setCellRenderer(t);   
     }
 
     /**
@@ -51,7 +71,7 @@ public class Products extends javax.swing.JFrame {
         Title.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         Title.setForeground(new java.awt.Color(52, 73, 94));
         Title.setText("PRODUCTS");
-        getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 150, 40));
+        getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 150, 30));
 
         SEARCH.setBackground(new java.awt.Color(25, 25, 25));
         SEARCH.setForeground(new java.awt.Color(51, 51, 51));

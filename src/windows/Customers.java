@@ -6,6 +6,9 @@
 package windows;
 
 import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableColumnModel;
 
 /**
  *
@@ -21,6 +24,12 @@ public class Customers extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
         SAVE.setVisible(false);
+        
+        // ALIGN DATA TABLE LEFT
+        TableColumnModel columnModel = jTable1.getColumnModel();
+        DefaultTableCellRenderer t = new DefaultTableCellRenderer();
+        t.setHorizontalAlignment(SwingConstants.LEFT);
+        jTable1.getColumnModel().getColumn(0).setCellRenderer(t);
     }
 
     /**
@@ -50,7 +59,7 @@ public class Customers extends javax.swing.JFrame {
         Title.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         Title.setForeground(new java.awt.Color(52, 73, 94));
         Title.setText("CUSTOMERS");
-        getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 170, 40));
+        getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, -1, 30));
 
         SEARCH.setBackground(new java.awt.Color(25, 25, 25));
         SEARCH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search-A.png"))); // NOI18N
@@ -124,11 +133,11 @@ public class Customers extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Surnames", "Address", "City", "CP", "Phone", "Email"
+                "ID", "Name", "Surname", "Address", "City", "CP", "Phone", "Email"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
