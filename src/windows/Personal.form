@@ -223,7 +223,7 @@
                 <Column editable="true" title="Birthdate " type="java.lang.String"/>
                 <Column editable="true" title="Phone" type="java.lang.String"/>
                 <Column editable="true" title="Login" type="java.lang.String"/>
-                <Column editable="true" title="Passwoord" type="java.lang.String"/>
+                <Column editable="true" title="Password" type="java.lang.String"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

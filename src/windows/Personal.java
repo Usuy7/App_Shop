@@ -145,7 +145,7 @@ public class Personal extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Surname", "Position", "DContract", "Salary", "Workday", "Birthdate ", "Phone", "Login", "Passwoord"
+                "ID", "Name", "Surname", "Position", "DContract", "Salary", "Workday", "Birthdate ", "Phone", "Login", "Password"
             }
         ) {
             Class[] types = new Class [] {
