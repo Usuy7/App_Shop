@@ -121,7 +121,7 @@ public class Menu extends javax.swing.JFrame {
                 LOG_OUTActionPerformed(evt);
             }
         });
-        getContentPane().add(LOG_OUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 120, 150));
+        getContentPane().add(LOG_OUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 120, 170));
 
         WAREHOUSE.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         WAREHOUSE.setForeground(new java.awt.Color(52, 73, 94));
