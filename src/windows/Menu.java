@@ -59,7 +59,7 @@ public class Menu extends javax.swing.JFrame {
         PRODUCTS.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_productos.png"))); // NOI18N
         PRODUCTS.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         PRODUCTS.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(PRODUCTS, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 110, 150));
+        getContentPane().add(PRODUCTS, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 120, 150));
 
         SALES.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         SALES.setForeground(new java.awt.Color(52, 73, 94));
@@ -73,7 +73,7 @@ public class Menu extends javax.swing.JFrame {
         SALES.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_ventas.png"))); // NOI18N
         SALES.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         SALES.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(SALES, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 110, 150));
+        getContentPane().add(SALES, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 120, 150));
 
         PERSONAL.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         PERSONAL.setForeground(new java.awt.Color(52, 73, 94));
@@ -87,7 +87,7 @@ public class Menu extends javax.swing.JFrame {
         PERSONAL.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_personal.png"))); // NOI18N
         PERSONAL.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         PERSONAL.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(PERSONAL, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 120, 150));
+        getContentPane().add(PERSONAL, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 80, 120, 150));
 
         CUSTOMERS.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         CUSTOMERS.setForeground(new java.awt.Color(52, 73, 94));
@@ -101,7 +101,7 @@ public class Menu extends javax.swing.JFrame {
         CUSTOMERS.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_cliente.png"))); // NOI18N
         CUSTOMERS.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         CUSTOMERS.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(CUSTOMERS, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 80, 110, 150));
+        getContentPane().add(CUSTOMERS, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 120, 150));
 
         LOG_OUT.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         LOG_OUT.setForeground(new java.awt.Color(52, 73, 94));
@@ -121,7 +121,7 @@ public class Menu extends javax.swing.JFrame {
                 LOG_OUTActionPerformed(evt);
             }
         });
-        getContentPane().add(LOG_OUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 110, 150));
+        getContentPane().add(LOG_OUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 120, 150));
 
         WAREHOUSE.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         WAREHOUSE.setForeground(new java.awt.Color(52, 73, 94));
@@ -135,7 +135,7 @@ public class Menu extends javax.swing.JFrame {
         WAREHOUSE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_almacen.png"))); // NOI18N
         WAREHOUSE.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         WAREHOUSE.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(WAREHOUSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 110, 150));
+        getContentPane().add(WAREHOUSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, 120, 150));
 
         PROVIDER.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         PROVIDER.setForeground(new java.awt.Color(52, 73, 94));
@@ -149,7 +149,7 @@ public class Menu extends javax.swing.JFrame {
         PROVIDER.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_proveedor.png"))); // NOI18N
         PROVIDER.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         PROVIDER.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(PROVIDER, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, 110, 150));
+        getContentPane().add(PROVIDER, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 120, 150));
 
         ORDERS.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         ORDERS.setForeground(new java.awt.Color(52, 73, 94));
@@ -163,7 +163,7 @@ public class Menu extends javax.swing.JFrame {
         ORDERS.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_pedidos.png"))); // NOI18N
         ORDERS.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         ORDERS.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(ORDERS, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 290, 110, 150));
+        getContentPane().add(ORDERS, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 290, 120, 150));
 
         EXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_error-A.png"))); // NOI18N
         EXIT.setBorder(null);
