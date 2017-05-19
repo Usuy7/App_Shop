@@ -32,20 +32,54 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        LOG_OUT = new javax.swing.JButton();
+        EXIT = new javax.swing.JButton();
         PRODUCTS = new javax.swing.JButton();
         SALES = new javax.swing.JButton();
-        PERSONAL = new javax.swing.JButton();
+        LINES_SALE = new javax.swing.JButton();
         CUSTOMERS = new javax.swing.JButton();
-        LOG_OUT = new javax.swing.JButton();
         WAREHOUSE = new javax.swing.JButton();
         PROVIDER = new javax.swing.JButton();
         ORDERS = new javax.swing.JButton();
-        EXIT = new javax.swing.JButton();
+        PERSONAL = new javax.swing.JButton();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        LOG_OUT.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        LOG_OUT.setForeground(new java.awt.Color(52, 73, 94));
+        LOG_OUT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_log out-A.png"))); // NOI18N
+        LOG_OUT.setToolTipText("");
+        LOG_OUT.setBorder(null);
+        LOG_OUT.setContentAreaFilled(false);
+        LOG_OUT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LOG_OUT.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        LOG_OUT.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_log out-B.png"))); // NOI18N
+        LOG_OUT.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_log out.png"))); // NOI18N
+        LOG_OUT.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        LOG_OUT.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        LOG_OUT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LOG_OUTActionPerformed(evt);
+            }
+        });
+        getContentPane().add(LOG_OUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 30, 30));
+
+        EXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_error-A.png"))); // NOI18N
+        EXIT.setBorder(null);
+        EXIT.setBorderPainted(false);
+        EXIT.setContentAreaFilled(false);
+        EXIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        EXIT.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_error-B.png"))); // NOI18N
+        EXIT.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_error.png"))); // NOI18N
+        EXIT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EXITActionPerformed(evt);
+            }
+        });
+        getContentPane().add(EXIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, 50, 50));
 
         PRODUCTS.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         PRODUCTS.setForeground(new java.awt.Color(52, 73, 94));
@@ -73,54 +107,35 @@ public class Menu extends javax.swing.JFrame {
         SALES.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_ventas.png"))); // NOI18N
         SALES.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         SALES.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(SALES, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 120, 150));
+        getContentPane().add(SALES, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 120, 150));
 
-        PERSONAL.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        PERSONAL.setForeground(new java.awt.Color(52, 73, 94));
-        PERSONAL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_personal-A.png"))); // NOI18N
-        PERSONAL.setText("PERSONAL");
-        PERSONAL.setBorder(null);
-        PERSONAL.setContentAreaFilled(false);
-        PERSONAL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        PERSONAL.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        PERSONAL.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_personal-B.png"))); // NOI18N
-        PERSONAL.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_personal.png"))); // NOI18N
-        PERSONAL.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        PERSONAL.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(PERSONAL, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 280, 130, 150));
+        LINES_SALE.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        LINES_SALE.setForeground(new java.awt.Color(52, 73, 94));
+        LINES_SALE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_lineas venta-A.png"))); // NOI18N
+        LINES_SALE.setText("LINES OF SALE");
+        LINES_SALE.setBorder(null);
+        LINES_SALE.setContentAreaFilled(false);
+        LINES_SALE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LINES_SALE.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        LINES_SALE.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_lineas venta-B.png"))); // NOI18N
+        LINES_SALE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_lineas venta.png"))); // NOI18N
+        LINES_SALE.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        LINES_SALE.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(LINES_SALE, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 140, 150));
 
         CUSTOMERS.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         CUSTOMERS.setForeground(new java.awt.Color(52, 73, 94));
-        CUSTOMERS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_cliente-A.png"))); // NOI18N
+        CUSTOMERS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_personal-A.png"))); // NOI18N
         CUSTOMERS.setText("CUSTOMERS");
         CUSTOMERS.setBorder(null);
         CUSTOMERS.setContentAreaFilled(false);
         CUSTOMERS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CUSTOMERS.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        CUSTOMERS.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_cliente-B.png"))); // NOI18N
-        CUSTOMERS.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_cliente.png"))); // NOI18N
+        CUSTOMERS.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_personal-B.png"))); // NOI18N
+        CUSTOMERS.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_personal.png"))); // NOI18N
         CUSTOMERS.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         CUSTOMERS.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(CUSTOMERS, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 120, 150));
-
-        LOG_OUT.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        LOG_OUT.setForeground(new java.awt.Color(52, 73, 94));
-        LOG_OUT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_log out-A.png"))); // NOI18N
-        LOG_OUT.setToolTipText("");
-        LOG_OUT.setBorder(null);
-        LOG_OUT.setContentAreaFilled(false);
-        LOG_OUT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LOG_OUT.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        LOG_OUT.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_log out-B.png"))); // NOI18N
-        LOG_OUT.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_log out.png"))); // NOI18N
-        LOG_OUT.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        LOG_OUT.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        LOG_OUT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LOG_OUTActionPerformed(evt);
-            }
-        });
-        getContentPane().add(LOG_OUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 30, 30));
+        getContentPane().add(CUSTOMERS, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 90, 130, 140));
 
         WAREHOUSE.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         WAREHOUSE.setForeground(new java.awt.Color(52, 73, 94));
@@ -148,7 +163,7 @@ public class Menu extends javax.swing.JFrame {
         PROVIDER.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_proveedor.png"))); // NOI18N
         PROVIDER.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         PROVIDER.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(PROVIDER, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 120, 150));
+        getContentPane().add(PROVIDER, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 120, 150));
 
         ORDERS.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         ORDERS.setForeground(new java.awt.Color(52, 73, 94));
@@ -164,19 +179,19 @@ public class Menu extends javax.swing.JFrame {
         ORDERS.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         getContentPane().add(ORDERS, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 120, 150));
 
-        EXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_error-A.png"))); // NOI18N
-        EXIT.setBorder(null);
-        EXIT.setBorderPainted(false);
-        EXIT.setContentAreaFilled(false);
-        EXIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        EXIT.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_error-B.png"))); // NOI18N
-        EXIT.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_error.png"))); // NOI18N
-        EXIT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EXITActionPerformed(evt);
-            }
-        });
-        getContentPane().add(EXIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, 50, 50));
+        PERSONAL.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        PERSONAL.setForeground(new java.awt.Color(52, 73, 94));
+        PERSONAL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_cliente-A.png"))); // NOI18N
+        PERSONAL.setText("PERSONAL");
+        PERSONAL.setBorder(null);
+        PERSONAL.setContentAreaFilled(false);
+        PERSONAL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        PERSONAL.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        PERSONAL.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_cliente-B.png"))); // NOI18N
+        PERSONAL.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_cliente.png"))); // NOI18N
+        PERSONAL.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        PERSONAL.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(PERSONAL, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 280, 120, 150));
 
         Background.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         Background.setForeground(new java.awt.Color(52, 73, 94));
@@ -246,6 +261,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel Background;
     private javax.swing.JButton CUSTOMERS;
     private javax.swing.JButton EXIT;
+    private javax.swing.JButton LINES_SALE;
     private javax.swing.JButton LOG_OUT;
     private javax.swing.JButton ORDERS;
     private javax.swing.JButton PERSONAL;
