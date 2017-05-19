@@ -30,6 +30,12 @@ public class Warehouse extends javax.swing.JFrame {
         DefaultTableCellRenderer t = new DefaultTableCellRenderer();
         t.setHorizontalAlignment(SwingConstants.LEFT);
         jTable1.getColumnModel().getColumn(0).setCellRenderer(t);
+        jTable1.getColumnModel().getColumn(3).setCellRenderer(t);
+        jTable1.getColumnModel().getColumn(4).setCellRenderer(t);
+        jTable1.getColumnModel().getColumn(5).setCellRenderer(t);
+        jTable1.getColumnModel().getColumn(6).setCellRenderer(t);
+        jTable1.getColumnModel().getColumn(7).setCellRenderer(t);
+        jTable1.getColumnModel().getColumn(8).setCellRenderer(t);
     }
 
     /**
