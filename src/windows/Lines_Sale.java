@@ -133,7 +133,7 @@ public class Lines_Sale extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID Sale", "ID", "Product", "Trademark", "Size", "Price", "Cantity"
+                "ID Sale", "ID Line", "Product", "Trademark", "Size", "Price", "Cantity"
             }
         ) {
             Class[] types = new Class [] {
