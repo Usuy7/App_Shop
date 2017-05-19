@@ -115,6 +115,8 @@ public class Personal extends javax.swing.JFrame {
         getContentPane().add(SAVE, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 80, 60, 60));
 
         jTable1.setBackground(new java.awt.Color(51, 51, 51));
+        jTable1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(219, 219, 219));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null},
