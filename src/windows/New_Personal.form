@@ -66,7 +66,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="txt_birthdate" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                           <Component id="txt_password" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                          <Component id="txt_dContract" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="txt_dcontract" min="-2" pref="100" max="-2" attributes="0"/>
                           <Component id="txt_phone" min="-2" pref="100" max="-2" attributes="0"/>
                           <Component id="txt_login" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                       </Group>
@@ -105,7 +105,7 @@
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="txt_dContract" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="txt_dcontract" min="-2" pref="30" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="txt_birthdate" min="-2" pref="30" max="-2" attributes="0"/>
@@ -163,7 +163,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -271,7 +271,7 @@
         <Property name="text" type="java.lang.String" value="DContract"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txt_dContract">
+    <Component class="javax.swing.JTextField" name="txt_dcontract">
     </Component>
     <Component class="javax.swing.JLabel" name="BIRTHDATE">
       <Properties>
@@ -318,9 +318,6 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/icono_guardar-A.png"/>
         </Property>
-        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
-        </Property>
         <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/icono_guardar-B.png"/>
         </Property>
@@ -333,9 +330,6 @@
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/icono_no-A.png"/>
-        </Property>
-        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
         </Property>
         <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/icono_no-B.png"/>
