@@ -104,10 +104,12 @@ public class New_Personal extends javax.swing.JFrame {
         PASSWORD.setText("Password");
 
         SAVE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar-A.png"))); // NOI18N
+        SAVE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SAVE.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar-B.png"))); // NOI18N
         SAVE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar.png"))); // NOI18N
 
         CANCEL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_no-A.png"))); // NOI18N
+        CANCEL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CANCEL.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_no-B.png"))); // NOI18N
         CANCEL.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_no.png"))); // NOI18N
 
