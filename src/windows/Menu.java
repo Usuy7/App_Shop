@@ -5,9 +5,6 @@
  */
 package windows;
 
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -268,7 +265,7 @@ public class Menu extends javax.swing.JFrame {
     private void PRODUCTSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PRODUCTSActionPerformed
         // PRODUCTS
         Products products = new Products();
-        products.setVisible(true);        
+        products.setVisible(true);
     }//GEN-LAST:event_PRODUCTSActionPerformed
 
     private void SALESActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SALESActionPerformed

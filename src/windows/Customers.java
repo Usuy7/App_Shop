@@ -187,17 +187,7 @@ public class Customers extends javax.swing.JFrame {
 
     private void MENUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MENUActionPerformed
         // COME BACK TO MENU
-        
-        /*tablas.Menú art = new tablas.Menú();
-        art.setLocationRelativeTo(null);
         this.setVisible(false);
-        art.setVisible(false);*/
-        
-        Menu customer = new Menu();
-        customer.setLocationRelativeTo(null);
-        this.setVisible(false);
-        customer.setVisible(false);
-        
     }//GEN-LAST:event_MENUActionPerformed
 
     /**
