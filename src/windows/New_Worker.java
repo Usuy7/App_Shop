@@ -6,6 +6,7 @@
 package windows;
 
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -164,6 +165,11 @@ public class New_Worker extends javax.swing.JFrame {
         SAVE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SAVE.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar-B.png"))); // NOI18N
         SAVE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar.png"))); // NOI18N
+        SAVE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SAVEActionPerformed(evt);
+            }
+        });
         getContentPane().add(SAVE, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 480, 50, 50));
 
         CANCEL.setBackground(new java.awt.Color(25, 25, 25));
@@ -190,6 +196,11 @@ public class New_Worker extends javax.swing.JFrame {
         // CANCEL
         this.setVisible(false);
     }//GEN-LAST:event_CANCELActionPerformed
+
+    private void SAVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SAVEActionPerformed
+        // SAVE
+        JOptionPane.showMessageDialog(null,"Data saved successfully", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_SAVEActionPerformed
 
     /**
      * @param args the command line arguments

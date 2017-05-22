@@ -246,9 +246,6 @@ public class Menu extends javax.swing.JFrame {
 
     private void EXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EXITActionPerformed
         // BOTON SALIR 
-        
-        // JOptionPane.showMessageDialog(null,"Los datos del nuevo producto se han guardado correctamente", "INFORMACIÓN", JOptionPane.INFORMATION_MESSAGE); MENSAJE DE AVISO
-        
         int answer = JOptionPane.showConfirmDialog(null, "You are closing the application, do you want to continue?", "SIGNAL" ,JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
         if (JOptionPane.OK_OPTION == answer){
            System.exit(0);
