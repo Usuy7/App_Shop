@@ -9,14 +9,14 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author Javier
+ * @author AlumMati
  */
-public class New_Sale extends javax.swing.JFrame {
+public class New_Warehouse extends javax.swing.JFrame {
 
     /**
-     * Creates new form New_Sale
+     * Creates new form New_Warehouse
      */
-    public New_Sale() {
+    public New_Warehouse() {
         initComponents();
         this.setLocationRelativeTo(null);
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
@@ -64,20 +64,20 @@ public class New_Sale extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(New_Sale.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(New_Warehouse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(New_Sale.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(New_Warehouse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(New_Sale.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(New_Warehouse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(New_Sale.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(New_Warehouse.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new New_Sale().setVisible(true);
+                new New_Warehouse().setVisible(true);
             }
         });
     }

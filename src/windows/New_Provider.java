@@ -5,6 +5,8 @@
  */
 package windows;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Javier
@@ -16,6 +18,8 @@ public class New_Provider extends javax.swing.JFrame {
      */
     public New_Provider() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
     }
 
     /**

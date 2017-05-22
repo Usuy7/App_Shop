@@ -91,6 +91,11 @@ public class Personal extends javax.swing.JFrame {
         NEW.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         NEW.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_añadir-B.png"))); // NOI18N
         NEW.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_añadir.png"))); // NOI18N
+        NEW.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NEWActionPerformed(evt);
+            }
+        });
         getContentPane().add(NEW, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, 60, 60));
 
         EDIT.setBackground(new java.awt.Color(25, 25, 25));
@@ -167,6 +172,12 @@ public class Personal extends javax.swing.JFrame {
     private void txt_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_searchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_searchActionPerformed
+
+    private void NEWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NEWActionPerformed
+        // NEW PERSONAL
+        New_Personal nuevo = new New_Personal();
+        nuevo.setVisible(true);
+    }//GEN-LAST:event_NEWActionPerformed
 
     /**
      * @param args the command line arguments

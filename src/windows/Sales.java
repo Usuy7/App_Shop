@@ -83,6 +83,11 @@ public class Sales extends javax.swing.JFrame {
         NEW.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         NEW.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_añadir-B.png"))); // NOI18N
         NEW.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_añadir.png"))); // NOI18N
+        NEW.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NEWActionPerformed(evt);
+            }
+        });
         getContentPane().add(NEW, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 60, 60));
 
         EDIT.setBackground(new java.awt.Color(25, 25, 25));
@@ -172,6 +177,12 @@ public class Sales extends javax.swing.JFrame {
     private void EDITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EDITActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EDITActionPerformed
+
+    private void NEWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NEWActionPerformed
+        // NEW SALE
+        New_Sale nuevo = new New_Sale();
+        nuevo.setVisible(true);
+    }//GEN-LAST:event_NEWActionPerformed
 
     /**
      * @param args the command line arguments
