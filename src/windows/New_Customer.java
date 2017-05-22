@@ -51,119 +51,95 @@ public class New_Customer extends javax.swing.JFrame {
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Title.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        Title.setForeground(new java.awt.Color(255, 255, 255));
         Title.setText("NEW CUSTOMER");
+        getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, -1, -1));
 
         NAME.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        NAME.setForeground(new java.awt.Color(255, 255, 255));
         NAME.setText("Name");
+        getContentPane().add(NAME, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 70, 30));
+
+        txt_name.setBackground(new java.awt.Color(51, 51, 51));
+        txt_name.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txt_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 100, 30));
 
         SURNAME.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        SURNAME.setForeground(new java.awt.Color(255, 255, 255));
         SURNAME.setText("Surname");
+        getContentPane().add(SURNAME, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 70, 30));
+
+        txt_surname.setBackground(new java.awt.Color(51, 51, 51));
+        txt_surname.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txt_surname, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 100, 30));
 
         ADDRESS.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        ADDRESS.setForeground(new java.awt.Color(255, 255, 255));
         ADDRESS.setText("Address");
+        getContentPane().add(ADDRESS, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 70, 30));
+
+        txt_address.setBackground(new java.awt.Color(51, 51, 51));
+        txt_address.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txt_address, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 100, 30));
 
         CITY.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        CITY.setForeground(new java.awt.Color(255, 255, 255));
         CITY.setText("City");
+        getContentPane().add(CITY, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 70, 30));
+
+        txt_city.setBackground(new java.awt.Color(51, 51, 51));
+        txt_city.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txt_city, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 100, 30));
 
         CP.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        CP.setForeground(new java.awt.Color(255, 255, 255));
         CP.setText("CP");
+        getContentPane().add(CP, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, 70, 30));
+
+        txt_cp.setBackground(new java.awt.Color(51, 51, 51));
+        txt_cp.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txt_cp, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 100, 30));
 
         PHONE.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        PHONE.setForeground(new java.awt.Color(255, 255, 255));
         PHONE.setText("Phone");
+        getContentPane().add(PHONE, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 70, 30));
+
+        txt_phone.setBackground(new java.awt.Color(51, 51, 51));
+        txt_phone.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txt_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 100, 30));
 
         EMAIL.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        EMAIL.setForeground(new java.awt.Color(255, 255, 255));
         EMAIL.setText("Email");
+        getContentPane().add(EMAIL, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 70, 30));
 
+        txt_email.setBackground(new java.awt.Color(51, 51, 51));
+        txt_email.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 100, 30));
+
+        SAVE.setBackground(new java.awt.Color(25, 25, 25));
+        SAVE.setForeground(new java.awt.Color(255, 255, 255));
         SAVE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar-A.png"))); // NOI18N
         SAVE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SAVE.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar-B.png"))); // NOI18N
         SAVE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar.png"))); // NOI18N
+        getContentPane().add(SAVE, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 480, 50, 50));
 
+        CANCEL.setBackground(new java.awt.Color(25, 25, 25));
+        CANCEL.setForeground(new java.awt.Color(255, 255, 255));
         CANCEL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_no-A.png"))); // NOI18N
         CANCEL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CANCEL.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_no-B.png"))); // NOI18N
         CANCEL.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_no.png"))); // NOI18N
+        getContentPane().add(CANCEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 480, 50, 50));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Background)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(138, 138, 138)
-                .addComponent(Title)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(NAME, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SURNAME, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ADDRESS, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EMAIL, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_surname, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_address, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(PHONE, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txt_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(CITY, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txt_city, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(CP, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txt_cp, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(SAVE, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(CANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(34, 34, 34))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Background)
-                .addGap(33, 33, 33)
-                .addComponent(Title)
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CITY, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_city, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NAME, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CP, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_cp, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SURNAME, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_surname, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PHONE, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ADDRESS, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_address, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(EMAIL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(SAVE, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(196, Short.MAX_VALUE))
-        );
+        Background.setForeground(new java.awt.Color(255, 255, 255));
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_windows2.jpg"))); // NOI18N
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
