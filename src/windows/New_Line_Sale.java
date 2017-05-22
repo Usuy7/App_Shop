@@ -44,134 +44,104 @@ public class New_Line_Sale extends javax.swing.JFrame {
         txt_price = new javax.swing.JTextField();
         CANTITY = new javax.swing.JLabel();
         txt_cantity = new javax.swing.JTextField();
-        Background = new javax.swing.JLabel();
         SAVE = new javax.swing.JButton();
         CANCEL = new javax.swing.JButton();
+        Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Title.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        Title.setForeground(new java.awt.Color(255, 255, 255));
         Title.setText("NEW LINE SALE");
+        getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, -1, -1));
 
         ID_SALE.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        ID_SALE.setForeground(new java.awt.Color(255, 255, 255));
         ID_SALE.setText("ID Sale");
+        getContentPane().add(ID_SALE, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 70, 30));
 
+        ComboBox_idSale.setBackground(new java.awt.Color(51, 51, 51));
+        ComboBox_idSale.setForeground(new java.awt.Color(255, 255, 255));
         ComboBox_idSale.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(ComboBox_idSale, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 100, 30));
 
         PRODUCT.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        PRODUCT.setForeground(new java.awt.Color(255, 255, 255));
         PRODUCT.setText("Product");
+        getContentPane().add(PRODUCT, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 70, 30));
 
+        ComboBox_product.setBackground(new java.awt.Color(51, 51, 51));
+        ComboBox_product.setForeground(new java.awt.Color(255, 255, 255));
         ComboBox_product.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(ComboBox_product, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 100, 30));
 
         TRADEMARK.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        TRADEMARK.setForeground(new java.awt.Color(255, 255, 255));
         TRADEMARK.setText("Trademark");
+        getContentPane().add(TRADEMARK, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 70, 30));
 
+        ComboBox_trademark.setBackground(new java.awt.Color(51, 51, 51));
+        ComboBox_trademark.setForeground(new java.awt.Color(255, 255, 255));
         ComboBox_trademark.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(ComboBox_trademark, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 100, 30));
 
         SIZE.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        SIZE.setForeground(new java.awt.Color(255, 255, 255));
         SIZE.setText("Size");
+        getContentPane().add(SIZE, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 70, 30));
 
+        ComboBox_size.setBackground(new java.awt.Color(51, 51, 51));
+        ComboBox_size.setForeground(new java.awt.Color(255, 255, 255));
         ComboBox_size.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboBox_size.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBox_sizeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ComboBox_size, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, 100, 30));
 
         PRICE.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        PRICE.setForeground(new java.awt.Color(255, 255, 255));
         PRICE.setText("Price");
+        getContentPane().add(PRICE, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 70, 30));
+
+        txt_price.setBackground(new java.awt.Color(51, 51, 51));
+        txt_price.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txt_price, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 100, 30));
 
         CANTITY.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        CANTITY.setForeground(new java.awt.Color(255, 255, 255));
         CANTITY.setText("Cantity");
+        getContentPane().add(CANTITY, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 70, 30));
 
+        txt_cantity.setBackground(new java.awt.Color(51, 51, 51));
+        txt_cantity.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txt_cantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, 100, 30));
+
+        SAVE.setBackground(new java.awt.Color(25, 25, 25));
         SAVE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar-A.png"))); // NOI18N
         SAVE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SAVE.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar-B.png"))); // NOI18N
         SAVE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar.png"))); // NOI18N
+        getContentPane().add(SAVE, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 480, 50, 50));
 
+        CANCEL.setBackground(new java.awt.Color(25, 25, 25));
         CANCEL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_no-A.png"))); // NOI18N
         CANCEL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CANCEL.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_no-B.png"))); // NOI18N
         CANCEL.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_no.png"))); // NOI18N
+        getContentPane().add(CANCEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 480, 50, 50));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Background)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(SAVE, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(CANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(187, 187, 187))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Title)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(TRADEMARK, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ComboBox_trademark, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(PRODUCT, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(27, 27, 27)
-                                    .addComponent(ComboBox_product, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(ID_SALE, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(27, 27, 27)
-                                    .addComponent(ComboBox_idSale, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(43, 43, 43)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(SIZE, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PRICE, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CANTITY, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_price, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ComboBox_size, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_cantity, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(34, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Background)
-                .addGap(33, 33, 33)
-                .addComponent(Title)
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ID_SALE, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ComboBox_idSale, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SIZE, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ComboBox_size, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(PRODUCT, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ComboBox_product, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TRADEMARK, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ComboBox_trademark, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PRICE, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_price, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CANTITY, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_cantity, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SAVE, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CANCEL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 22, Short.MAX_VALUE))
-        );
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_windows2.jpg"))); // NOI18N
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ComboBox_sizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBox_sizeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboBox_sizeActionPerformed
 
     /**
      * @param args the command line arguments

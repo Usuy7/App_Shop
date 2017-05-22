@@ -47,113 +47,74 @@ public class New_Provider extends javax.swing.JFrame {
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Title.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        Title.setForeground(new java.awt.Color(255, 255, 255));
         Title.setText("NEW PROVIDER");
+        getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 39, -1, -1));
 
         NAME.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        NAME.setForeground(new java.awt.Color(255, 255, 255));
         NAME.setText("Name");
+        getContentPane().add(NAME, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 70, 30));
+
+        txt_name.setBackground(new java.awt.Color(51, 51, 51));
+        txt_name.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txt_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 100, 30));
 
         CONTRACT.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        CONTRACT.setForeground(new java.awt.Color(255, 255, 255));
         CONTRACT.setText("Contact");
+        getContentPane().add(CONTRACT, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 70, 30));
+
+        txt_contract.setBackground(new java.awt.Color(51, 51, 51));
+        txt_contract.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txt_contract, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 100, 30));
 
         CCHARGE.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        CCHARGE.setForeground(new java.awt.Color(255, 255, 255));
         CCHARGE.setText("CCharge");
+        getContentPane().add(CCHARGE, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 70, 30));
+
+        txt_cCharge.setBackground(new java.awt.Color(51, 51, 51));
+        txt_cCharge.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txt_cCharge, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 100, 30));
 
         COUNTRY.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        COUNTRY.setForeground(new java.awt.Color(255, 255, 255));
         COUNTRY.setText("Country");
+        getContentPane().add(COUNTRY, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 70, 30));
+
+        txt_country.setBackground(new java.awt.Color(51, 51, 51));
+        txt_country.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txt_country, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, 100, 30));
 
         PHONE.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        PHONE.setForeground(new java.awt.Color(255, 255, 255));
         PHONE.setText("Phone");
+        getContentPane().add(PHONE, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 70, 30));
 
+        txt_phone.setBackground(new java.awt.Color(51, 51, 51));
+        txt_phone.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txt_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 100, 30));
+
+        SAVE.setBackground(new java.awt.Color(25, 25, 25));
         SAVE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar-A.png"))); // NOI18N
         SAVE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SAVE.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar-B.png"))); // NOI18N
         SAVE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar.png"))); // NOI18N
+        getContentPane().add(SAVE, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 480, 50, 50));
 
+        CANCEL.setBackground(new java.awt.Color(25, 25, 25));
         CANCEL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_no-A.png"))); // NOI18N
         CANCEL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CANCEL.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_no-B.png"))); // NOI18N
         CANCEL.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_no.png"))); // NOI18N
+        getContentPane().add(CANCEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 480, 50, 50));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Background)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Title)
-                .addGap(135, 135, 135))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(NAME, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CONTRACT, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PHONE, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_contract, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CCHARGE, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(COUNTRY, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_country, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_cCharge, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txt_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(83, 83, 83)
-                        .addComponent(SAVE, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(CANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)))
-                .addContainerGap(34, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(SAVE, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Background)
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Title)
-                                .addGap(40, 40, 40)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(CCHARGE, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_cCharge, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(COUNTRY, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_country, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(NAME, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(CONTRACT, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_contract, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(PHONE, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addComponent(CANCEL, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 22, Short.MAX_VALUE))
-        );
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_windows2.jpg"))); // NOI18N
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
