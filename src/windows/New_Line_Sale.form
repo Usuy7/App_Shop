@@ -96,7 +96,7 @@
                           <Component id="PRODUCT" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="ComboBox_product" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="TRADEMARK" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="ComboBox_trademark" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
@@ -107,7 +107,7 @@
                           <Component id="PRICE" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="txt_price" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="CANTITY" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="txt_cantity" min="-2" pref="30" max="-2" attributes="0"/>

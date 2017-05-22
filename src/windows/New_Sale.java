@@ -31,7 +31,6 @@ public class New_Sale extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Background = new javax.swing.JLabel();
         Title = new javax.swing.JLabel();
         WORKER = new javax.swing.JLabel();
         ComboBox_worker = new javax.swing.JComboBox<>();
@@ -43,6 +42,7 @@ public class New_Sale extends javax.swing.JFrame {
         txt_date = new javax.swing.JTextField();
         SAVE = new javax.swing.JButton();
         CANCEL = new javax.swing.JButton();
+        Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
