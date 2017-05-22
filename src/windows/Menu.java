@@ -5,6 +5,9 @@
  */
 package windows;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -93,6 +96,11 @@ public class Menu extends javax.swing.JFrame {
         PRODUCTS.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_productos.png"))); // NOI18N
         PRODUCTS.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         PRODUCTS.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        PRODUCTS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PRODUCTSActionPerformed(evt);
+            }
+        });
         getContentPane().add(PRODUCTS, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 120, 150));
 
         SALES.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -107,6 +115,11 @@ public class Menu extends javax.swing.JFrame {
         SALES.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_ventas.png"))); // NOI18N
         SALES.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         SALES.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        SALES.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SALESActionPerformed(evt);
+            }
+        });
         getContentPane().add(SALES, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 120, 150));
 
         LINES_SALE.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -121,6 +134,11 @@ public class Menu extends javax.swing.JFrame {
         LINES_SALE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_lineas venta.png"))); // NOI18N
         LINES_SALE.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         LINES_SALE.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        LINES_SALE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LINES_SALEActionPerformed(evt);
+            }
+        });
         getContentPane().add(LINES_SALE, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 140, 150));
 
         CUSTOMERS.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -135,6 +153,11 @@ public class Menu extends javax.swing.JFrame {
         CUSTOMERS.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_personal.png"))); // NOI18N
         CUSTOMERS.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         CUSTOMERS.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        CUSTOMERS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CUSTOMERSActionPerformed(evt);
+            }
+        });
         getContentPane().add(CUSTOMERS, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 90, 130, 140));
 
         WAREHOUSE.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -149,6 +172,11 @@ public class Menu extends javax.swing.JFrame {
         WAREHOUSE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_almacen.png"))); // NOI18N
         WAREHOUSE.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         WAREHOUSE.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        WAREHOUSE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                WAREHOUSEActionPerformed(evt);
+            }
+        });
         getContentPane().add(WAREHOUSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 120, 150));
 
         PROVIDER.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -163,6 +191,11 @@ public class Menu extends javax.swing.JFrame {
         PROVIDER.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_proveedor.png"))); // NOI18N
         PROVIDER.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         PROVIDER.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        PROVIDER.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PROVIDERActionPerformed(evt);
+            }
+        });
         getContentPane().add(PROVIDER, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 120, 150));
 
         ORDERS.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -177,6 +210,11 @@ public class Menu extends javax.swing.JFrame {
         ORDERS.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_pedidos.png"))); // NOI18N
         ORDERS.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         ORDERS.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        ORDERS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ORDERSActionPerformed(evt);
+            }
+        });
         getContentPane().add(ORDERS, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 120, 150));
 
         PERSONAL.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -191,6 +229,11 @@ public class Menu extends javax.swing.JFrame {
         PERSONAL.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_cliente.png"))); // NOI18N
         PERSONAL.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         PERSONAL.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        PERSONAL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PERSONALActionPerformed(evt);
+            }
+        });
         getContentPane().add(PERSONAL, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 280, 120, 150));
 
         Background.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -221,6 +264,54 @@ public class Menu extends javax.swing.JFrame {
             System.exit(0);
         }else{}
     }//GEN-LAST:event_LOG_OUTActionPerformed
+
+    private void PRODUCTSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PRODUCTSActionPerformed
+        // PRODUCTS
+        Products products = new Products();
+        products.setVisible(true);        
+    }//GEN-LAST:event_PRODUCTSActionPerformed
+
+    private void SALESActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SALESActionPerformed
+        // SALES
+        Sales sales = new Sales();
+        sales.setVisible(true);
+    }//GEN-LAST:event_SALESActionPerformed
+
+    private void LINES_SALEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LINES_SALEActionPerformed
+        // LINES OF SALE
+        Lines_Sale lSale = new Lines_Sale();
+        lSale.setVisible(true);
+    }//GEN-LAST:event_LINES_SALEActionPerformed
+
+    private void CUSTOMERSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CUSTOMERSActionPerformed
+        // CUSTOMERS
+        Customers customers = new Customers();
+        customers.setVisible(true);
+    }//GEN-LAST:event_CUSTOMERSActionPerformed
+
+    private void WAREHOUSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WAREHOUSEActionPerformed
+        // WAREHOUSE
+        Warehouse warehouse = new Warehouse();
+        warehouse.setVisible(true);
+    }//GEN-LAST:event_WAREHOUSEActionPerformed
+
+    private void PROVIDERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PROVIDERActionPerformed
+        // PROVIDER
+        Providers provider = new Providers();
+        provider.setVisible(true);
+    }//GEN-LAST:event_PROVIDERActionPerformed
+
+    private void ORDERSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORDERSActionPerformed
+        // ORDERS
+        Orders order = new Orders();
+        order.setVisible(true);
+    }//GEN-LAST:event_ORDERSActionPerformed
+
+    private void PERSONALActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PERSONALActionPerformed
+        // PERSONAL
+        
+        
+    }//GEN-LAST:event_PERSONALActionPerformed
 
     /**
      * @param args the command line arguments
