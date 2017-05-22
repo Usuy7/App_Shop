@@ -6,6 +6,7 @@
 package windows;
 
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumnModel;
@@ -23,7 +24,6 @@ public class Lines_Sale extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
-        SAVE.setVisible(false);
         
         // ALIGN DATA TABLE LEFT
         TableColumnModel columnModel = jTable1.getColumnModel();
@@ -53,7 +53,6 @@ public class Lines_Sale extends javax.swing.JFrame {
         NEW = new javax.swing.JButton();
         EDIT = new javax.swing.JButton();
         DELETE = new javax.swing.JButton();
-        SAVE = new javax.swing.JButton();
         Table = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         Background = new javax.swing.JLabel();
@@ -89,28 +88,26 @@ public class Lines_Sale extends javax.swing.JFrame {
                 NEWActionPerformed(evt);
             }
         });
-        getContentPane().add(NEW, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 60, 60));
+        getContentPane().add(NEW, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 60, 60));
 
         EDIT.setBackground(new java.awt.Color(25, 25, 25));
         EDIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_edit-A.png"))); // NOI18N
         EDIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         EDIT.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_edit-B.png"))); // NOI18N
         EDIT.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_edit.png"))); // NOI18N
-        getContentPane().add(EDIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, 60, 60));
+        getContentPane().add(EDIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 80, 60, 60));
 
         DELETE.setBackground(new java.awt.Color(25, 25, 25));
         DELETE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_borrar-A.png"))); // NOI18N
         DELETE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         DELETE.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_borrar-B.png"))); // NOI18N
         DELETE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_borrar.png"))); // NOI18N
-        getContentPane().add(DELETE, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 60, 60));
-
-        SAVE.setBackground(new java.awt.Color(25, 25, 25));
-        SAVE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar-A.png"))); // NOI18N
-        SAVE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        SAVE.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar-B.png"))); // NOI18N
-        SAVE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar.png"))); // NOI18N
-        getContentPane().add(SAVE, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 80, 60, 60));
+        DELETE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DELETEActionPerformed(evt);
+            }
+        });
+        getContentPane().add(DELETE, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 80, 60, 60));
 
         jTable1.setBackground(new java.awt.Color(51, 51, 51));
         jTable1.setForeground(new java.awt.Color(219, 219, 219));
@@ -167,6 +164,14 @@ public class Lines_Sale extends javax.swing.JFrame {
         nuevo.setVisible(true);
     }//GEN-LAST:event_NEWActionPerformed
 
+    private void DELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEActionPerformed
+        // DELETE LINE OF SALE
+        int answer = JOptionPane.showConfirmDialog(null, "You are deleting the data, do you want to continue?", "WARNING" ,JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+        if (JOptionPane.OK_OPTION == answer){
+           
+        }else{}
+    }//GEN-LAST:event_DELETEActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -207,7 +212,6 @@ public class Lines_Sale extends javax.swing.JFrame {
     private javax.swing.JButton DELETE;
     private javax.swing.JButton EDIT;
     private javax.swing.JButton NEW;
-    private javax.swing.JButton SAVE;
     private javax.swing.JButton SEARCH;
     private javax.swing.JScrollPane Table;
     private javax.swing.JLabel Title;
