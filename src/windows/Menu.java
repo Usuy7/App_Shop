@@ -245,7 +245,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void EXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EXITActionPerformed
-         // BOTON SALIR 
+        // BOTON SALIR 
         
         // JOptionPane.showMessageDialog(null,"Los datos del nuevo producto se han guardado correctamente", "INFORMACIÓN", JOptionPane.INFORMATION_MESSAGE); MENSAJE DE AVISO
         
@@ -256,7 +256,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_EXITActionPerformed
 
     private void LOG_OUTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOG_OUTActionPerformed
-           int answer = JOptionPane.showConfirmDialog(null, "You are closing session, do you want to continue?", "SIGNAL" ,JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        // LOG OUT
+        
+        int answer = JOptionPane.showConfirmDialog(null, "You are closing session, do you want to continue?", "SIGNAL" ,JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (JOptionPane.OK_OPTION == answer){
             System.exit(0);
         }else{}

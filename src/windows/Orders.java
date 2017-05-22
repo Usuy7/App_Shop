@@ -45,6 +45,7 @@ public class Orders extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton2 = new javax.swing.JButton();
+        MENU = new javax.swing.JButton();
         Title = new javax.swing.JLabel();
         SEARCH = new javax.swing.JButton();
         txt_search = new javax.swing.JTextField();
@@ -60,6 +61,19 @@ public class Orders extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        MENU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_atras-A.png"))); // NOI18N
+        MENU.setBorder(null);
+        MENU.setBorderPainted(false);
+        MENU.setContentAreaFilled(false);
+        MENU.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_atras-B.png"))); // NOI18N
+        MENU.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_atras.png"))); // NOI18N
+        MENU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MENUActionPerformed(evt);
+            }
+        });
+        getContentPane().add(MENU, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 40));
 
         Title.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         Title.setForeground(new java.awt.Color(52, 73, 94));
@@ -174,6 +188,11 @@ public class Orders extends javax.swing.JFrame {
         nuevo.setVisible(true);
     }//GEN-LAST:event_NEWActionPerformed
 
+    private void MENUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MENUActionPerformed
+        // COME BACK TO MENU
+        this.setVisible(false);
+    }//GEN-LAST:event_MENUActionPerformed
+
      /**
      * @param args the command line arguments
      */
@@ -213,6 +232,7 @@ public class Orders extends javax.swing.JFrame {
     private javax.swing.JLabel Background;
     private javax.swing.JButton DELETE;
     private javax.swing.JButton EDIT;
+    private javax.swing.JButton MENU;
     private javax.swing.JButton NEW;
     private javax.swing.JButton SEARCH;
     private javax.swing.JScrollPane Table;
