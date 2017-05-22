@@ -69,9 +69,10 @@ public class Customers extends javax.swing.JFrame {
 
         txt_search.setBackground(new java.awt.Color(51, 51, 51));
         txt_search.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txt_search.setForeground(new java.awt.Color(219, 219, 219));
+        txt_search.setForeground(new java.awt.Color(255, 255, 255));
         txt_search.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_search.setBorder(null);
+        txt_search.setCaretColor(new java.awt.Color(255, 255, 255));
         getContentPane().add(txt_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 160, 40));
 
         NEW.setBackground(new java.awt.Color(25, 25, 25));
