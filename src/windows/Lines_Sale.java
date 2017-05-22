@@ -87,6 +87,7 @@ public class Lines_Sale extends javax.swing.JFrame {
         SEARCH.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search.png"))); // NOI18N
         getContentPane().add(SEARCH, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 50, 50));
 
+        txt_search.setBackground(new java.awt.Color(51, 51, 51));
         txt_search.setForeground(new java.awt.Color(219, 219, 219));
         txt_search.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_search.setBorder(null);
