@@ -64,7 +64,7 @@ public class Personal extends javax.swing.JFrame {
         Title.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         Title.setForeground(new java.awt.Color(52, 73, 94));
         Title.setText("PERSONAL");
-        getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, 30));
+        getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, 30));
 
         SEARCH.setBackground(new java.awt.Color(25, 25, 25));
         SEARCH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search-A.png"))); // NOI18N
@@ -95,14 +95,14 @@ public class Personal extends javax.swing.JFrame {
                 NEWActionPerformed(evt);
             }
         });
-        getContentPane().add(NEW, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 80, 60, 60));
+        getContentPane().add(NEW, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 60, 60));
 
         EDIT.setBackground(new java.awt.Color(25, 25, 25));
         EDIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_edit-A.png"))); // NOI18N
         EDIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         EDIT.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_edit-B.png"))); // NOI18N
         EDIT.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_edit.png"))); // NOI18N
-        getContentPane().add(EDIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 60, 60));
+        getContentPane().add(EDIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 80, 60, 60));
 
         DELETE.setBackground(new java.awt.Color(25, 25, 25));
         DELETE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_borrar-A.png"))); // NOI18N
@@ -114,7 +114,7 @@ public class Personal extends javax.swing.JFrame {
                 DELETEActionPerformed(evt);
             }
         });
-        getContentPane().add(DELETE, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 80, 60, 60));
+        getContentPane().add(DELETE, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 80, 60, 60));
 
         jTable1.setBackground(new java.awt.Color(51, 51, 51));
         jTable1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -158,10 +158,10 @@ public class Personal extends javax.swing.JFrame {
         jTable1.setRowMargin(2);
         Table.setViewportView(jTable1);
 
-        getContentPane().add(Table, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 830, 430));
+        getContentPane().add(Table, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 850, 430));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_windows.jpg"))); // NOI18N
-        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -172,7 +172,7 @@ public class Personal extends javax.swing.JFrame {
 
     private void NEWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NEWActionPerformed
         // NEW PERSONAL
-        New_Personal nuevo = new New_Personal();
+        New_Worker nuevo = new New_Worker();
         nuevo.setVisible(true);
     }//GEN-LAST:event_NEWActionPerformed
 
