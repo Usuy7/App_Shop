@@ -100,6 +100,7 @@ public class New_Warehouse extends javax.swing.JFrame {
 
         TextArea_description.setBackground(new java.awt.Color(51, 51, 51));
         TextArea_description.setColumns(20);
+        TextArea_description.setForeground(new java.awt.Color(255, 255, 255));
         TextArea_description.setRows(5);
         jScrollPane1.setViewportView(TextArea_description);
 
