@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class New_Warehouse extends javax.swing.JFrame {
 
     /**
-     * Creates new form New_Warehouse 
+     * Creates new form New_Warehouse
      */
     public New_Warehouse() {
         initComponents();
