@@ -32,7 +32,6 @@ public class Orders extends javax.swing.JFrame {
         jTable1.getColumnModel().getColumn(0).setCellRenderer(t);
         jTable1.getColumnModel().getColumn(1).setCellRenderer(t);
         jTable1.getColumnModel().getColumn(2).setCellRenderer(t);
-        jTable1.getColumnModel().getColumn(3).setCellRenderer(t);
     }
 
     /**
@@ -155,7 +154,7 @@ public class Orders extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
