@@ -77,7 +77,7 @@ public class Lines_Sale extends javax.swing.JFrame {
 
         Title.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         Title.setForeground(new java.awt.Color(52, 73, 94));
-        Title.setText("LINES OF SALE");
+        Title.setText("LINES OF SALES");
         getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, -1, -1));
 
         SEARCH.setBackground(new java.awt.Color(25, 25, 25));
