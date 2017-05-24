@@ -216,8 +216,8 @@
               <Table columnCount="5" rowCount="20">
                 <Column editable="true" title="ID" type="java.lang.Integer"/>
                 <Column editable="true" title="Worker" type="java.lang.Integer"/>
-                <Column editable="true" title="Buyer" type="java.lang.Integer"/>
                 <Column editable="true" title="Payment" type="java.lang.Integer"/>
+                <Column editable="true" title="Customer" type="java.lang.Integer"/>
                 <Column editable="true" title="Date" type="java.lang.String"/>
               </Table>
             </Property>

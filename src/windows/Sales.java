@@ -148,7 +148,7 @@ public class Sales extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "ID", "Worker", "Buyer", "Payment", "Date"
+                "ID", "Worker", "Payment", "Customer", "Date"
             }
         ) {
             Class[] types = new Class [] {
