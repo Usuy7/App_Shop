@@ -15,12 +15,12 @@ import javax.swing.table.TableColumnModel;
  *
  * @author Javier
  */
-public class Providers extends javax.swing.JFrame {
+public class Workers extends javax.swing.JFrame {
 
     /**
      * Creates new form Provider
      */
-    public Providers() {
+    public Workers() {
         initComponents();
         this.setLocationRelativeTo(null);
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
@@ -71,8 +71,8 @@ public class Providers extends javax.swing.JFrame {
 
         Title.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         Title.setForeground(new java.awt.Color(52, 73, 94));
-        Title.setText("PROVIDER");
-        getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, -1, 38));
+        Title.setText("WORKERS");
+        getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, 38));
 
         SEARCH.setBackground(new java.awt.Color(25, 25, 25));
         SEARCH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search-A.png"))); // NOI18N
@@ -224,21 +224,23 @@ public class Providers extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Providers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Workers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Providers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Workers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Providers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Workers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Providers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Workers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Providers().setVisible(true);
+                new Workers().setVisible(true);
             }
         });
     }

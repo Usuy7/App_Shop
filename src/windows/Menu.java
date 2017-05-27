@@ -41,7 +41,7 @@ public class Menu extends javax.swing.JFrame {
         WAREHOUSE = new javax.swing.JButton();
         PROVIDER = new javax.swing.JButton();
         ORDERS = new javax.swing.JButton();
-        PERSONAL = new javax.swing.JButton();
+        WORKERS = new javax.swing.JButton();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -214,24 +214,24 @@ public class Menu extends javax.swing.JFrame {
         });
         getContentPane().add(ORDERS, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 120, 150));
 
-        PERSONAL.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        PERSONAL.setForeground(new java.awt.Color(52, 73, 94));
-        PERSONAL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_cliente-A.png"))); // NOI18N
-        PERSONAL.setText("PERSONAL");
-        PERSONAL.setBorder(null);
-        PERSONAL.setContentAreaFilled(false);
-        PERSONAL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        PERSONAL.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        PERSONAL.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_cliente-B.png"))); // NOI18N
-        PERSONAL.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_cliente.png"))); // NOI18N
-        PERSONAL.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        PERSONAL.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        PERSONAL.addActionListener(new java.awt.event.ActionListener() {
+        WORKERS.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        WORKERS.setForeground(new java.awt.Color(52, 73, 94));
+        WORKERS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_cliente-A.png"))); // NOI18N
+        WORKERS.setText("WORKERS");
+        WORKERS.setBorder(null);
+        WORKERS.setContentAreaFilled(false);
+        WORKERS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        WORKERS.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        WORKERS.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_cliente-B.png"))); // NOI18N
+        WORKERS.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_cliente.png"))); // NOI18N
+        WORKERS.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        WORKERS.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        WORKERS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PERSONALActionPerformed(evt);
+                WORKERSActionPerformed(evt);
             }
         });
-        getContentPane().add(PERSONAL, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 280, 120, 150));
+        getContentPane().add(WORKERS, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 280, 120, 150));
 
         Background.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         Background.setForeground(new java.awt.Color(52, 73, 94));
@@ -293,7 +293,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void PROVIDERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PROVIDERActionPerformed
         // PROVIDER
-        Providers provider = new Providers();
+        Workers provider = new Workers();
         provider.setVisible(true);
     }//GEN-LAST:event_PROVIDERActionPerformed
 
@@ -303,11 +303,11 @@ public class Menu extends javax.swing.JFrame {
         order.setVisible(true);
     }//GEN-LAST:event_ORDERSActionPerformed
 
-    private void PERSONALActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PERSONALActionPerformed
+    private void WORKERSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WORKERSActionPerformed
         // PERSONAL
         
         
-    }//GEN-LAST:event_PERSONALActionPerformed
+    }//GEN-LAST:event_WORKERSActionPerformed
 
     /**
      * @param args the command line arguments
@@ -351,10 +351,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton LINES_SALE;
     private javax.swing.JButton LOG_OUT;
     private javax.swing.JButton ORDERS;
-    private javax.swing.JButton PERSONAL;
     private javax.swing.JButton PRODUCTS;
     private javax.swing.JButton PROVIDER;
     private javax.swing.JButton SALES;
     private javax.swing.JButton WAREHOUSE;
+    private javax.swing.JButton WORKERS;
     // End of variables declaration//GEN-END:variables
 }

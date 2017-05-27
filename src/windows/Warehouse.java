@@ -165,10 +165,6 @@ public class Warehouse extends javax.swing.JFrame {
         jTable1.setRowHeight(20);
         jTable1.setRowMargin(2);
         Table.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(7).setResizable(false);
-            jTable1.getColumnModel().getColumn(8).setResizable(false);
-        }
 
         getContentPane().add(Table, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 820, 430));
 
