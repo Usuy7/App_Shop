@@ -275,7 +275,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void LINES_SALEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LINES_SALEActionPerformed
         // LINES OF SALE
-        Lines_Sale lSale = new Lines_Sale();
+        Sales_Lines lSale = new Sales_Lines();
         lSale.setVisible(true);
     }//GEN-LAST:event_LINES_SALEActionPerformed
 

@@ -12,12 +12,12 @@ import javax.swing.JOptionPane;
  *
  * @author Javier
  */
-public class New_Line_Sale extends javax.swing.JFrame {
+public class New_Sales_Lines extends javax.swing.JFrame {
 
     /**
      * Creates new form New_Lines_Sale
      */
-    public New_Line_Sale() {
+    public New_Sales_Lines() {
         initComponents();
         this.setLocationRelativeTo(null);
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
@@ -37,8 +37,6 @@ public class New_Line_Sale extends javax.swing.JFrame {
         ComboBox_idSale = new javax.swing.JComboBox<>();
         PRODUCT = new javax.swing.JLabel();
         ComboBox_product = new javax.swing.JComboBox<>();
-        TRADEMARK = new javax.swing.JLabel();
-        ComboBox_trademark = new javax.swing.JComboBox<>();
         SIZE = new javax.swing.JLabel();
         ComboBox_size = new javax.swing.JComboBox<>();
         PRICE = new javax.swing.JLabel();
@@ -77,20 +75,10 @@ public class New_Line_Sale extends javax.swing.JFrame {
         ComboBox_product.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(ComboBox_product, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 100, 30));
 
-        TRADEMARK.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        TRADEMARK.setForeground(new java.awt.Color(255, 255, 255));
-        TRADEMARK.setText("Trademark");
-        getContentPane().add(TRADEMARK, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 70, 30));
-
-        ComboBox_trademark.setBackground(new java.awt.Color(51, 51, 51));
-        ComboBox_trademark.setForeground(new java.awt.Color(255, 255, 255));
-        ComboBox_trademark.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(ComboBox_trademark, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 100, 30));
-
         SIZE.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         SIZE.setForeground(new java.awt.Color(255, 255, 255));
         SIZE.setText("Size");
-        getContentPane().add(SIZE, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 70, 30));
+        getContentPane().add(SIZE, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 70, 30));
 
         ComboBox_size.setBackground(new java.awt.Color(51, 51, 51));
         ComboBox_size.setForeground(new java.awt.Color(255, 255, 255));
@@ -100,25 +88,25 @@ public class New_Line_Sale extends javax.swing.JFrame {
                 ComboBox_sizeActionPerformed(evt);
             }
         });
-        getContentPane().add(ComboBox_size, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, 100, 30));
+        getContentPane().add(ComboBox_size, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 100, 30));
 
         PRICE.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         PRICE.setForeground(new java.awt.Color(255, 255, 255));
         PRICE.setText("Price");
-        getContentPane().add(PRICE, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 70, 30));
+        getContentPane().add(PRICE, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 70, 30));
 
         txt_price.setBackground(new java.awt.Color(51, 51, 51));
         txt_price.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txt_price, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 100, 30));
+        getContentPane().add(txt_price, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, 100, 30));
 
         CANTITY.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         CANTITY.setForeground(new java.awt.Color(255, 255, 255));
         CANTITY.setText("Cantity");
-        getContentPane().add(CANTITY, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 70, 30));
+        getContentPane().add(CANTITY, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 70, 30));
 
         txt_cantity.setBackground(new java.awt.Color(51, 51, 51));
         txt_cantity.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txt_cantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, 100, 30));
+        getContentPane().add(txt_cantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 100, 30));
 
         SAVE.setBackground(new java.awt.Color(25, 25, 25));
         SAVE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar-A.png"))); // NOI18N
@@ -181,21 +169,23 @@ public class New_Line_Sale extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(New_Line_Sale.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(New_Sales_Lines.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(New_Line_Sale.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(New_Sales_Lines.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(New_Line_Sale.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(New_Sales_Lines.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(New_Line_Sale.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(New_Sales_Lines.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new New_Line_Sale().setVisible(true);
+                new New_Sales_Lines().setVisible(true);
             }
         });
     }
@@ -207,13 +197,11 @@ public class New_Line_Sale extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> ComboBox_idSale;
     private javax.swing.JComboBox<String> ComboBox_product;
     private javax.swing.JComboBox<String> ComboBox_size;
-    private javax.swing.JComboBox<String> ComboBox_trademark;
     private javax.swing.JLabel ID_SALE;
     private javax.swing.JLabel PRICE;
     private javax.swing.JLabel PRODUCT;
     private javax.swing.JButton SAVE;
     private javax.swing.JLabel SIZE;
-    private javax.swing.JLabel TRADEMARK;
     private javax.swing.JLabel Title;
     private javax.swing.JTextField txt_cantity;
     private javax.swing.JTextField txt_price;

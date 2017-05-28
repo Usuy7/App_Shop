@@ -39,17 +39,10 @@ public class New_Warehouse extends javax.swing.JFrame {
         ComboBox_trademark = new javax.swing.JComboBox<>();
         SIZE = new javax.swing.JLabel();
         ComboBox_size = new javax.swing.JComboBox<>();
-        DESCRIPTION = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TextArea_description = new javax.swing.JTextArea();
         COLOR = new javax.swing.JLabel();
         ComboBox_color = new javax.swing.JComboBox<>();
-        MATERIAL = new javax.swing.JLabel();
-        ComboBox_material = new javax.swing.JComboBox<>();
         CATEGORY = new javax.swing.JLabel();
         ComboBox_category = new javax.swing.JComboBox<>();
-        PROVIDER = new javax.swing.JLabel();
-        ComboBox_provider = new javax.swing.JComboBox<>();
         SAVE = new javax.swing.JButton();
         CANCEL = new javax.swing.JButton();
         Background = new javax.swing.JLabel();
@@ -91,21 +84,6 @@ public class New_Warehouse extends javax.swing.JFrame {
         ComboBox_size.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(ComboBox_size, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 100, 30));
 
-        DESCRIPTION.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        DESCRIPTION.setForeground(new java.awt.Color(255, 255, 255));
-        DESCRIPTION.setText("Description");
-        getContentPane().add(DESCRIPTION, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, 30));
-
-        jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
-
-        TextArea_description.setBackground(new java.awt.Color(51, 51, 51));
-        TextArea_description.setColumns(20);
-        TextArea_description.setForeground(new java.awt.Color(255, 255, 255));
-        TextArea_description.setRows(5);
-        jScrollPane1.setViewportView(TextArea_description);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 373, -1, 110));
-
         COLOR.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         COLOR.setForeground(new java.awt.Color(255, 255, 255));
         COLOR.setText("Color");
@@ -114,37 +92,17 @@ public class New_Warehouse extends javax.swing.JFrame {
         ComboBox_color.setBackground(new java.awt.Color(51, 51, 51));
         ComboBox_color.setForeground(new java.awt.Color(255, 255, 255));
         ComboBox_color.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(ComboBox_color, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, 100, 30));
-
-        MATERIAL.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        MATERIAL.setForeground(new java.awt.Color(255, 255, 255));
-        MATERIAL.setText("Material");
-        getContentPane().add(MATERIAL, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 70, 30));
-
-        ComboBox_material.setBackground(new java.awt.Color(51, 51, 51));
-        ComboBox_material.setForeground(new java.awt.Color(255, 255, 255));
-        ComboBox_material.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(ComboBox_material, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, 100, 30));
+        getContentPane().add(ComboBox_color, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, 100, 30));
 
         CATEGORY.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         CATEGORY.setForeground(new java.awt.Color(255, 255, 255));
         CATEGORY.setText("Category");
-        getContentPane().add(CATEGORY, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 70, 30));
+        getContentPane().add(CATEGORY, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 70, 30));
 
         ComboBox_category.setBackground(new java.awt.Color(51, 51, 51));
         ComboBox_category.setForeground(new java.awt.Color(255, 255, 255));
         ComboBox_category.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(ComboBox_category, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 280, 100, 30));
-
-        PROVIDER.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        PROVIDER.setForeground(new java.awt.Color(255, 255, 255));
-        PROVIDER.setText("Provider");
-        getContentPane().add(PROVIDER, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, 70, 30));
-
-        ComboBox_provider.setBackground(new java.awt.Color(51, 51, 51));
-        ComboBox_provider.setForeground(new java.awt.Color(255, 255, 255));
-        ComboBox_provider.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(ComboBox_provider, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, 100, 30));
+        getContentPane().add(ComboBox_category, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 100, 30));
 
         SAVE.setBackground(new java.awt.Color(25, 25, 25));
         SAVE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar-A.png"))); // NOI18N
@@ -156,7 +114,7 @@ public class New_Warehouse extends javax.swing.JFrame {
                 SAVEActionPerformed(evt);
             }
         });
-        getContentPane().add(SAVE, new org.netbeans.lib.awtextra.AbsoluteConstraints(369, 435, 50, 50));
+        getContentPane().add(SAVE, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, 50, 50));
 
         CANCEL.setBackground(new java.awt.Color(25, 25, 25));
         CANCEL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_no-A.png"))); // NOI18N
@@ -168,7 +126,7 @@ public class New_Warehouse extends javax.swing.JFrame {
                 CANCELActionPerformed(evt);
             }
         });
-        getContentPane().add(CANCEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(437, 435, 50, 50));
+        getContentPane().add(CANCEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 480, 50, 50));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_windows2.jpg"))); // NOI18N
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -229,20 +187,13 @@ public class New_Warehouse extends javax.swing.JFrame {
     private javax.swing.JLabel COLOR;
     private javax.swing.JComboBox<String> ComboBox_category;
     private javax.swing.JComboBox<String> ComboBox_color;
-    private javax.swing.JComboBox<String> ComboBox_material;
-    private javax.swing.JComboBox<String> ComboBox_provider;
     private javax.swing.JComboBox<String> ComboBox_size;
     private javax.swing.JComboBox<String> ComboBox_trademark;
-    private javax.swing.JLabel DESCRIPTION;
-    private javax.swing.JLabel MATERIAL;
     private javax.swing.JLabel NAME;
-    private javax.swing.JLabel PROVIDER;
     private javax.swing.JButton SAVE;
     private javax.swing.JLabel SIZE;
     private javax.swing.JLabel TRADEMARK;
-    private javax.swing.JTextArea TextArea_description;
     private javax.swing.JLabel Title;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txt_name;
     // End of variables declaration//GEN-END:variables
 }
