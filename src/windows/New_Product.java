@@ -35,14 +35,18 @@ public class New_Product extends javax.swing.JFrame {
         Title = new javax.swing.JLabel();
         NAME = new javax.swing.JLabel();
         txt_name = new javax.swing.JTextField();
-        PRICE = new javax.swing.JLabel();
-        txt_price = new javax.swing.JTextField();
-        Trademark = new javax.swing.JLabel();
-        ComboBox_trademark = new javax.swing.JComboBox<>();
-        CATEGORY = new javax.swing.JLabel();
-        ComboBox_category = new javax.swing.JComboBox<>();
         PROVIDER = new javax.swing.JLabel();
         ComboBox_provider = new javax.swing.JComboBox<>();
+        CATEGORY = new javax.swing.JLabel();
+        ComboBox_category = new javax.swing.JComboBox<>();
+        Trademark = new javax.swing.JLabel();
+        ComboBox_trademark = new javax.swing.JComboBox<>();
+        PRICE = new javax.swing.JLabel();
+        txt_price = new javax.swing.JTextField();
+        SIZE = new javax.swing.JLabel();
+        ComboBox_size = new javax.swing.JComboBox<>();
+        MATERIAL = new javax.swing.JLabel();
+        ComboBox_material = new javax.swing.JComboBox<>();
         SAVE = new javax.swing.JButton();
         CANCEL = new javax.swing.JButton();
         Background = new javax.swing.JLabel();
@@ -64,24 +68,30 @@ public class New_Product extends javax.swing.JFrame {
         txt_name.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(txt_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 100, 30));
 
-        PRICE.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        PRICE.setForeground(new java.awt.Color(255, 255, 255));
-        PRICE.setText("Price");
-        getContentPane().add(PRICE, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 70, 30));
+        PROVIDER.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        PROVIDER.setForeground(new java.awt.Color(255, 255, 255));
+        PROVIDER.setText("Provider");
+        getContentPane().add(PROVIDER, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 70, 30));
 
-        txt_price.setBackground(new java.awt.Color(51, 51, 51));
-        txt_price.setForeground(new java.awt.Color(255, 255, 255));
-        txt_price.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_priceActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txt_price, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 100, 30));
+        ComboBox_provider.setBackground(new java.awt.Color(51, 51, 51));
+        ComboBox_provider.setForeground(new java.awt.Color(255, 255, 255));
+        ComboBox_provider.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(ComboBox_provider, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 100, 30));
+
+        CATEGORY.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        CATEGORY.setForeground(new java.awt.Color(255, 255, 255));
+        CATEGORY.setText("Category");
+        getContentPane().add(CATEGORY, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 70, 30));
+
+        ComboBox_category.setBackground(new java.awt.Color(51, 51, 51));
+        ComboBox_category.setForeground(new java.awt.Color(255, 255, 255));
+        ComboBox_category.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(ComboBox_category, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 100, 30));
 
         Trademark.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         Trademark.setForeground(new java.awt.Color(255, 255, 255));
         Trademark.setText("Trademark");
-        getContentPane().add(Trademark, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 70, 30));
+        getContentPane().add(Trademark, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 70, 30));
 
         ComboBox_trademark.setBackground(new java.awt.Color(51, 51, 51));
         ComboBox_trademark.setForeground(new java.awt.Color(255, 255, 255));
@@ -91,27 +101,41 @@ public class New_Product extends javax.swing.JFrame {
                 ComboBox_trademarkActionPerformed(evt);
             }
         });
-        getContentPane().add(ComboBox_trademark, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 100, 30));
+        getContentPane().add(ComboBox_trademark, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 100, 30));
 
-        CATEGORY.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        CATEGORY.setForeground(new java.awt.Color(255, 255, 255));
-        CATEGORY.setText("Category");
-        getContentPane().add(CATEGORY, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 70, 30));
+        PRICE.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        PRICE.setForeground(new java.awt.Color(255, 255, 255));
+        PRICE.setText("Price");
+        getContentPane().add(PRICE, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 70, 30));
 
-        ComboBox_category.setBackground(new java.awt.Color(51, 51, 51));
-        ComboBox_category.setForeground(new java.awt.Color(255, 255, 255));
-        ComboBox_category.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(ComboBox_category, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 100, 30));
+        txt_price.setBackground(new java.awt.Color(51, 51, 51));
+        txt_price.setForeground(new java.awt.Color(255, 255, 255));
+        txt_price.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_priceActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txt_price, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 100, 30));
 
-        PROVIDER.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        PROVIDER.setForeground(new java.awt.Color(255, 255, 255));
-        PROVIDER.setText("Provider");
-        getContentPane().add(PROVIDER, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 70, 30));
+        SIZE.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        SIZE.setForeground(new java.awt.Color(255, 255, 255));
+        SIZE.setText("Size");
+        getContentPane().add(SIZE, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 70, 30));
 
-        ComboBox_provider.setBackground(new java.awt.Color(51, 51, 51));
-        ComboBox_provider.setForeground(new java.awt.Color(255, 255, 255));
-        ComboBox_provider.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(ComboBox_provider, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 100, 30));
+        ComboBox_size.setBackground(new java.awt.Color(51, 51, 51));
+        ComboBox_size.setForeground(new java.awt.Color(255, 255, 255));
+        ComboBox_size.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(ComboBox_size, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 100, 30));
+
+        MATERIAL.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        MATERIAL.setForeground(new java.awt.Color(255, 255, 255));
+        MATERIAL.setText("Material");
+        getContentPane().add(MATERIAL, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 70, 30));
+
+        ComboBox_material.setBackground(new java.awt.Color(51, 51, 51));
+        ComboBox_material.setForeground(new java.awt.Color(255, 255, 255));
+        ComboBox_material.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(ComboBox_material, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, 100, 30));
 
         SAVE.setBackground(new java.awt.Color(25, 25, 25));
         SAVE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar-A.png"))); // NOI18N
@@ -201,12 +225,16 @@ public class New_Product extends javax.swing.JFrame {
     private javax.swing.JButton CANCEL;
     private javax.swing.JLabel CATEGORY;
     private javax.swing.JComboBox<String> ComboBox_category;
+    private javax.swing.JComboBox<String> ComboBox_material;
     private javax.swing.JComboBox<String> ComboBox_provider;
+    private javax.swing.JComboBox<String> ComboBox_size;
     private javax.swing.JComboBox<String> ComboBox_trademark;
+    private javax.swing.JLabel MATERIAL;
     private javax.swing.JLabel NAME;
     private javax.swing.JLabel PRICE;
     private javax.swing.JLabel PROVIDER;
     private javax.swing.JButton SAVE;
+    private javax.swing.JLabel SIZE;
     private javax.swing.JLabel Title;
     private javax.swing.JLabel Trademark;
     private javax.swing.JTextField txt_name;

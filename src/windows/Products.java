@@ -37,10 +37,12 @@ public class Products extends javax.swing.JFrame {
         DefaultTableCellRenderer t = new DefaultTableCellRenderer();
         t.setHorizontalAlignment(SwingConstants.LEFT);
         jTable1.getColumnModel().getColumn(0).setCellRenderer(t);
+        jTable1.getColumnModel().getColumn(2).setCellRenderer(t);
         jTable1.getColumnModel().getColumn(3).setCellRenderer(t);
         jTable1.getColumnModel().getColumn(4).setCellRenderer(t);
         jTable1.getColumnModel().getColumn(5).setCellRenderer(t);
-        jTable1.getColumnModel().getColumn(6).setCellRenderer(t);   
+        jTable1.getColumnModel().getColumn(6).setCellRenderer(t);
+        jTable1.getColumnModel().getColumn(7).setCellRenderer(t);
     }
 
     /**
@@ -148,33 +150,33 @@ public class Products extends javax.swing.JFrame {
         jTable1.setForeground(new java.awt.Color(219, 219, 219));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Trademark", "Price", "Category", "Provider"
+                "ID", "Name", "Provider", "Category", "Trademark", "Size", "Material", "Price"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
