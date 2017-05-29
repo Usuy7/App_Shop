@@ -1,5 +1,12 @@
 package windows;
 
+import DAO.ConectDB;
+import com.mysql.jdbc.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -12,10 +19,15 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    public Login() {
+    public Login() throws SQLException {
         initComponents();
         this.setLocationRelativeTo(null);
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
+        
+        // LLAMAR A LA CLASE ConectDB Y ABRIR LA CONEXIÓN
+        ConectDB app_shop = new ConectDB();
+        Connection con = app_shop.AbrirConexion();
+        
     }
     
     @SuppressWarnings("unchecked")
@@ -25,7 +37,7 @@ public class Login extends javax.swing.JFrame {
         LOGIN = new javax.swing.JButton();
         user = new javax.swing.JLabel();
         txt_user = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txt_password = new javax.swing.JPasswordField();
         EXIT = new javax.swing.JButton();
         Background = new javax.swing.JLabel();
 
@@ -39,6 +51,11 @@ public class Login extends javax.swing.JFrame {
         LOGIN.setText("login");
         LOGIN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         LOGIN.setOpaque(false);
+        LOGIN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LOGINActionPerformed(evt);
+            }
+        });
         getContentPane().add(LOGIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, 80, 40));
 
         user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_user.png"))); // NOI18N
@@ -51,12 +68,17 @@ public class Login extends javax.swing.JFrame {
         txt_user.setBorder(null);
         getContentPane().add(txt_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, 120, 30));
 
-        jPasswordField1.setBackground(new java.awt.Color(51, 51, 51));
-        jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(204, 204, 204));
-        jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordField1.setBorder(null);
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 322, 120, 30));
+        txt_password.setBackground(new java.awt.Color(51, 51, 51));
+        txt_password.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_password.setForeground(new java.awt.Color(204, 204, 204));
+        txt_password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_password.setBorder(null);
+        txt_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_passwordActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 322, 120, 30));
 
         EXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_error-A.png"))); // NOI18N
         EXIT.setBorder(null);
@@ -86,6 +108,24 @@ public class Login extends javax.swing.JFrame {
             System.exit(0);
         }else{}
     }//GEN-LAST:event_EXITActionPerformed
+
+    private void LOGINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOGINActionPerformed
+        // BOTON LOGIN
+        
+        String user, password;
+        String capturaDato = null; // CAPTURA EL ID DE LOS USUARIOS
+        
+        user = txt_user.getText(); // OBTENEMOS EL USER
+        password = new String(txt_password.getPassword()); // OBTENEMOS LA PASSWORD
+        
+        String sql = "SELECT * FROM Workers WHERE Login = '"+user+"' AND Password = '"+password+"'";
+        
+       
+    }//GEN-LAST:event_LOGINActionPerformed
+
+    private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_passwordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -117,7 +157,11 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                try {
+                    new Login().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -126,7 +170,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel Background;
     private javax.swing.JButton EXIT;
     private javax.swing.JButton LOGIN;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField txt_password;
     private javax.swing.JTextField txt_user;
     private javax.swing.JLabel user;
     // End of variables declaration//GEN-END:variables
