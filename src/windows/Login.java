@@ -22,12 +22,7 @@ public class Login extends javax.swing.JFrame {
     public Login() throws SQLException {
         initComponents();
         this.setLocationRelativeTo(null);
-        setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
-        
-        // LLAMAR A LA CLASE ConectDB Y ABRIR LA CONEXIÓN
-        ConectDB app_shop = new ConectDB();
-        Connection con = app_shop.AbrirConexion();
-        
+        setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());   
     }
     
     @SuppressWarnings("unchecked")
@@ -112,6 +107,11 @@ public class Login extends javax.swing.JFrame {
     private void LOGINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOGINActionPerformed
         // BOTON LOGIN
         
+        // LLAMAR A LA CLASE ConectDB Y ABRIR LA CONEXIÓN
+        ConectDB app_shop = new ConectDB();
+        Connection con = app_shop.AbrirConexion();
+        
+        
         String user, password;
         String capturaDato = null; // CAPTURA EL ID DE LOS USUARIOS
         
@@ -120,7 +120,25 @@ public class Login extends javax.swing.JFrame {
         
         String sql = "SELECT * FROM Workers WHERE Login = '"+user+"' AND Password = '"+password+"'";
         
-       
+        try { // MEDIDA PARA ERRORES
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql); // EJECUTAMOS LA SENTENCIA SQL Y SE ALMACENAN EN EL rs
+            
+            while (rs.next()){
+                capturaDato = rs.getString("IdWorker"); //CAPTURAMOS EL ID DE LOS USUARIOS
+            }
+            
+            if (capturaDato.equals("")){ // SI ESTA VACIO SIGNIFICA QUE NO ESTÁ REGISTRADO
+                
+                JOptionPane.showMessageDialog(null, "No existe ese usuario", "Error al iniciar sesión", JOptionPane.OK_OPTION);
+            } else { // SI ESTÁ REGISTRADO
+                Menu = new Menu();
+                dispose();
+            }
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage()); // EN CASO DE ERROR, IMPRIMIRLO EN LA CONSOLA
+        }
     }//GEN-LAST:event_LOGINActionPerformed
 
     private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed
