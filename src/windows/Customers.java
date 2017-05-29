@@ -5,6 +5,8 @@
  */
 package windows;
 
+import DAO.ConectDB;
+import com.mysql.jdbc.Connection;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
@@ -30,6 +32,10 @@ public class Customers extends javax.swing.JFrame {
         DefaultTableCellRenderer t = new DefaultTableCellRenderer();
         t.setHorizontalAlignment(SwingConstants.LEFT);
         jTable1.getColumnModel().getColumn(0).setCellRenderer(t);
+        
+        // LLAMAR A LA CLASE ConectDB Y ABRIR LA CONEXIÓN
+        ConectDB app_shop = new ConectDB();
+        Connection con;
     }
 
     /**
@@ -106,6 +112,11 @@ public class Customers extends javax.swing.JFrame {
         EDIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         EDIT.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_edit-B.png"))); // NOI18N
         EDIT.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_edit.png"))); // NOI18N
+        EDIT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EDITActionPerformed(evt);
+            }
+        });
         getContentPane().add(EDIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 80, 60, 60));
 
         DELETE.setBackground(new java.awt.Color(25, 25, 25));
@@ -172,7 +183,7 @@ public class Customers extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void NEWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NEWActionPerformed
-        // NEW PRODUCT
+        // NEW CUSTOMER
         New_Customer nuevo = new New_Customer();
         nuevo.setVisible(true);
     }//GEN-LAST:event_NEWActionPerformed
@@ -189,6 +200,21 @@ public class Customers extends javax.swing.JFrame {
         // COME BACK TO MENU
         this.setVisible(false);
     }//GEN-LAST:event_MENUActionPerformed
+
+    private void EDITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EDITActionPerformed
+        // EDIT CUSTOMER
+        
+        String vId, vName, vSurname, vAddress, vCity, vCP, vPhone, vEmail;
+        vId = jTable1.getColumnModel().getColumn(0).setCellRenderer(t);
+        vName = jTable1.getColumnModel().getColumn(1).setCellRenderer(t);
+        vSurname = jTable1.getColumnModel().getColumn(2).setCellRenderer(t);
+        vAddress = jTable1.getColumnModel().getColumn(3).setCellRenderer(t);
+        vCity = jTable1.getColumnModel().getColumn(4).setCellRenderer(t);
+        vCP = jTable1.getColumnModel().getColumn(5).setCellRenderer(t);
+        vPhone = jTable1.getColumnModel().getColumn(6).setCellRenderer(t);
+        vEmail = jTable1.getColumnModel().getColumn(7).setCellRenderer(t);
+        
+    }//GEN-LAST:event_EDITActionPerformed
 
     /**
      * @param args the command line arguments
