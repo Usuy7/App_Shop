@@ -109,10 +109,11 @@ public class Login extends javax.swing.JFrame {
         
         // LLAMAR A LA CLASE ConectDB Y ABRIR LA CONEXIÓN
         ConectDB app_shop = new ConectDB();
-        Connection con = app_shop.AbrirConexion();
-        
-        
-        String user, password;
+        Connection con;
+        try {
+            con = app_shop.AbrirConexion();
+            
+            String user, password;
         String capturaDato = null; // CAPTURA EL ID DE LOS USUARIOS
         
         user = txt_user.getText(); // OBTENEMOS EL USER
@@ -121,6 +122,7 @@ public class Login extends javax.swing.JFrame {
         String sql = "SELECT * FROM Workers WHERE Login = '"+user+"' AND Password = '"+password+"'";
         
         try { // MEDIDA PARA ERRORES
+            
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql); // EJECUTAMOS LA SENTENCIA SQL Y SE ALMACENAN EN EL rs
             
@@ -131,14 +133,24 @@ public class Login extends javax.swing.JFrame {
             if (capturaDato.equals("")){ // SI ESTA VACIO SIGNIFICA QUE NO ESTÁ REGISTRADO
                 
                 JOptionPane.showMessageDialog(null, "No existe ese usuario", "Error al iniciar sesión", JOptionPane.OK_OPTION);
+            
             } else { // SI ESTÁ REGISTRADO
-                Menu = new Menu();
+                Menu menu = new Menu();
+                menu.setVisible(true);
                 dispose();
             }
             
         } catch (Exception e) {
             System.out.println(e.getMessage()); // EN CASO DE ERROR, IMPRIMIRLO EN LA CONSOLA
         }
+            
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+ 
+        
     }//GEN-LAST:event_LOGINActionPerformed
 
     private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed
