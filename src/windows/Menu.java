@@ -116,7 +116,7 @@ public class Menu extends javax.swing.JFrame {
         LINES_SALE.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         LINES_SALE.setForeground(new java.awt.Color(52, 73, 94));
         LINES_SALE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_lineas venta-A.png"))); // NOI18N
-        LINES_SALE.setText("LINES OF SALE");
+        LINES_SALE.setText("SALES LINES");
         LINES_SALE.setBorder(null);
         LINES_SALE.setContentAreaFilled(false);
         LINES_SALE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
