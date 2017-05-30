@@ -182,7 +182,7 @@ public class New_Order extends javax.swing.JFrame {
 
             Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
             ResultSet.CONCUR_UPDATABLE);
-            String query = "INSERT INTO Orders (Worker, Product, Buyer, Fecha, Phone) VALUES (' + Worker + ','" + Product + "','" + Buyer + "','" + Fecha + "','" + Phone + "')";
+            String query = "INSERT INTO Orders (Worker, Product, Buyer, Fecha, Phone) VALUES ('" + Worker + "','" + Product + "','" + Buyer + "','" + Fecha + "','" + Phone + "')";
             int resultado = s.executeUpdate(query);
 
             query = "SELECT * FROM Orders";

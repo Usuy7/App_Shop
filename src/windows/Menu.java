@@ -241,7 +241,8 @@ public class Menu extends javax.swing.JFrame {
 
         int answer = JOptionPane.showConfirmDialog(null, "You are closing session, do you want to continue?", "SIGNAL", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (JOptionPane.OK_OPTION == answer) {
-             this.setVisible(false);
+              
+            this.setVisible(false);   
         } else {
         }
     }//GEN-LAST:event_LOG_OUTActionPerformed
