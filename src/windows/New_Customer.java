@@ -168,7 +168,15 @@ public class New_Customer extends javax.swing.JFrame {
 
     private void CANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CANCELActionPerformed
         // CANCEL
+        Customers cust = null;
+        try {
+            cust = new Customers();
+        } catch (SQLException ex) {
+            Logger.getLogger(New_Customer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        cust.setVisible(true);
         this.setVisible(false);
+        
     }//GEN-LAST:event_CANCELActionPerformed
 
     private void SAVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SAVEActionPerformed
@@ -200,7 +208,11 @@ public class New_Customer extends javax.swing.JFrame {
             txt_cp.setText(r.getString("CP"));
             txt_phone.setText(r.getString("Phone"));
             txt_email.setText(r.getString("Email"));
-
+            
+            Customers cust = new Customers();
+            cust.setVisible(true);
+            this.setVisible(false);
+            
         } catch (SQLException ex) {
             Logger.getLogger(New_Customer.class.getName()).log(Level.SEVERE, null, ex);
         }

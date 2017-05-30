@@ -176,6 +176,7 @@ public class Customers extends javax.swing.JFrame {
             Logger.getLogger(Customers.class.getName()).log(Level.SEVERE, null, ex);
         }
         nuevo.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_NEWActionPerformed
 
     private void DELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEActionPerformed
