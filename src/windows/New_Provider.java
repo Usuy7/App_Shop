@@ -5,6 +5,12 @@
  */
 package windows;
 
+import DAO.ConectDB;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -14,13 +20,18 @@ import javax.swing.JOptionPane;
  */
 public class New_Provider extends javax.swing.JFrame {
 
+    // LLAMAR A LA CLASE ConectDB
+    ConectDB con = new ConectDB();
+
     /**
      * Creates new form New_Provider
      */
-    public New_Provider() {
+    public New_Provider() throws SQLException {
         initComponents();
         this.setLocationRelativeTo(null);
-        setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
+
+        con.AbrirConexion();  //ABRIR LA CONEXIÓN
     }
 
     /**
@@ -36,7 +47,7 @@ public class New_Provider extends javax.swing.JFrame {
         NAME = new javax.swing.JLabel();
         txt_name = new javax.swing.JTextField();
         CONTRACT = new javax.swing.JLabel();
-        txt_contract = new javax.swing.JTextField();
+        txt_contact = new javax.swing.JTextField();
         CCHARGE = new javax.swing.JLabel();
         txt_cCharge = new javax.swing.JTextField();
         COUNTRY = new javax.swing.JLabel();
@@ -69,9 +80,9 @@ public class New_Provider extends javax.swing.JFrame {
         CONTRACT.setText("Contact");
         getContentPane().add(CONTRACT, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 70, 30));
 
-        txt_contract.setBackground(new java.awt.Color(51, 51, 51));
-        txt_contract.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txt_contract, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 100, 30));
+        txt_contact.setBackground(new java.awt.Color(51, 51, 51));
+        txt_contact.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txt_contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 100, 30));
 
         CCHARGE.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         CCHARGE.setForeground(new java.awt.Color(255, 255, 255));
@@ -132,12 +143,52 @@ public class New_Provider extends javax.swing.JFrame {
 
     private void CANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CANCELActionPerformed
         // CANCEL
+        Providers provider = null;
+        try {
+            provider = new Providers();
+        } catch (SQLException ex) {
+            Logger.getLogger(New_Provider.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        provider.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_CANCELActionPerformed
 
     private void SAVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SAVEActionPerformed
         // SAVE
-        JOptionPane.showMessageDialog(null,"Data saved successfully", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+
+        String Name, Contact, CCharge, Country, Phone;
+
+        Name = txt_name.getText();
+        Contact = txt_contact.getText();
+        CCharge = txt_cCharge.getText();
+        Country = txt_country.getText();
+        Phone = txt_phone.getText();
+        
+        try {
+
+            Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String query = "INSERT INTO Providers (Name, Contact, CCharge, Country, Phone) VALUES ('" + Name + "','" + Contact + "','" + CCharge + "','" + Country + "','" + Phone + "')";
+            int resultado = s.executeUpdate(query);
+
+            query = "SELECT * FROM Providers";
+            ResultSet r = s.executeQuery(query);
+            r.first();
+            txt_name.setText(r.getString("Name"));
+            txt_contact.setText(r.getString("Contact"));
+            txt_cCharge.setText(r.getString("CCharge"));
+            txt_country.setText(r.getString("Country"));
+            txt_phone.setText(r.getString("Phone"));
+            
+            Providers prov = new Providers();
+            prov.setVisible(true);
+            this.setVisible(false);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(New_Provider.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        JOptionPane.showMessageDialog(null, "Data saved successfully", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_SAVEActionPerformed
 
     /**
@@ -170,7 +221,11 @@ public class New_Provider extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new New_Provider().setVisible(true);
+                try {
+                    new New_Provider().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(New_Provider.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -186,7 +241,7 @@ public class New_Provider extends javax.swing.JFrame {
     private javax.swing.JButton SAVE;
     private javax.swing.JLabel Title;
     private javax.swing.JTextField txt_cCharge;
-    private javax.swing.JTextField txt_contract;
+    private javax.swing.JTextField txt_contact;
     private javax.swing.JTextField txt_country;
     private javax.swing.JTextField txt_name;
     private javax.swing.JTextField txt_phone;

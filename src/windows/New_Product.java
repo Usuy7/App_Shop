@@ -14,7 +14,6 @@ import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import static windows.New_Order.con;
 
 /**
  *
@@ -130,6 +129,7 @@ public class New_Product extends javax.swing.JFrame {
         }
         
         ComboBox_provider.setModel(value6);
+        
     }
 
     /**
@@ -298,6 +298,13 @@ public class New_Product extends javax.swing.JFrame {
 
     private void CANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CANCELActionPerformed
         // CANCEL
+        Products product = null;
+        try {
+            product = new Products();
+        } catch (SQLException ex) {
+            Logger.getLogger(New_Customer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        product.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_CANCELActionPerformed
 
@@ -328,7 +335,7 @@ public class New_Product extends javax.swing.JFrame {
             String query = "INSERT INTO Products (Name, Provider, Category, Trademark, Size, Color, Material, Price) VALUES ('" + Name + "','" + Provider + "','" + Category + "','" + Trademark + "','" + Size + "','" + Color + "','" + Material + "','" + Price + "')";
             int resultado = s.executeUpdate(query);
             
-            query = "SELECT * FROM Orders";
+            query = "SELECT * FROM Products";
             ResultSet r = s.executeQuery(query);
             r.first();
             txt_name.setText(r.getString("Name"));
@@ -345,7 +352,7 @@ public class New_Product extends javax.swing.JFrame {
             this.setVisible(false);
             
         } catch (SQLException ex) {
-            Logger.getLogger(New_Customer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(New_Product.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         JOptionPane.showMessageDialog(null,"Data saved successfully", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);

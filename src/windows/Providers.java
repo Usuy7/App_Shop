@@ -172,7 +172,12 @@ public class Providers extends javax.swing.JFrame {
 
     private void NEWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NEWActionPerformed
         // NEW PROVIDER
-        New_Provider nuevo = new New_Provider();
+        New_Provider nuevo = null;
+        try {
+            nuevo = new New_Provider();
+        } catch (SQLException ex) {
+            Logger.getLogger(Providers.class.getName()).log(Level.SEVERE, null, ex);
+        }
         nuevo.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_NEWActionPerformed

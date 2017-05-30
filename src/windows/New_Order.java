@@ -163,6 +163,13 @@ public class New_Order extends javax.swing.JFrame {
 
     private void CANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CANCELActionPerformed
         // CANCEL
+        Orders order = null;
+        try {
+            order = new Orders();
+        } catch (SQLException ex) {
+            Logger.getLogger(New_Customer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        order.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_CANCELActionPerformed
 
@@ -199,7 +206,7 @@ public class New_Order extends javax.swing.JFrame {
             this.setVisible(false);
             
         } catch (SQLException ex) {
-            Logger.getLogger(New_Customer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(New_Order.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         JOptionPane.showMessageDialog(null, "Data saved successfully", "INFORMATION",
