@@ -36,7 +36,7 @@ public class Menu extends javax.swing.JFrame {
         EXIT = new javax.swing.JButton();
         PRODUCTS = new javax.swing.JButton();
         SALES = new javax.swing.JButton();
-        LINES_SALE = new javax.swing.JButton();
+        SALESLINES = new javax.swing.JButton();
         CUSTOMERS = new javax.swing.JButton();
         PROVIDERS = new javax.swing.JButton();
         ORDERS = new javax.swing.JButton();
@@ -118,24 +118,24 @@ public class Menu extends javax.swing.JFrame {
         });
         getContentPane().add(SALES, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 120, 150));
 
-        LINES_SALE.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        LINES_SALE.setForeground(new java.awt.Color(52, 73, 94));
-        LINES_SALE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_lineas venta-A.png"))); // NOI18N
-        LINES_SALE.setText("SALES LINES");
-        LINES_SALE.setBorder(null);
-        LINES_SALE.setContentAreaFilled(false);
-        LINES_SALE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LINES_SALE.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        LINES_SALE.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_lineas venta-B.png"))); // NOI18N
-        LINES_SALE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_lineas venta.png"))); // NOI18N
-        LINES_SALE.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        LINES_SALE.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        LINES_SALE.addActionListener(new java.awt.event.ActionListener() {
+        SALESLINES.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        SALESLINES.setForeground(new java.awt.Color(52, 73, 94));
+        SALESLINES.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_lineas venta-A.png"))); // NOI18N
+        SALESLINES.setText("SALES LINES");
+        SALESLINES.setBorder(null);
+        SALESLINES.setContentAreaFilled(false);
+        SALESLINES.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SALESLINES.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        SALESLINES.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_lineas venta-B.png"))); // NOI18N
+        SALESLINES.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_lineas venta.png"))); // NOI18N
+        SALESLINES.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        SALESLINES.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        SALESLINES.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LINES_SALEActionPerformed(evt);
+                SALESLINESActionPerformed(evt);
             }
         });
-        getContentPane().add(LINES_SALE, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 140, 150));
+        getContentPane().add(SALESLINES, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 140, 150));
 
         CUSTOMERS.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         CUSTOMERS.setForeground(new java.awt.Color(52, 73, 94));
@@ -255,11 +255,11 @@ public class Menu extends javax.swing.JFrame {
         sales.setVisible(true);
     }//GEN-LAST:event_SALESActionPerformed
 
-    private void LINES_SALEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LINES_SALEActionPerformed
+    private void SALESLINESActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SALESLINESActionPerformed
         // SALES LINES
         SalesLines lSale = new SalesLines();
         lSale.setVisible(true);
-    }//GEN-LAST:event_LINES_SALEActionPerformed
+    }//GEN-LAST:event_SALESLINESActionPerformed
 
     private void CUSTOMERSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CUSTOMERSActionPerformed
         // CUSTOMERS
@@ -324,12 +324,12 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel Background;
     private javax.swing.JButton CUSTOMERS;
     private javax.swing.JButton EXIT;
-    private javax.swing.JButton LINES_SALE;
     private javax.swing.JButton LOG_OUT;
     private javax.swing.JButton ORDERS;
     private javax.swing.JButton PRODUCTS;
     private javax.swing.JButton PROVIDERS;
     private javax.swing.JButton SALES;
+    private javax.swing.JButton SALESLINES;
     private javax.swing.JButton WORKERS;
     // End of variables declaration//GEN-END:variables
 }
