@@ -5,6 +5,7 @@
  */
 package windows;
 
+import java.awt.Dimension;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,6 +29,7 @@ public class Menu extends javax.swing.JFrame {
 
         if (!user_logeado.equals("admin")) {
             WORKERS.setVisible(false);
+            this.setSize(new Dimension(602, 516));
         }
     }
 
@@ -67,7 +69,7 @@ public class Menu extends javax.swing.JFrame {
                 LOG_OUTActionPerformed(evt);
             }
         });
-        getContentPane().add(LOG_OUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, 30, 30));
+        getContentPane().add(LOG_OUT, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 30, 30));
 
         EXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_error-A.png"))); // NOI18N
         EXIT.setBorder(null);
@@ -81,7 +83,7 @@ public class Menu extends javax.swing.JFrame {
                 EXITActionPerformed(evt);
             }
         });
-        getContentPane().add(EXIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 50, 50));
+        getContentPane().add(EXIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
 
         PRODUCTS.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         PRODUCTS.setForeground(new java.awt.Color(52, 73, 94));
