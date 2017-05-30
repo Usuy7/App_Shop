@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
 public class Customers extends javax.swing.JFrame {
 
     
-    // LLAMAR A LA CLASE ConectDB Y ABRIR LA CONEXIÓN
+    // LLAMAR A LA CLASE ConectDB
     ConectDB con = new ConectDB();
     
     /**
@@ -37,7 +37,7 @@ public class Customers extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
         
-        con.AbrirConexion();
+        con.AbrirConexion();  //ABRIR LA CONEXIÓN
         
         // ALIGN DATA TABLE LEFT
         DefaultTableModel columnModel =  (DefaultTableModel) jTable1.getModel();

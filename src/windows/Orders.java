@@ -5,10 +5,17 @@
  */
 package windows;
 
+import DAO.ConectDB;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
 /**
@@ -16,22 +23,43 @@ import javax.swing.table.TableColumnModel;
  * @author Javier
  */
 public class Orders extends javax.swing.JFrame {
+    
+     // LLAMAR A LA CLASE ConectDB
+    ConectDB con = new ConectDB();
 
     /**
      * Creates new form Orders
      */
-    public Orders() {
+    public Orders() throws SQLException {
         initComponents();
         this.setLocationRelativeTo(null);
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
         
+        con.AbrirConexion();  //ABRIR LA CONEXIÓN
+        
         // ALIGN DATA TABLE LEFT
-        TableColumnModel columnModel = jTable1.getColumnModel();
+        DefaultTableModel columnModel =  (DefaultTableModel) jTable1.getModel();
         DefaultTableCellRenderer t = new DefaultTableCellRenderer();
         t.setHorizontalAlignment(SwingConstants.LEFT);
         jTable1.getColumnModel().getColumn(0).setCellRenderer(t);
         jTable1.getColumnModel().getColumn(1).setCellRenderer(t);
         jTable1.getColumnModel().getColumn(2).setCellRenderer(t);
+        
+        Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        String query = "SELECT * FROM Orders";
+        ResultSet rs = s.executeQuery(query);
+        
+         Object datosTabla [] = new Object [8];
+
+        while (rs.next()) {
+            datosTabla[0] = rs.getInt("IdOrder");
+            datosTabla[1] = rs.getString("Worker");
+            datosTabla[2] = rs.getString("Product");
+            datosTabla[3] = rs.getString("Buyer");
+            datosTabla[4] = rs.getString("Fecha");
+            datosTabla[5] = rs.getString("Phone");
+            columnModel.addRow(datosTabla);
+        }
     }
 
     /**
@@ -46,8 +74,6 @@ public class Orders extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         MENU = new javax.swing.JButton();
         Title = new javax.swing.JLabel();
-        SEARCH = new javax.swing.JButton();
-        txt_search = new javax.swing.JTextField();
         NEW = new javax.swing.JButton();
         EDIT = new javax.swing.JButton();
         DELETE = new javax.swing.JButton();
@@ -78,19 +104,6 @@ public class Orders extends javax.swing.JFrame {
         Title.setForeground(new java.awt.Color(52, 73, 94));
         Title.setText("ORDERS");
         getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, -1, 34));
-
-        SEARCH.setBackground(new java.awt.Color(25, 25, 25));
-        SEARCH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search-A.png"))); // NOI18N
-        SEARCH.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        SEARCH.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search-B.png"))); // NOI18N
-        SEARCH.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search.png"))); // NOI18N
-        getContentPane().add(SEARCH, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 50, 50));
-
-        txt_search.setBackground(new java.awt.Color(51, 51, 51));
-        txt_search.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txt_search.setForeground(new java.awt.Color(219, 219, 219));
-        txt_search.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        getContentPane().add(txt_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 160, 40));
 
         NEW.setBackground(new java.awt.Color(25, 25, 25));
         NEW.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_añadir-A.png"))); // NOI18N
@@ -128,26 +141,7 @@ public class Orders extends javax.swing.JFrame {
         jTable1.setForeground(new java.awt.Color(219, 219, 219));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "Worker", "Product", "Buyer", "Date", "Phone"
@@ -222,7 +216,11 @@ public class Orders extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Orders().setVisible(true);
+                try {
+                    new Orders().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Orders.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -233,11 +231,9 @@ public class Orders extends javax.swing.JFrame {
     private javax.swing.JButton EDIT;
     private javax.swing.JButton MENU;
     private javax.swing.JButton NEW;
-    private javax.swing.JButton SEARCH;
     private javax.swing.JScrollPane Table;
     private javax.swing.JLabel Title;
     private javax.swing.JButton jButton2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txt_search;
     // End of variables declaration//GEN-END:variables
 }
