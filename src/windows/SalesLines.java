@@ -15,12 +15,12 @@ import javax.swing.table.TableColumnModel;
  *
  * @author AlumMati
  */
-public class Sales_Lines extends javax.swing.JFrame {
+public class SalesLines extends javax.swing.JFrame {
 
     /**
      * Creates new form Lines_Sale
      */
-    public Sales_Lines() {
+    public SalesLines() {
         initComponents();
         this.setLocationRelativeTo(null);
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
@@ -175,7 +175,7 @@ public class Sales_Lines extends javax.swing.JFrame {
 
     private void NEWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NEWActionPerformed
         // NEW LINE OF SALE
-        New_Sales_Lines nuevo = new New_Sales_Lines();
+        New_SalesLines nuevo = new New_SalesLines();
         nuevo.setVisible(true);
     }//GEN-LAST:event_NEWActionPerformed
 
@@ -209,21 +209,23 @@ public class Sales_Lines extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Sales_Lines.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SalesLines.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Sales_Lines.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SalesLines.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Sales_Lines.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SalesLines.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Sales_Lines.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SalesLines.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Sales_Lines().setVisible(true);
+                new SalesLines().setVisible(true);
             }
         });
     }

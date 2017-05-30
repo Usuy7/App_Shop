@@ -205,14 +205,14 @@ public class Customers extends javax.swing.JFrame {
         // EDIT CUSTOMER
         
         String vId, vName, vSurname, vAddress, vCity, vCP, vPhone, vEmail;
-        vId = jTable1.getColumnModel().getColumn(0).setCellRenderer(t);
-        vName = jTable1.getColumnModel().getColumn(1).setCellRenderer(t);
-        vSurname = jTable1.getColumnModel().getColumn(2).setCellRenderer(t);
-        vAddress = jTable1.getColumnModel().getColumn(3).setCellRenderer(t);
-        vCity = jTable1.getColumnModel().getColumn(4).setCellRenderer(t);
-        vCP = jTable1.getColumnModel().getColumn(5).setCellRenderer(t);
-        vPhone = jTable1.getColumnModel().getColumn(6).setCellRenderer(t);
-        vEmail = jTable1.getColumnModel().getColumn(7).setCellRenderer(t);
+       // vId = jTable1.getColumnModel().getColumn(0).setCellRenderer(t);
+        // vName = jTable1.getColumnModel().getColumn(1).setCellRenderer(t);
+        //vSurname = jTable1.getColumnModel().getColumn(2).setCellRenderer(t);
+       // vAddress = jTable1.getColumnModel().getColumn(3).setCellRenderer(t);
+       // vCity = jTable1.getColumnModel().getColumn(4).setCellRenderer(t);
+       // vCP = jTable1.getColumnModel().getColumn(5).setCellRenderer(t);
+       // vPhone = jTable1.getColumnModel().getColumn(6).setCellRenderer(t);
+      //  vEmail = jTable1.getColumnModel().getColumn(7).setCellRenderer(t);
         
     }//GEN-LAST:event_EDITActionPerformed
 

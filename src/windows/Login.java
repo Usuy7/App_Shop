@@ -9,6 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -24,6 +25,8 @@ public class Login extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());   
     }
+    
+     static String user_logeado;
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -110,14 +113,17 @@ public class Login extends javax.swing.JFrame {
         // LLAMAR A LA CLASE ConectDB Y ABRIR LA CONEXIÓN
         ConectDB app_shop = new ConectDB();
         Connection con;
+        
         try {
-            con = app_shop.AbrirConexion();
             
-            String user, password;
+            con = app_shop.AbrirConexion(); 
+            
+        String user, password;
         String capturaDato = null; // CAPTURA EL ID DE LOS USUARIOS
         
         user = txt_user.getText(); // OBTENEMOS EL USER
         password = new String(txt_password.getPassword()); // OBTENEMOS LA PASSWORD
+        user_logeado = user;
         
         String sql = "SELECT * FROM Workers WHERE Login = '"+user+"' AND Password = '"+password+"'";
         
@@ -132,7 +138,7 @@ public class Login extends javax.swing.JFrame {
             
             if (capturaDato.equals("")){ // SI ESTA VACIO SIGNIFICA QUE NO ESTÁ REGISTRADO
                 
-                JOptionPane.showMessageDialog(null, "No existe ese usuario", "Error al iniciar sesión", JOptionPane.OK_OPTION);
+                JOptionPane.showMessageDialog(null, "There is no user with this password", "Failed to login", JOptionPane.OK_OPTION);
             
             } else { // SI ESTÁ REGISTRADO
                 Menu menu = new Menu();
@@ -152,6 +158,10 @@ public class Login extends javax.swing.JFrame {
  
         
     }//GEN-LAST:event_LOGINActionPerformed
+
+    public JTextField getTxt_user() {
+        return txt_user;
+    }
 
     private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed
         // TODO add your handling code here:

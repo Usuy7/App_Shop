@@ -7,6 +7,7 @@ package windows;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import static windows.Login.user_logeado;
 
 /**
  *
@@ -20,9 +21,13 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
         this.setLocationRelativeTo(null);
-        setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
+
+        if (!user_logeado.equals("admin")) {
+            WORKERS.setVisible(false);
+        }
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -33,7 +38,7 @@ public class Menu extends javax.swing.JFrame {
         SALES = new javax.swing.JButton();
         LINES_SALE = new javax.swing.JButton();
         CUSTOMERS = new javax.swing.JButton();
-        PROVIDER = new javax.swing.JButton();
+        PROVIDERS = new javax.swing.JButton();
         ORDERS = new javax.swing.JButton();
         WORKERS = new javax.swing.JButton();
         Background = new javax.swing.JLabel();
@@ -151,24 +156,24 @@ public class Menu extends javax.swing.JFrame {
         });
         getContentPane().add(CUSTOMERS, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 130, 140));
 
-        PROVIDER.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        PROVIDER.setForeground(new java.awt.Color(52, 73, 94));
-        PROVIDER.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_proveedor-A.png"))); // NOI18N
-        PROVIDER.setText("PROVIDER");
-        PROVIDER.setBorder(null);
-        PROVIDER.setContentAreaFilled(false);
-        PROVIDER.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        PROVIDER.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        PROVIDER.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_proveedor-B.png"))); // NOI18N
-        PROVIDER.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_proveedor.png"))); // NOI18N
-        PROVIDER.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        PROVIDER.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        PROVIDER.addActionListener(new java.awt.event.ActionListener() {
+        PROVIDERS.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        PROVIDERS.setForeground(new java.awt.Color(52, 73, 94));
+        PROVIDERS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_proveedor-A.png"))); // NOI18N
+        PROVIDERS.setText("PROVIDER");
+        PROVIDERS.setBorder(null);
+        PROVIDERS.setContentAreaFilled(false);
+        PROVIDERS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        PROVIDERS.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        PROVIDERS.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_proveedor-B.png"))); // NOI18N
+        PROVIDERS.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_proveedor.png"))); // NOI18N
+        PROVIDERS.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        PROVIDERS.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        PROVIDERS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PROVIDERActionPerformed(evt);
+                PROVIDERSActionPerformed(evt);
             }
         });
-        getContentPane().add(PROVIDER, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 120, 150));
+        getContentPane().add(PROVIDERS, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 120, 150));
 
         ORDERS.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         ORDERS.setForeground(new java.awt.Color(52, 73, 94));
@@ -221,19 +226,21 @@ public class Menu extends javax.swing.JFrame {
 
     private void EXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EXITActionPerformed
         // BOTON SALIR 
-        int answer = JOptionPane.showConfirmDialog(null, "You are closing the application, do you want to continue?", "SIGNAL" ,JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
-        if (JOptionPane.OK_OPTION == answer){
-           System.exit(0);
-        }else{}
+        int answer = JOptionPane.showConfirmDialog(null, "You are closing the application, do you want to continue?", "SIGNAL", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+        if (JOptionPane.OK_OPTION == answer) {
+            System.exit(0);
+        } else {
+        }
     }//GEN-LAST:event_EXITActionPerformed
 
     private void LOG_OUTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOG_OUTActionPerformed
         // LOG OUT
-        
-        int answer = JOptionPane.showConfirmDialog(null, "You are closing session, do you want to continue?", "SIGNAL" ,JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-        if (JOptionPane.OK_OPTION == answer){
+
+        int answer = JOptionPane.showConfirmDialog(null, "You are closing session, do you want to continue?", "SIGNAL", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if (JOptionPane.OK_OPTION == answer) {
             System.exit(0);
-        }else{}
+        } else {
+        }
     }//GEN-LAST:event_LOG_OUTActionPerformed
 
     private void PRODUCTSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PRODUCTSActionPerformed
@@ -249,8 +256,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_SALESActionPerformed
 
     private void LINES_SALEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LINES_SALEActionPerformed
-        // LINES OF SALE
-        Sales_Lines lSale = new Sales_Lines();
+        // SALES LINES
+        SalesLines lSale = new SalesLines();
         lSale.setVisible(true);
     }//GEN-LAST:event_LINES_SALEActionPerformed
 
@@ -260,11 +267,11 @@ public class Menu extends javax.swing.JFrame {
         customers.setVisible(true);
     }//GEN-LAST:event_CUSTOMERSActionPerformed
 
-    private void PROVIDERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PROVIDERActionPerformed
+    private void PROVIDERSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PROVIDERSActionPerformed
         // PROVIDER
-        Workers provider = new Workers();
+        Providers provider = new Providers();
         provider.setVisible(true);
-    }//GEN-LAST:event_PROVIDERActionPerformed
+    }//GEN-LAST:event_PROVIDERSActionPerformed
 
     private void ORDERSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORDERSActionPerformed
         // ORDERS
@@ -273,9 +280,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_ORDERSActionPerformed
 
     private void WORKERSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WORKERSActionPerformed
-        // PERSONAL
-        
-        
+        // WORKERS
+        Workers worker = new Workers();
+        worker.setVisible(true);
     }//GEN-LAST:event_WORKERSActionPerformed
 
     /**
@@ -321,7 +328,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton LOG_OUT;
     private javax.swing.JButton ORDERS;
     private javax.swing.JButton PRODUCTS;
-    private javax.swing.JButton PROVIDER;
+    private javax.swing.JButton PROVIDERS;
     private javax.swing.JButton SALES;
     private javax.swing.JButton WORKERS;
     // End of variables declaration//GEN-END:variables

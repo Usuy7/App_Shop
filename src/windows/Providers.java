@@ -15,12 +15,12 @@ import javax.swing.table.TableColumnModel;
  *
  * @author Javier
  */
-public class Personal extends javax.swing.JFrame {
+public class Providers extends javax.swing.JFrame {
 
     /**
-     * Creates new form Personal
+     * Creates new form Provider
      */
-    public Personal() {
+    public Providers() {
         initComponents();
         this.setLocationRelativeTo(null);
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
@@ -30,9 +30,6 @@ public class Personal extends javax.swing.JFrame {
         DefaultTableCellRenderer t = new DefaultTableCellRenderer();
         t.setHorizontalAlignment(SwingConstants.LEFT);
         jTable1.getColumnModel().getColumn(0).setCellRenderer(t);
-        jTable1.getColumnModel().getColumn(3).setCellRenderer(t);
-        jTable1.getColumnModel().getColumn(5).setCellRenderer(t);
-        jTable1.getColumnModel().getColumn(6).setCellRenderer(t); 
     }
 
     /**
@@ -44,7 +41,6 @@ public class Personal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
         MENU = new javax.swing.JButton();
         Title = new javax.swing.JLabel();
         SEARCH = new javax.swing.JButton();
@@ -52,11 +48,9 @@ public class Personal extends javax.swing.JFrame {
         NEW = new javax.swing.JButton();
         EDIT = new javax.swing.JButton();
         DELETE = new javax.swing.JButton();
-        Table = new javax.swing.JScrollPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         Background = new javax.swing.JLabel();
-
-        jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -77,14 +71,19 @@ public class Personal extends javax.swing.JFrame {
 
         Title.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         Title.setForeground(new java.awt.Color(52, 73, 94));
-        Title.setText("PERSONAL");
-        getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, 30));
+        Title.setText("PROVIDERS");
+        getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, 38));
 
         SEARCH.setBackground(new java.awt.Color(25, 25, 25));
         SEARCH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search-A.png"))); // NOI18N
         SEARCH.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         SEARCH.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search-B.png"))); // NOI18N
         SEARCH.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search.png"))); // NOI18N
+        SEARCH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SEARCHActionPerformed(evt);
+            }
+        });
         getContentPane().add(SEARCH, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 50, 50));
 
         txt_search.setBackground(new java.awt.Color(51, 51, 51));
@@ -92,11 +91,7 @@ public class Personal extends javax.swing.JFrame {
         txt_search.setForeground(new java.awt.Color(219, 219, 219));
         txt_search.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_search.setBorder(null);
-        txt_search.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_searchActionPerformed(evt);
-            }
-        });
+        txt_search.setSelectionColor(new java.awt.Color(92, 139, 227));
         getContentPane().add(txt_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 160, 40));
 
         NEW.setBackground(new java.awt.Color(25, 25, 25));
@@ -109,14 +104,19 @@ public class Personal extends javax.swing.JFrame {
                 NEWActionPerformed(evt);
             }
         });
-        getContentPane().add(NEW, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 60, 60));
+        getContentPane().add(NEW, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 60, 60));
 
         EDIT.setBackground(new java.awt.Color(25, 25, 25));
         EDIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_edit-A.png"))); // NOI18N
         EDIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         EDIT.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_edit-B.png"))); // NOI18N
         EDIT.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_edit.png"))); // NOI18N
-        getContentPane().add(EDIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 80, 60, 60));
+        EDIT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EDITActionPerformed(evt);
+            }
+        });
+        getContentPane().add(EDIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 80, 60, 60));
 
         DELETE.setBackground(new java.awt.Color(25, 25, 25));
         DELETE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_borrar-A.png"))); // NOI18N
@@ -128,40 +128,40 @@ public class Personal extends javax.swing.JFrame {
                 DELETEActionPerformed(evt);
             }
         });
-        getContentPane().add(DELETE, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 80, 60, 60));
+        getContentPane().add(DELETE, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 80, 60, 60));
 
         jTable1.setBackground(new java.awt.Color(51, 51, 51));
         jTable1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jTable1.setForeground(new java.awt.Color(219, 219, 219));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Surname", "Position", "DContract", "Salary", "Workday", "Birthdate ", "Phone", "Login", "Password"
+                "ID", "Name", "Contact", "CCharge", "Country", "Phone"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -170,28 +170,32 @@ public class Personal extends javax.swing.JFrame {
         });
         jTable1.setRowHeight(20);
         jTable1.setRowMargin(2);
-        Table.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(Table, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 920, 430));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 820, 430));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_windows.jpg"))); // NOI18N
-        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 600));
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_searchActionPerformed
+    private void SEARCHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SEARCHActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_searchActionPerformed
+    }//GEN-LAST:event_SEARCHActionPerformed
+
+    private void EDITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EDITActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EDITActionPerformed
 
     private void NEWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NEWActionPerformed
-        // NEW PERSONAL
-        New_Worker nuevo = new New_Worker();
+        // NEW PROVIDER
+        New_Provider nuevo = new New_Provider();
         nuevo.setVisible(true);
     }//GEN-LAST:event_NEWActionPerformed
 
     private void DELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEActionPerformed
-         // DELETE PERSONAL
+         // DELETE PROVIDER
         int answer = JOptionPane.showConfirmDialog(null, "You are deleting the data, do you want to continue?", "WARNING" ,JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
         if (JOptionPane.OK_OPTION == answer){
            
@@ -220,20 +224,27 @@ public class Personal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Personal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Providers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Personal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Providers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Personal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Providers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Personal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Providers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Personal().setVisible(true);
+                new Providers().setVisible(true);
             }
         });
     }
@@ -245,9 +256,8 @@ public class Personal extends javax.swing.JFrame {
     private javax.swing.JButton MENU;
     private javax.swing.JButton NEW;
     private javax.swing.JButton SEARCH;
-    private javax.swing.JScrollPane Table;
     private javax.swing.JLabel Title;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txt_search;
     // End of variables declaration//GEN-END:variables
