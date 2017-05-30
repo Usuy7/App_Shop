@@ -174,6 +174,7 @@ public class Providers extends javax.swing.JFrame {
         // NEW PROVIDER
         New_Provider nuevo = new New_Provider();
         nuevo.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_NEWActionPerformed
 
     private void DELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEActionPerformed

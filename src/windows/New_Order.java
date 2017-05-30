@@ -193,7 +193,11 @@ public class New_Order extends javax.swing.JFrame {
             txt_buyer.setText(r.getString("Buyer"));
             txt_date.setText(r.getString("Fecha"));
             txt_phone.setText(r.getString("Phone"));
-
+            
+            Orders order = new Orders();
+            order.setVisible(true);
+            this.setVisible(false);
+            
         } catch (SQLException ex) {
             Logger.getLogger(New_Customer.class.getName()).log(Level.SEVERE, null, ex);
         }

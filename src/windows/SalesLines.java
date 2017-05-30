@@ -167,6 +167,7 @@ public class SalesLines extends javax.swing.JFrame {
         // NEW LINE OF SALE
         New_SalesLines nuevo = new New_SalesLines();
         nuevo.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_NEWActionPerformed
 
     private void DELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEActionPerformed

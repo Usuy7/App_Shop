@@ -189,6 +189,7 @@ public class Orders extends javax.swing.JFrame {
             Logger.getLogger(Orders.class.getName()).log(Level.SEVERE, null, ex);
         }
         nuevo.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_NEWActionPerformed
 
     private void MENUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MENUActionPerformed

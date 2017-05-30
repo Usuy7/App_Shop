@@ -197,6 +197,7 @@ public class Products extends javax.swing.JFrame {
         // NEW PRODUCT
         New_Product nuevo = new New_Product();
         nuevo.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_NEWActionPerformed
 
     private void MENUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MENUActionPerformed

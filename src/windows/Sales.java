@@ -174,6 +174,7 @@ public class Sales extends javax.swing.JFrame {
         // NEW SALE
         New_Sale nuevo = new New_Sale();
         nuevo.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_NEWActionPerformed
 
     private void MENUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MENUActionPerformed

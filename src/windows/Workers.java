@@ -176,6 +176,7 @@ public class Workers extends javax.swing.JFrame {
         // NEW PERSONAL
         New_Worker nuevo = new New_Worker();
         nuevo.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_NEWActionPerformed
 
     private void DELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEActionPerformed
