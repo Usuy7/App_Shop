@@ -5,6 +5,13 @@
  */
 package windows;
 
+import DAO.ConectDB;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -13,14 +20,52 @@ import javax.swing.JOptionPane;
  * @author Javier
  */
 public class New_Worker extends javax.swing.JFrame {
+    
+    // LLAMAR A LA CLASE ConectDB
+    static ConectDB con = new ConectDB();
 
     /**
      * Creates new form Check_in
      */
-    public New_Worker() {
+    public New_Worker() throws SQLException {
         initComponents();
         this.setLocationRelativeTo(null);
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
+        
+        con.AbrirConexion();  //ABRIR LA CONEXIÓN
+        
+        /**
+         * Llamada al método combobox provider
+         */
+       
+        String query = "SELECT * FROM Charges";
+        ResultSet r;
+        Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        r = s.executeQuery(query);
+        
+        DefaultComboBoxModel value = new DefaultComboBoxModel();
+        while (r.next()) {
+            value.addElement(r.getString("Name"));
+        }
+        
+        ComboBox_position.setModel(value);
+        
+        /**
+         * Llamada al método combobox category 2
+         */
+        
+        String query2 = "SELECT * FROM Workdays";
+        ResultSet r2;
+        Statement s2 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        r2 = s2.executeQuery(query2);
+        
+        DefaultComboBoxModel value2 = new DefaultComboBoxModel();
+        while (r2.next()) {
+            value2.addElement(r2.getString("Name"));
+        }
+        
+        ComboBox_workday.setModel(value2);
+        
     }
 
     /**
@@ -194,14 +239,174 @@ public class New_Worker extends javax.swing.JFrame {
 
     private void CANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CANCELActionPerformed
         // CANCEL
+        Workers worker = null;
+        try {
+            worker = new Workers();
+        } catch (SQLException ex) {
+            Logger.getLogger(New_Customer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        worker.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_CANCELActionPerformed
 
     private void SAVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SAVEActionPerformed
         // SAVE
+        
+        String Name, Surname, Pos, Work, Salary, DContract, Birthdate, Phone, Login, Password;
+        
+        Name = txt_name.getText();
+        Surname = txt_surname.getText();
+        Pos = (String) ComboBox_position.getSelectedItem();
+        int Position = getCodPosition(Pos);
+        Work = (String) ComboBox_workday.getSelectedItem();
+        int Workday = getCodWorkday(Work);
+        Salary = txt_salary.getText();
+        DContract = txt_dcontract.getText();
+        Birthdate = txt_birthdate.getText();
+        Phone = txt_phone.getText();
+        Login = txt_login.getText();
+        Password = txt_password.getText();
+        
+        try {
+            
+            Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+            ResultSet.CONCUR_UPDATABLE);
+            String query = "INSERT INTO Workers (Name, Surname, Position, Workday, Salary, DContract, Birthdate, Phone, Login, Password) VALUES ('" + Name + "','" + Surname + "','" + Position + "','" + Workday + "','" + Salary + "','" + DContract + "','" + Birthdate + "','" + Phone + "','" + Login + "','" + Password + "')";
+            int resultado = s.executeUpdate(query);
+            
+            query = "SELECT * FROM Workers";
+            ResultSet r = s.executeQuery(query);
+            r.first();
+            txt_name.setText(r.getString("Name"));
+            txt_surname.setText(r.getString("Surname"));
+            ComboBox_position.setSelectedItem(getNombrePosition(r.getInt("Position")));
+            ComboBox_workday.setSelectedItem(getNombreWorkday(r.getInt("Workday")));
+            txt_salary.setText(r.getString("Salary"));
+            txt_dcontract.setText(r.getString("DContract"));
+            txt_name.setText(r.getString("Birthdate"));
+            txt_name.setText(r.getString("Phone"));
+            txt_name.setText(r.getString("Login"));
+            txt_name.setText(r.getString("Password"));
+            
+            Workers worker = new Workers();
+            worker.setVisible(true);
+            this.setVisible(false);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(New_Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         JOptionPane.showMessageDialog(null,"Data saved successfully", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_SAVEActionPerformed
 
+    /**
+     * Metodo que coje el código del position y devuelve su nombre.
+     *
+     * @param codigo - variable que contiene el código del position.
+     * @return nombre - variable que contiene el nombre del position.
+     */
+    
+    public static String getNombrePosition(int codigo) {
+
+        String nombre;
+
+        nombre = "";
+
+        try {
+
+            ResultSet r;
+            Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT Name FROM Charges WHERE IdPosition =" + codigo;
+            r = s.executeQuery(queryNombre);
+            r.first();
+            nombre = r.getString("Name");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Workers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return nombre;
+    }
+    
+    /**
+     * Método que coje el nombre del provider y devuelve su código.
+     *
+     * @param nombre - variable que contiene el nombre del position.
+     * @return codigo - variable que contiene el código del position.
+     *
+     */
+    public static int getCodPosition(String nombre) {
+
+        int codigo = 0;
+
+        try {
+            ResultSet r;
+            Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT IdPosition FROM Charges WHERE Name ='" + nombre + "'";
+            r = s.executeQuery(queryNombre);
+            r.first();
+            codigo = r.getInt("IdPosition");
+        } catch (SQLException ex) {
+            Logger.getLogger(Workers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return codigo;
+    }
+    
+    /**
+     * Metodo que coje el código del Workday y devuelve su nombre.
+     *
+     * @param codigo - variable que contiene el código del Workday.
+     * @return nombre - variable que contiene el nombre del Workday.
+     */
+    
+    public static String getNombreWorkday(int codigo) {
+
+        String nombre;
+
+        nombre = "";
+
+        try {
+
+            ResultSet r2;
+            Statement s2 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT Name FROM Workdays WHERE IdWorkday =" + codigo;
+            r2 = s2.executeQuery(queryNombre);
+            r2.first();
+            nombre = r2.getString("Name");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Workers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return nombre;
+    }
+    
+    /**
+     * Método que coje el nombre del Workday y devuelve su código.
+     *
+     * @param nombre - variable que contiene el nombre del Workday.
+     * @return codigo - variable que contiene el código del Workday.
+     *
+     */
+    public static int getCodWorkday(String nombre) {
+
+        int codigo = 0;
+
+        try {
+            ResultSet r2;
+            Statement s2 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT IdWorkday FROM Workdays WHERE Name ='" + nombre + "'";
+            r2 = s2.executeQuery(queryNombre);
+            r2.first();
+            codigo = r2.getInt("IdWorkday");
+        } catch (SQLException ex) {
+            Logger.getLogger(Workers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return codigo;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -235,7 +440,11 @@ public class New_Worker extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new New_Worker().setVisible(true);
+                try {
+                    new New_Worker().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(New_Worker.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

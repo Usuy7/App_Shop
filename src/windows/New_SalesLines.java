@@ -5,6 +5,13 @@
  */
 package windows;
 
+import DAO.ConectDB;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -13,14 +20,69 @@ import javax.swing.JOptionPane;
  * @author Javier
  */
 public class New_SalesLines extends javax.swing.JFrame {
-
+    
+    // LLAMAR A LA CLASE ConectDB
+    static ConectDB con = new ConectDB();
+    static int num;
+    
     /**
      * Creates new form New_Lines_Sale
      */
-    public New_SalesLines() {
+    public New_SalesLines() throws SQLException {
         initComponents();
         this.setLocationRelativeTo(null);
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
+        
+        con.AbrirConexion();  //ABRIR LA CONEXIÓN
+        
+        /**
+         * Llamada al método combobox Sales
+         */
+       
+        String query = "SELECT * FROM Sales";
+        ResultSet r;
+        Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        r = s.executeQuery(query);
+        
+        DefaultComboBoxModel value = new DefaultComboBoxModel();
+        while (r.next()) {
+            value.addElement(r.getInt("IdSale"));
+        }
+        
+        ComboBox_idSale.setModel(value);
+        
+        /**
+         * Llamada al método combobox Products
+         */
+       
+        String query2 = "SELECT * FROM Products";
+        ResultSet r2;
+        Statement s2 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        r2 = s2.executeQuery(query2);
+        
+        DefaultComboBoxModel value2 = new DefaultComboBoxModel();
+        while (r2.next()) {
+            value2.addElement(r2.getString("Name"));
+        }
+        
+        ComboBox_product.setModel(value2);
+        
+        /**
+         * Llamada al método combobox para el Precio del Producto
+         */
+       
+        String query3 = "SELECT Price FROM Products Where IdProduct ='" + num + "'";
+        ResultSet r3;
+        Statement s3 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        r3 = s3.executeQuery(query3);
+        
+        DefaultComboBoxModel value3 = new DefaultComboBoxModel();
+        while (r3.next()) {
+            value2.addElement(r3.getString("Price"));
+        }
+        
+        ComboBox_price.setModel(value3);
+        
     }
 
     /**
@@ -35,16 +97,12 @@ public class New_SalesLines extends javax.swing.JFrame {
         Title = new javax.swing.JLabel();
         ID_SALE = new javax.swing.JLabel();
         ComboBox_idSale = new javax.swing.JComboBox<>();
-        ID_LINE = new javax.swing.JLabel();
-        ComboBox_idLine = new javax.swing.JComboBox<>();
         PRODUCT = new javax.swing.JLabel();
         ComboBox_product = new javax.swing.JComboBox<>();
-        SIZE = new javax.swing.JLabel();
-        ComboBox_size = new javax.swing.JComboBox<>();
-        PRICE = new javax.swing.JLabel();
-        txt_price = new javax.swing.JTextField();
         CANTITY = new javax.swing.JLabel();
         txt_cantity = new javax.swing.JTextField();
+        PRICE = new javax.swing.JLabel();
+        ComboBox_price = new javax.swing.JComboBox<>();
         SAVE = new javax.swing.JButton();
         CANCEL = new javax.swing.JButton();
         Background = new javax.swing.JLabel();
@@ -67,63 +125,34 @@ public class New_SalesLines extends javax.swing.JFrame {
         ComboBox_idSale.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(ComboBox_idSale, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 100, 30));
 
-        ID_LINE.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        ID_LINE.setForeground(new java.awt.Color(255, 255, 255));
-        ID_LINE.setText("ID Line");
-        getContentPane().add(ID_LINE, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 70, 30));
-
-        ComboBox_idLine.setBackground(new java.awt.Color(51, 51, 51));
-        ComboBox_idLine.setForeground(new java.awt.Color(255, 255, 255));
-        ComboBox_idLine.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        ComboBox_idLine.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComboBox_idLineActionPerformed(evt);
-            }
-        });
-        getContentPane().add(ComboBox_idLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 100, 30));
-
         PRODUCT.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         PRODUCT.setForeground(new java.awt.Color(255, 255, 255));
         PRODUCT.setText("Product");
-        getContentPane().add(PRODUCT, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 70, 30));
+        getContentPane().add(PRODUCT, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 70, 30));
 
         ComboBox_product.setBackground(new java.awt.Color(51, 51, 51));
         ComboBox_product.setForeground(new java.awt.Color(255, 255, 255));
         ComboBox_product.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(ComboBox_product, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 100, 30));
-
-        SIZE.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        SIZE.setForeground(new java.awt.Color(255, 255, 255));
-        SIZE.setText("Size");
-        getContentPane().add(SIZE, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 70, 30));
-
-        ComboBox_size.setBackground(new java.awt.Color(51, 51, 51));
-        ComboBox_size.setForeground(new java.awt.Color(255, 255, 255));
-        ComboBox_size.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        ComboBox_size.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComboBox_sizeActionPerformed(evt);
-            }
-        });
-        getContentPane().add(ComboBox_size, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 100, 30));
-
-        PRICE.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        PRICE.setForeground(new java.awt.Color(255, 255, 255));
-        PRICE.setText("Price");
-        getContentPane().add(PRICE, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 70, 30));
-
-        txt_price.setBackground(new java.awt.Color(51, 51, 51));
-        txt_price.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txt_price, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 100, 30));
+        getContentPane().add(ComboBox_product, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 100, 30));
 
         CANTITY.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         CANTITY.setForeground(new java.awt.Color(255, 255, 255));
         CANTITY.setText("Cantity");
-        getContentPane().add(CANTITY, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 70, 30));
+        getContentPane().add(CANTITY, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 70, 30));
 
         txt_cantity.setBackground(new java.awt.Color(51, 51, 51));
         txt_cantity.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txt_cantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 100, 30));
+        getContentPane().add(txt_cantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, 100, 30));
+
+        PRICE.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        PRICE.setForeground(new java.awt.Color(255, 255, 255));
+        PRICE.setText("Price");
+        getContentPane().add(PRICE, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 70, 30));
+
+        ComboBox_price.setBackground(new java.awt.Color(51, 51, 51));
+        ComboBox_price.setForeground(new java.awt.Color(255, 255, 255));
+        ComboBox_price.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(ComboBox_price, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 100, 30));
 
         SAVE.setBackground(new java.awt.Color(25, 25, 25));
         SAVE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar-A.png"))); // NOI18N
@@ -155,24 +184,113 @@ public class New_SalesLines extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ComboBox_sizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBox_sizeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ComboBox_sizeActionPerformed
-
     private void CANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CANCELActionPerformed
         // CANCEL
+        SalesLines sLine = null;
+        try {
+            sLine = new SalesLines();
+        } catch (SQLException ex) {
+            Logger.getLogger(New_Customer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        sLine.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_CANCELActionPerformed
 
     private void SAVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SAVEActionPerformed
         // SAVE
+        
+        String IdS, Prod, Cantity, Pri;
+        
+        IdS= (String) ComboBox_idSale.getSelectedItem();
+        int IdSale = getCodProduct(Prod);
+        Prod = (String) ComboBox_product.getSelectedItem();
+        int Product = getCodProduct(Prod);
+        Cantity = txt_cantity.getText();
+        Pri = (String) ComboBox_price.getSelectedItem();
+        int Price = getCodProduct(Pri);
+        
+        
+        try {
+            
+            Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+            ResultSet.CONCUR_UPDATABLE);
+            String query = "INSERT INTO SalesLines (IdSale, Product, Cantity, Price) VALUES ('" + IdSale + "','" + Product + "','" + Cantity + "','" + Price + "')";
+            int resultado = s.executeUpdate(query);
+            
+            query = "SELECT * FROM SalesLines";
+            ResultSet r = s.executeQuery(query);
+            r.first();
+            ComboBox_idSale.setSelectedItem(r.getInt("IdSale"));
+            ComboBox_product.setSelectedItem(getNombreProduct(r.getInt("Product")));
+            txt_cantity.setText(r.getString("Cantity"));
+            ComboBox_price.setSelectedItem(r.getInt("Price"));
+            
+            SalesLines sline = new SalesLines();
+            sline.setVisible(true);
+            this.setVisible(false);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(New_SalesLines.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         JOptionPane.showMessageDialog(null,"Data saved successfully", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_SAVEActionPerformed
 
-    private void ComboBox_idLineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBox_idLineActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ComboBox_idLineActionPerformed
+    /**
+     * Metodo que coje el código del producto y devuelve su nombre.
+     *
+     * @param codigo - variable que contiene el código del producto.
+     * @return nombre - variable que contiene el nombre del producto.
+     */
+    
+    public static String getNombreProduct(int codigo) {
 
+        String nombre;
+
+        nombre = "";
+
+        try {
+
+            ResultSet r2;
+            Statement s2 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT Name FROM Products WHERE IdProduct =" + codigo;
+            r2 = s2.executeQuery(queryNombre);
+            r2.first();
+            nombre = r2.getString("Name");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(SalesLines.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return nombre;
+    }
+    
+    /**
+     * Método que coje el nombre del producto y devuelve su código.
+     *
+     * @param nombre - variable que contiene el nombre del producto.
+     * @return codigo - variable que contiene el código del producto.
+     *
+     */
+    public static int getCodProduct(String nombre) {
+
+        int codigo = 0;
+
+        try {
+            ResultSet r2;
+            Statement s2 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT IdProduct FROM Products WHERE Name ='" + nombre + "'";
+            r2 = s2.executeQuery(queryNombre);
+            r2.first();
+            codigo = r2.getInt("IdProduct");
+            num = codigo;
+        } catch (SQLException ex) {
+            Logger.getLogger(SalesLines.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return codigo;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -210,7 +328,11 @@ public class New_SalesLines extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new New_SalesLines().setVisible(true);
+                try {
+                    new New_SalesLines().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(New_SalesLines.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -219,18 +341,14 @@ public class New_SalesLines extends javax.swing.JFrame {
     private javax.swing.JLabel Background;
     private javax.swing.JButton CANCEL;
     private javax.swing.JLabel CANTITY;
-    private javax.swing.JComboBox<String> ComboBox_idLine;
     private javax.swing.JComboBox<String> ComboBox_idSale;
+    private javax.swing.JComboBox<String> ComboBox_price;
     private javax.swing.JComboBox<String> ComboBox_product;
-    private javax.swing.JComboBox<String> ComboBox_size;
-    private javax.swing.JLabel ID_LINE;
     private javax.swing.JLabel ID_SALE;
     private javax.swing.JLabel PRICE;
     private javax.swing.JLabel PRODUCT;
     private javax.swing.JButton SAVE;
-    private javax.swing.JLabel SIZE;
     private javax.swing.JLabel Title;
     private javax.swing.JTextField txt_cantity;
-    private javax.swing.JTextField txt_price;
     // End of variables declaration//GEN-END:variables
 }

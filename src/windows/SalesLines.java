@@ -165,7 +165,12 @@ public class SalesLines extends javax.swing.JFrame {
 
     private void NEWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NEWActionPerformed
         // NEW LINE OF SALE
-        New_SalesLines nuevo = new New_SalesLines();
+        New_SalesLines nuevo = null;
+        try {
+            nuevo = new New_SalesLines();
+        } catch (SQLException ex) {
+            Logger.getLogger(SalesLines.class.getName()).log(Level.SEVERE, null, ex);
+        }
         nuevo.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_NEWActionPerformed

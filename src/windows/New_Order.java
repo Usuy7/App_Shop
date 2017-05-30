@@ -35,7 +35,7 @@ public class New_Order extends javax.swing.JFrame {
         con.AbrirConexion();  //ABRIR LA CONEXIÓN
         
         /**
-         * Llamada al método combobox
+         * Llamada al método combobox workers
          */
        
         

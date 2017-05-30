@@ -174,7 +174,12 @@ public class Workers extends javax.swing.JFrame {
 
     private void NEWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NEWActionPerformed
         // NEW PERSONAL
-        New_Worker nuevo = new New_Worker();
+        New_Worker nuevo = null;
+        try {
+            nuevo = new New_Worker();
+        } catch (SQLException ex) {
+            Logger.getLogger(Workers.class.getName()).log(Level.SEVERE, null, ex);
+        }
         nuevo.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_NEWActionPerformed
