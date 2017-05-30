@@ -16,7 +16,7 @@ public class ConectDB {
 
     static Statement s;
     
-    Connection con = null;
+    Connection con;
 
     public Connection getCon() {
         return con;
