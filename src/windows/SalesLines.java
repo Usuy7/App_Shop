@@ -34,8 +34,6 @@ public class SalesLines extends javax.swing.JFrame {
         jTable1.getColumnModel().getColumn(2).setCellRenderer(t);
         jTable1.getColumnModel().getColumn(3).setCellRenderer(t);
         jTable1.getColumnModel().getColumn(4).setCellRenderer(t);
-        jTable1.getColumnModel().getColumn(5).setCellRenderer(t);
-        jTable1.getColumnModel().getColumn(6).setCellRenderer(t);
     }
 
     /**
