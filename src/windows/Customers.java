@@ -23,33 +23,33 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Customers extends javax.swing.JFrame {
 
-    
     // LLAMAR A LA CLASE ConectDB
     ConectDB con = new ConectDB();
-    
+
     /**
      * Creates new form Customers
+     *
      * @throws java.sql.SQLException
      */
-    public Customers() throws SQLException{
-        
+    public Customers() throws SQLException {
+
         initComponents();
         this.setLocationRelativeTo(null);
-        setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
-        
+        setIconImage(new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
+
         con.AbrirConexion();  //ABRIR LA CONEXIÓN
-        
+
         // ALIGN DATA TABLE LEFT
-        DefaultTableModel columnModel =  (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel columnModel = (DefaultTableModel) jTable1.getModel();
         DefaultTableCellRenderer t = new DefaultTableCellRenderer();
         t.setHorizontalAlignment(SwingConstants.LEFT);
         jTable1.getColumnModel().getColumn(0).setCellRenderer(t);
-        
+
         Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         String query = "SELECT * FROM Customers";
         ResultSet rs = s.executeQuery(query);
-        
-         Object datosTabla [] = new Object [8];
+
+        Object datosTabla[] = new Object[8];
 
         while (rs.next()) {
             datosTabla[0] = rs.getInt("IdCustomer");
@@ -63,7 +63,6 @@ public class Customers extends javax.swing.JFrame {
             columnModel.addRow(datosTabla);
         }
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -176,10 +175,11 @@ public class Customers extends javax.swing.JFrame {
 
     private void DELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEActionPerformed
         // DELETE CUSTOMER
-        int answer = JOptionPane.showConfirmDialog(null, "You are deleting the data, do you want to continue?", "WARNING" ,JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
-        if (JOptionPane.OK_OPTION == answer){
-           
-        }else{}
+        int answer = JOptionPane.showConfirmDialog(null, "You are deleting the data, do you want to continue?", "WARNING", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+        if (JOptionPane.OK_OPTION == answer) {
+
+        } else {
+        }
     }//GEN-LAST:event_DELETEActionPerformed
 
     private void MENUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MENUActionPerformed
@@ -189,17 +189,17 @@ public class Customers extends javax.swing.JFrame {
 
     private void EDITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EDITActionPerformed
         // EDIT CUSTOMER
-        
+
         String vId, vName, vSurname, vAddress, vCity, vCP, vPhone, vEmail;
-       // vId = jTable1.getColumnModel().getColumn(0).setCellRenderer(t);
+        // vId = jTable1.getColumnModel().getColumn(0).setCellRenderer(t);
         // vName = jTable1.getColumnModel().getColumn(1).setCellRenderer(t);
         //vSurname = jTable1.getColumnModel().getColumn(2).setCellRenderer(t);
-       // vAddress = jTable1.getColumnModel().getColumn(3).setCellRenderer(t);
-       // vCity = jTable1.getColumnModel().getColumn(4).setCellRenderer(t);
-       // vCP = jTable1.getColumnModel().getColumn(5).setCellRenderer(t);
-       // vPhone = jTable1.getColumnModel().getColumn(6).setCellRenderer(t);
-      //  vEmail = jTable1.getColumnModel().getColumn(7).setCellRenderer(t);
-        
+        // vAddress = jTable1.getColumnModel().getColumn(3).setCellRenderer(t);
+        // vCity = jTable1.getColumnModel().getColumn(4).setCellRenderer(t);
+        // vCP = jTable1.getColumnModel().getColumn(5).setCellRenderer(t);
+        // vPhone = jTable1.getColumnModel().getColumn(6).setCellRenderer(t);
+        //  vEmail = jTable1.getColumnModel().getColumn(7).setCellRenderer(t);
+
     }//GEN-LAST:event_EDITActionPerformed
 
     /**

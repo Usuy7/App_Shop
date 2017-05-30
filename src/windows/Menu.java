@@ -248,7 +248,12 @@ public class Menu extends javax.swing.JFrame {
 
     private void PRODUCTSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PRODUCTSActionPerformed
         // PRODUCTS
-        Products products = new Products();
+        Products products = null;
+        try {
+            products = new Products();
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
         products.setVisible(true);
     }//GEN-LAST:event_PRODUCTSActionPerformed
 
@@ -283,7 +288,12 @@ public class Menu extends javax.swing.JFrame {
 
     private void ORDERSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORDERSActionPerformed
         // ORDERS
-        Orders order = new Orders();
+        Orders order = null;
+        try {
+            order = new Orders();
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
         order.setVisible(true);
     }//GEN-LAST:event_ORDERSActionPerformed
 

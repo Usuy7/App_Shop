@@ -16,15 +16,14 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumnModel;
 
 /**
  *
  * @author Javier
  */
 public class Orders extends javax.swing.JFrame {
-    
-     // LLAMAR A LA CLASE ConectDB
+
+    // LLAMAR A LA CLASE ConectDB
     ConectDB con = new ConectDB();
 
     /**
@@ -33,28 +32,28 @@ public class Orders extends javax.swing.JFrame {
     public Orders() throws SQLException {
         initComponents();
         this.setLocationRelativeTo(null);
-        setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
-        
+        setIconImage(new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
+
         con.AbrirConexion();  //ABRIR LA CONEXIÓN
-        
+
         // ALIGN DATA TABLE LEFT
-        DefaultTableModel columnModel =  (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel columnModel = (DefaultTableModel) jTable1.getModel();
         DefaultTableCellRenderer t = new DefaultTableCellRenderer();
         t.setHorizontalAlignment(SwingConstants.LEFT);
         jTable1.getColumnModel().getColumn(0).setCellRenderer(t);
         jTable1.getColumnModel().getColumn(1).setCellRenderer(t);
         jTable1.getColumnModel().getColumn(2).setCellRenderer(t);
-        
+
         Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         String query = "SELECT * FROM Orders";
         ResultSet rs = s.executeQuery(query);
-        
-         Object datosTabla [] = new Object [8];
+
+        Object datosTabla[] = new Object[6];
 
         while (rs.next()) {
             datosTabla[0] = rs.getInt("IdOrder");
-            datosTabla[1] = rs.getString("Worker");
-            datosTabla[2] = rs.getString("Product");
+            datosTabla[1] = rs.getInt("Worker");
+            datosTabla[2] = rs.getInt("Product");
             datosTabla[3] = rs.getString("Buyer");
             datosTabla[4] = rs.getString("Fecha");
             datosTabla[5] = rs.getString("Phone");
@@ -168,11 +167,12 @@ public class Orders extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void DELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEActionPerformed
-         // DELETE ORDER
-        int answer = JOptionPane.showConfirmDialog(null, "You are deleting the data, do you want to continue?", "WARNING" ,JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
-        if (JOptionPane.OK_OPTION == answer){
-           
-        }else{}
+        // DELETE ORDER
+        int answer = JOptionPane.showConfirmDialog(null, "You are deleting the data, do you want to continue?", "WARNING", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+        if (JOptionPane.OK_OPTION == answer) {
+
+        } else {
+        }
     }//GEN-LAST:event_DELETEActionPerformed
 
     private void NEWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NEWActionPerformed
@@ -186,7 +186,7 @@ public class Orders extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_MENUActionPerformed
 
-     /**
+    /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
