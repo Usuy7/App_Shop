@@ -53,7 +53,7 @@ public class Orders extends javax.swing.JFrame {
         while (rs.next()) {
             datosTabla[0] = rs.getInt("IdOrder");
             datosTabla[1] = rs.getInt("Worker");
-            datosTabla[2] = rs.getInt("Product");
+            datosTabla[2] = rs.getString("Product");
             datosTabla[3] = rs.getString("Buyer");
             datosTabla[4] = rs.getString("Fecha");
             datosTabla[5] = rs.getString("Phone");
@@ -121,6 +121,11 @@ public class Orders extends javax.swing.JFrame {
         EDIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         EDIT.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_edit-B.png"))); // NOI18N
         EDIT.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_edit.png"))); // NOI18N
+        EDIT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EDITActionPerformed(evt);
+            }
+        });
         getContentPane().add(EDIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 80, 60, 60));
 
         DELETE.setBackground(new java.awt.Color(25, 25, 25));
@@ -147,7 +152,7 @@ public class Orders extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -190,6 +195,16 @@ public class Orders extends javax.swing.JFrame {
         // COME BACK TO MENU
         this.setVisible(false);
     }//GEN-LAST:event_MENUActionPerformed
+
+    private void EDITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EDITActionPerformed
+        // EDIT ORDER
+        int answer = JOptionPane.showConfirmDialog(null, "You are editing the data, do you want to continue?", "WARNING", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if (JOptionPane.OK_OPTION == answer) {
+
+        } else {
+        }
+        
+    }//GEN-LAST:event_EDITActionPerformed
 
     /**
      * @param args the command line arguments

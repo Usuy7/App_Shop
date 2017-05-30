@@ -120,6 +120,9 @@
           <Image iconType="3" name="/img/icono_edit.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EDITActionPerformed"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="690" y="80" width="60" height="60"/>
@@ -180,7 +183,7 @@
               <Table columnCount="6" rowCount="0">
                 <Column editable="true" title="ID" type="java.lang.Integer"/>
                 <Column editable="true" title="Worker" type="java.lang.Integer"/>
-                <Column editable="true" title="Product" type="java.lang.Integer"/>
+                <Column editable="true" title="Product" type="java.lang.String"/>
                 <Column editable="true" title="Buyer" type="java.lang.String"/>
                 <Column editable="true" title="Date" type="java.lang.String"/>
                 <Column editable="true" title="Phone" type="java.lang.String"/>
