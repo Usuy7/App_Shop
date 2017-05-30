@@ -29,6 +29,7 @@ public class Customers extends javax.swing.JFrame {
     
     /**
      * Creates new form Customers
+     * @throws java.sql.SQLException
      */
     public Customers() throws SQLException{
         
