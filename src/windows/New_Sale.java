@@ -304,7 +304,7 @@ public class New_Sale extends javax.swing.JFrame {
 
             ResultSet r2;
             Statement s2 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            String queryNombre = "SELECT Name FROM Customer WHERE IdCustomer =" + codigo;
+            String queryNombre = "SELECT Name FROM Customers WHERE IdCustomer =" + codigo;
             r2 = s2.executeQuery(queryNombre);
             r2.first();
             nombre = r2.getString("Name");
@@ -328,12 +328,12 @@ public class New_Sale extends javax.swing.JFrame {
         int codigo = 0;
 
         try {
-            ResultSet r3;
-            Statement s3 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            String queryNombre = "SELECT IdCustomer FROM Customer WHERE Name='" + nombre + "'";
-            r3 = s3.executeQuery(queryNombre);
-            r3.first();
-            codigo = r3.getInt("IdCustomer");
+            ResultSet r2;
+            Statement s2 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT IdCustomer FROM Customers WHERE Name='" + nombre + "'";
+            r2 = s2.executeQuery(queryNombre);
+            r2.first();
+            codigo = r2.getInt("IdCustomer");
         } catch (SQLException ex) {
             Logger.getLogger(Sales.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -356,12 +356,12 @@ public class New_Sale extends javax.swing.JFrame {
 
         try {
 
-            ResultSet r;
-            Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            String queryNombre = "SELECT Name FROM Payments WHERE IdPayment =" + codigo;
-            r = s.executeQuery(queryNombre);
-            r.first();
-            nombre = r.getString("Name");
+            ResultSet r3;
+            Statement s3 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT Name FROM PaymentMethods WHERE IdPayment =" + codigo;
+            r3 = s3.executeQuery(queryNombre);
+            r3.first();
+            nombre = r3.getString("Name");
 
         } catch (SQLException ex) {
             Logger.getLogger(Sales.class.getName()).log(Level.SEVERE, null, ex);
@@ -382,12 +382,12 @@ public class New_Sale extends javax.swing.JFrame {
         int codigo = 0;
 
         try {
-            ResultSet r;
-            Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            String queryNombre = "SELECT IdPayment FROM Payments WHERE Name='" + nombre + "'";
-            r = s.executeQuery(queryNombre);
-            r.first();
-            codigo = r.getInt("IdPayment");
+            ResultSet r3;
+            Statement s3 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT IdPayment FROM PaymentMethods WHERE Name='" + nombre + "'";
+            r3 = s3.executeQuery(queryNombre);
+            r3.first();
+            codigo = r3.getInt("IdPayment");
         } catch (SQLException ex) {
             Logger.getLogger(Sales.class.getName()).log(Level.SEVERE, null, ex);
         }
