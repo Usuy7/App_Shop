@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
 /**
@@ -26,7 +27,7 @@ public class Sales extends javax.swing.JFrame {
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
         
         // ALIGN DATA TABLE LEFT
-        TableColumnModel columnModel = jTable1.getColumnModel();
+        DefaultTableModel columnModel = (DefaultTableModel) jTable1.getModel();
         DefaultTableCellRenderer t = new DefaultTableCellRenderer();
         t.setHorizontalAlignment(SwingConstants.LEFT);
         jTable1.getColumnModel().getColumn(0).setCellRenderer(t);
@@ -46,8 +47,6 @@ public class Sales extends javax.swing.JFrame {
 
         MENU = new javax.swing.JButton();
         Title = new javax.swing.JLabel();
-        SEARCH = new javax.swing.JButton();
-        txt_search = new javax.swing.JTextField();
         NEW = new javax.swing.JButton();
         EDIT = new javax.swing.JButton();
         DELETE = new javax.swing.JButton();
@@ -76,20 +75,6 @@ public class Sales extends javax.swing.JFrame {
         Title.setForeground(new java.awt.Color(52, 73, 94));
         Title.setText("SALES");
         getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 90, 60));
-
-        SEARCH.setBackground(new java.awt.Color(25, 25, 25));
-        SEARCH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search-A.png"))); // NOI18N
-        SEARCH.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        SEARCH.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search-B.png"))); // NOI18N
-        SEARCH.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search.png"))); // NOI18N
-        getContentPane().add(SEARCH, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 50, 50));
-
-        txt_search.setBackground(new java.awt.Color(51, 51, 51));
-        txt_search.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txt_search.setForeground(new java.awt.Color(219, 219, 219));
-        txt_search.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_search.setBorder(null);
-        getContentPane().add(txt_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 160, 40));
 
         NEW.setBackground(new java.awt.Color(25, 25, 25));
         NEW.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_añadir-A.png"))); // NOI18N
@@ -232,10 +217,8 @@ public class Sales extends javax.swing.JFrame {
     private javax.swing.JButton EDIT;
     private javax.swing.JButton MENU;
     private javax.swing.JButton NEW;
-    private javax.swing.JButton SEARCH;
     private javax.swing.JScrollPane Table;
     private javax.swing.JLabel Title;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txt_search;
     // End of variables declaration//GEN-END:variables
 }

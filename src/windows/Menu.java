@@ -282,7 +282,12 @@ public class Menu extends javax.swing.JFrame {
 
     private void PROVIDERSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PROVIDERSActionPerformed
         // PROVIDER
-        Providers provider = new Providers();
+        Providers provider = null;
+        try {
+            provider = new Providers();
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
         provider.setVisible(true);
     }//GEN-LAST:event_PROVIDERSActionPerformed
 

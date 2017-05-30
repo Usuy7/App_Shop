@@ -5,10 +5,17 @@
  */
 package windows;
 
+import DAO.ConectDB;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
 /**
@@ -16,20 +23,41 @@ import javax.swing.table.TableColumnModel;
  * @author Javier
  */
 public class Providers extends javax.swing.JFrame {
+    
+    // LLAMAR A LA CLASE ConectDB
+    ConectDB con = new ConectDB();
 
     /**
      * Creates new form Provider
      */
-    public Providers() {
+    public Providers() throws SQLException {
         initComponents();
         this.setLocationRelativeTo(null);
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
         
+        con.AbrirConexion();  //ABRIR LA CONEXIÓN
+        
         // ALIGN DATA TABLE LEFT
-        TableColumnModel columnModel = jTable1.getColumnModel();
+        DefaultTableModel columnModel = (DefaultTableModel) jTable1.getModel();
         DefaultTableCellRenderer t = new DefaultTableCellRenderer();
         t.setHorizontalAlignment(SwingConstants.LEFT);
         jTable1.getColumnModel().getColumn(0).setCellRenderer(t);
+        
+        Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        String query = "SELECT * FROM Providers";
+        ResultSet rs = s.executeQuery(query);
+
+        Object datosTabla[] = new Object[6];
+
+        while (rs.next()) {
+            datosTabla[0] = rs.getInt("IdProvider");
+            datosTabla[1] = rs.getString("Name");
+            datosTabla[2] = rs.getString("Contact");
+            datosTabla[3] = rs.getString("CCharge");
+            datosTabla[4] = rs.getString("Country");
+            datosTabla[5] = rs.getString("Phone");
+            columnModel.addRow(datosTabla);
+        }
     }
 
     /**
@@ -43,8 +71,6 @@ public class Providers extends javax.swing.JFrame {
 
         MENU = new javax.swing.JButton();
         Title = new javax.swing.JLabel();
-        SEARCH = new javax.swing.JButton();
-        txt_search = new javax.swing.JTextField();
         NEW = new javax.swing.JButton();
         EDIT = new javax.swing.JButton();
         DELETE = new javax.swing.JButton();
@@ -74,26 +100,6 @@ public class Providers extends javax.swing.JFrame {
         Title.setText("PROVIDERS");
         getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, 38));
 
-        SEARCH.setBackground(new java.awt.Color(25, 25, 25));
-        SEARCH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search-A.png"))); // NOI18N
-        SEARCH.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        SEARCH.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search-B.png"))); // NOI18N
-        SEARCH.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_search.png"))); // NOI18N
-        SEARCH.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SEARCHActionPerformed(evt);
-            }
-        });
-        getContentPane().add(SEARCH, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 50, 50));
-
-        txt_search.setBackground(new java.awt.Color(51, 51, 51));
-        txt_search.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txt_search.setForeground(new java.awt.Color(219, 219, 219));
-        txt_search.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_search.setBorder(null);
-        txt_search.setSelectionColor(new java.awt.Color(92, 139, 227));
-        getContentPane().add(txt_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 160, 40));
-
         NEW.setBackground(new java.awt.Color(25, 25, 25));
         NEW.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_añadir-A.png"))); // NOI18N
         NEW.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -104,7 +110,7 @@ public class Providers extends javax.swing.JFrame {
                 NEWActionPerformed(evt);
             }
         });
-        getContentPane().add(NEW, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 60, 60));
+        getContentPane().add(NEW, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 80, 60, 60));
 
         EDIT.setBackground(new java.awt.Color(25, 25, 25));
         EDIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_edit-A.png"))); // NOI18N
@@ -116,7 +122,7 @@ public class Providers extends javax.swing.JFrame {
                 EDITActionPerformed(evt);
             }
         });
-        getContentPane().add(EDIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 80, 60, 60));
+        getContentPane().add(EDIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 80, 60, 60));
 
         DELETE.setBackground(new java.awt.Color(25, 25, 25));
         DELETE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_borrar-A.png"))); // NOI18N
@@ -128,33 +134,14 @@ public class Providers extends javax.swing.JFrame {
                 DELETEActionPerformed(evt);
             }
         });
-        getContentPane().add(DELETE, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 80, 60, 60));
+        getContentPane().add(DELETE, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 80, 60, 60));
 
         jTable1.setBackground(new java.awt.Color(51, 51, 51));
         jTable1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jTable1.setForeground(new java.awt.Color(219, 219, 219));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "Name", "Contact", "CCharge", "Country", "Phone"
@@ -172,17 +159,13 @@ public class Providers extends javax.swing.JFrame {
         jTable1.setRowMargin(2);
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 820, 430));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 920, 430));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_windows.jpg"))); // NOI18N
-        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 600));
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void SEARCHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SEARCHActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SEARCHActionPerformed
 
     private void EDITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EDITActionPerformed
         // TODO add your handling code here:
@@ -244,7 +227,11 @@ public class Providers extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Providers().setVisible(true);
+                try {
+                    new Providers().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Providers.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -255,10 +242,8 @@ public class Providers extends javax.swing.JFrame {
     private javax.swing.JButton EDIT;
     private javax.swing.JButton MENU;
     private javax.swing.JButton NEW;
-    private javax.swing.JButton SEARCH;
     private javax.swing.JLabel Title;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txt_search;
     // End of variables declaration//GEN-END:variables
 }
