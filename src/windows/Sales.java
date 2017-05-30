@@ -139,7 +139,7 @@ public class Sales extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Worker", "Payment", "Customer", "Date"
+                "ID", "Worker", "Customer", "Payment", "Date"
             }
         ) {
             Class[] types = new Class [] {
@@ -172,7 +172,12 @@ public class Sales extends javax.swing.JFrame {
 
     private void NEWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NEWActionPerformed
         // NEW SALE
-        New_Sale nuevo = new New_Sale();
+        New_Sale nuevo = null;
+        try {
+            nuevo = new New_Sale();
+        } catch (SQLException ex) {
+            Logger.getLogger(Sales.class.getName()).log(Level.SEVERE, null, ex);
+        }
         nuevo.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_NEWActionPerformed

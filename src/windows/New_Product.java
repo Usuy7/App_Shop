@@ -64,7 +64,7 @@ public class New_Product extends javax.swing.JFrame {
             value2.addElement(r2.getString("Name"));
         }
         
-        ComboBox_provider.setModel(value2);
+        ComboBox_category.setModel(value2);
         
         /**
          * Llamada al método combobox trademark 3
@@ -80,7 +80,7 @@ public class New_Product extends javax.swing.JFrame {
             value3.addElement(r3.getString("Name"));
         }
         
-        ComboBox_provider.setModel(value3);
+        ComboBox_trademark.setModel(value3);
         
         /**
          * Llamada al método combobox sizes 4
@@ -96,7 +96,7 @@ public class New_Product extends javax.swing.JFrame {
             value4.addElement(r4.getString("Name"));
         }
         
-        ComboBox_provider.setModel(value4);
+        ComboBox_size.setModel(value4);
         
         /**
          * Llamada al método combobox colors 5
@@ -112,7 +112,7 @@ public class New_Product extends javax.swing.JFrame {
             value5.addElement(r5.getString("Name"));
         }
         
-        ComboBox_provider.setModel(value5);
+        ComboBox_color.setModel(value5);
         
         /**
          * Llamada al método combobox material 6
@@ -128,7 +128,7 @@ public class New_Product extends javax.swing.JFrame {
             value6.addElement(r6.getString("Name"));
         }
         
-        ComboBox_provider.setModel(value6);
+        ComboBox_material.setModel(value6);
         
     }
 

@@ -5,6 +5,13 @@
  */
 package windows;
 
+import DAO.ConectDB;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -13,14 +20,67 @@ import javax.swing.JOptionPane;
  * @author Javier
  */
 public class New_Sale extends javax.swing.JFrame {
+    
+    // LLAMAR A LA CLASE ConectDB
+    static ConectDB con = new ConectDB();
 
     /**
      * Creates new form New_Sale
      */
-    public New_Sale() {
+    public New_Sale() throws SQLException {
         initComponents();
         this.setLocationRelativeTo(null);
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
+        
+        con.AbrirConexion();  //ABRIR LA CONEXIÓN
+        
+        /**
+         * Llamada al método combobox workers
+         */
+        
+        String query = "SELECT * FROM Workers";
+        ResultSet r;
+        Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        r = s.executeQuery(query);
+        
+        DefaultComboBoxModel value = new DefaultComboBoxModel();
+        while (r.next()) {
+            value.addElement(r.getString("Name"));
+        }
+        
+        ComboBox_worker.setModel(value);
+        
+        /**
+         * Llamada al método combobox customer
+         */
+        
+        String query2 = "SELECT * FROM Customers";
+        ResultSet r2;
+        Statement s2 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        r2 = s2.executeQuery(query2);
+        
+        DefaultComboBoxModel value2 = new DefaultComboBoxModel();
+        while (r2.next()) {
+            value2.addElement(r2.getString("Name"));
+        }
+        
+        ComboBox_customer.setModel(value2);
+        
+        /**
+         * Llamada al método combobox payment
+         */
+        
+        String query3 = "SELECT * FROM PaymentMethods";
+        ResultSet r3;
+        Statement s3 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        r3 = s3.executeQuery(query3);
+        
+        DefaultComboBoxModel value3 = new DefaultComboBoxModel();
+        while (r3.next()) {
+            value3.addElement(r3.getString("Name"));
+        }
+        
+        ComboBox_payment.setModel(value3);
     }
 
     /**
@@ -35,8 +95,8 @@ public class New_Sale extends javax.swing.JFrame {
         Title = new javax.swing.JLabel();
         WORKER = new javax.swing.JLabel();
         ComboBox_worker = new javax.swing.JComboBox<>();
-        BUYER = new javax.swing.JLabel();
-        ComboBox_buyer = new javax.swing.JComboBox<>();
+        CUSTOMER = new javax.swing.JLabel();
+        ComboBox_customer = new javax.swing.JComboBox<>();
         PAYMENT = new javax.swing.JLabel();
         ComboBox_payment = new javax.swing.JComboBox<>();
         DATE = new javax.swing.JLabel();
@@ -63,15 +123,15 @@ public class New_Sale extends javax.swing.JFrame {
         ComboBox_worker.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(ComboBox_worker, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 100, 30));
 
-        BUYER.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        BUYER.setForeground(new java.awt.Color(255, 255, 255));
-        BUYER.setText("Buyer");
-        getContentPane().add(BUYER, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 70, 30));
+        CUSTOMER.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        CUSTOMER.setForeground(new java.awt.Color(255, 255, 255));
+        CUSTOMER.setText("Customer");
+        getContentPane().add(CUSTOMER, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 70, 30));
 
-        ComboBox_buyer.setBackground(new java.awt.Color(51, 51, 51));
-        ComboBox_buyer.setForeground(new java.awt.Color(255, 255, 255));
-        ComboBox_buyer.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(ComboBox_buyer, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 100, 30));
+        ComboBox_customer.setBackground(new java.awt.Color(51, 51, 51));
+        ComboBox_customer.setForeground(new java.awt.Color(255, 255, 255));
+        ComboBox_customer.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(ComboBox_customer, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 100, 30));
 
         PAYMENT.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         PAYMENT.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,14 +184,217 @@ public class New_Sale extends javax.swing.JFrame {
 
     private void CANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CANCELActionPerformed
        // CANCEL
+        Sales sale = null;
+        try {
+            sale = new Sales();
+        } catch (SQLException ex) {
+            Logger.getLogger(New_Customer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        sale.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_CANCELActionPerformed
 
     private void SAVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SAVEActionPerformed
        // SAVE
+       
+       String Work, Custm, Pay, Date;
+       
+        Work = (String) ComboBox_worker.getSelectedItem();
+        int Worker = getCodWorker(Work);
+        Custm = (String) ComboBox_customer.getSelectedItem();
+        int Customer = getCodCustomer(Custm);
+        Pay = (String) ComboBox_payment.getSelectedItem();
+        int Payment = getCodPayment(Pay);
+        Date = txt_date.getText();
+       
+       try {
+
+            Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+            ResultSet.CONCUR_UPDATABLE);
+            String query = "INSERT INTO Sales (Worker, Customer, Payment, Fecha) VALUES ('" + Worker + "','" + Customer + "','" + Payment + "','" + Date + "')";
+            int resultado = s.executeUpdate(query);
+
+            query = "SELECT * FROM Sales";
+            ResultSet r = s.executeQuery(query);
+            r.first();
+            ComboBox_worker.setSelectedItem(getNombreWorker(r.getInt("Worker")));
+            ComboBox_customer.setSelectedItem(getNombreCustomer(r.getInt("Customer")));
+            ComboBox_payment.setSelectedItem(getNombrePayment(r.getInt("Payment")));
+            txt_date.setText(r.getString("Fecha"));
+            
+            Sales sale = new Sales();
+            sale.setVisible(true);
+            this.setVisible(false);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(New_Sale.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
        JOptionPane.showMessageDialog(null,"Data saved successfully", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_SAVEActionPerformed
 
+    /**
+     * Metodo que coje el código del worker y devuelve su nombre.
+     *
+     * @param codigo - variable que contiene el código del worker.
+     * @return nombre - variable que contiene el nombre del worker.
+     */
+    
+    public static String getNombreWorker(int codigo) {
+
+        String nombre;
+
+        nombre = "";
+
+        try {
+
+            ResultSet r;
+            Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT Name FROM Workers WHERE IdWorker =" + codigo;
+            r = s.executeQuery(queryNombre);
+            r.first();
+            nombre = r.getString("Name");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Sales.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return nombre;
+    }
+    
+    /**
+     * Método que coje el nombre del worker y devuelve su código.
+     *
+     * @param nombre - variable que contiene el nombre del worker.
+     * @return codigo - variable que contiene el código del worker.
+     *
+     */
+    public static int getCodWorker(String nombre) {
+
+        int codigo = 0;
+
+        try {
+            ResultSet r;
+            Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT IdWorker FROM Workers WHERE Name='" + nombre + "'";
+            r = s.executeQuery(queryNombre);
+            r.first();
+            codigo = r.getInt("IdWorker");
+        } catch (SQLException ex) {
+            Logger.getLogger(Sales.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return codigo;
+    }
+    
+     /**
+     * Metodo que coje el código del customer y devuelve su nombre.
+     *
+     * @param codigo - variable que contiene el código del customer.
+     * @return nombre - variable que contiene el nombre del customer.
+     */
+    
+    public static String getNombreCustomer(int codigo) {
+
+        String nombre;
+
+        nombre = "";
+
+        try {
+
+            ResultSet r2;
+            Statement s2 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT Name FROM Customer WHERE IdCustomer =" + codigo;
+            r2 = s2.executeQuery(queryNombre);
+            r2.first();
+            nombre = r2.getString("Name");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Sales.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return nombre;
+    }
+    
+    /**
+     * Método que coje el nombre del customer y devuelve su código.
+     *
+     * @param nombre - variable que contiene el nombre del customer.
+     * @return codigo - variable que contiene el código del customer.
+     *
+     */
+    public static int getCodCustomer(String nombre) {
+
+        int codigo = 0;
+
+        try {
+            ResultSet r3;
+            Statement s3 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT IdCustomer FROM Customer WHERE Name='" + nombre + "'";
+            r3 = s3.executeQuery(queryNombre);
+            r3.first();
+            codigo = r3.getInt("IdCustomer");
+        } catch (SQLException ex) {
+            Logger.getLogger(Sales.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return codigo;
+    }
+    
+     /**
+     * Metodo que coje el código del Payment y devuelve su nombre.
+     *
+     * @param codigo - variable que contiene el código del Payment.
+     * @return nombre - variable que contiene el nombre del Payment.
+     */
+    
+    public static String getNombrePayment(int codigo) {
+
+        String nombre;
+
+        nombre = "";
+
+        try {
+
+            ResultSet r;
+            Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT Name FROM Payments WHERE IdPayment =" + codigo;
+            r = s.executeQuery(queryNombre);
+            r.first();
+            nombre = r.getString("Name");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Sales.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return nombre;
+    }
+    
+    /**
+     * Método que coje el nombre del Payment y devuelve su código.
+     *
+     * @param nombre - variable que contiene el nombre del Payment.
+     * @return codigo - variable que contiene el código del Payment.
+     *
+     */
+    public static int getCodPayment(String nombre) {
+
+        int codigo = 0;
+
+        try {
+            ResultSet r;
+            Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT IdPayment FROM Payments WHERE Name='" + nombre + "'";
+            r = s.executeQuery(queryNombre);
+            r.first();
+            codigo = r.getInt("IdPayment");
+        } catch (SQLException ex) {
+            Logger.getLogger(Sales.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return codigo;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -162,16 +425,20 @@ public class New_Sale extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new New_Sale().setVisible(true);
+                try {
+                    new New_Sale().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(New_Sale.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel BUYER;
     private javax.swing.JLabel Background;
     private javax.swing.JButton CANCEL;
-    private javax.swing.JComboBox<String> ComboBox_buyer;
+    private javax.swing.JLabel CUSTOMER;
+    private javax.swing.JComboBox<String> ComboBox_customer;
     private javax.swing.JComboBox<String> ComboBox_payment;
     private javax.swing.JComboBox<String> ComboBox_worker;
     private javax.swing.JLabel DATE;
