@@ -169,7 +169,12 @@ public class Customers extends javax.swing.JFrame {
 
     private void NEWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NEWActionPerformed
         // NEW CUSTOMER
-        New_Customer nuevo = new New_Customer();
+        New_Customer nuevo = null;
+        try {
+            nuevo = new New_Customer();
+        } catch (SQLException ex) {
+            Logger.getLogger(Customers.class.getName()).log(Level.SEVERE, null, ex);
+        }
         nuevo.setVisible(true);
     }//GEN-LAST:event_NEWActionPerformed
 

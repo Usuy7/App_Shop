@@ -5,6 +5,12 @@
  */
 package windows;
 
+import DAO.ConectDB;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -14,13 +20,18 @@ import javax.swing.JOptionPane;
  */
 public class New_Customer extends javax.swing.JFrame {
 
+    // LLAMAR A LA CLASE ConectDB
+    ConectDB con = new ConectDB();
+
     /**
      * Creates new form New_Customer
      */
-    public New_Customer() {
+    public New_Customer() throws SQLException {
         initComponents();
         this.setLocationRelativeTo(null);
-        setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
+
+        con.AbrirConexion();  //ABRIR LA CONEXIÓN
     }
 
     /**
@@ -162,7 +173,39 @@ public class New_Customer extends javax.swing.JFrame {
 
     private void SAVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SAVEActionPerformed
         // SAVE
-        JOptionPane.showMessageDialog(null,"Data saved successfully", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+        
+        String Name, Surname, Address, City, CP, Phone, Email;
+
+        Name = txt_name.getText();
+        Surname = txt_surname.getText();
+        Address = txt_address.getText();
+        City = txt_city.getText();
+        CP = txt_cp.getText();
+        Phone = txt_phone.getText();
+        Email = txt_email.getText();
+
+        try {
+
+            Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String query = "INSERT INTO Customers (Name, Surname, Address, City, CP, Phone, Email) VALUES ('" + Name + "','" + Surname + "','" + Address + "','" + City + "','" + CP + "','" + Phone + "','" + Email + "')";
+            int resultado = s.executeUpdate(query);
+
+            query = "SELECT * FROM Customers";
+            ResultSet r = s.executeQuery(query);
+            r.first();
+            txt_name.setText(r.getString("Name"));
+            txt_surname.setText(r.getString("Surname"));
+            txt_address.setText(r.getString("Address"));
+            txt_city.setText(r.getString("City"));
+            txt_cp.setText(r.getString("CP"));
+            txt_phone.setText(r.getString("Phone"));
+            txt_email.setText(r.getString("Email"));
+
+        } catch (SQLException ex) {
+            Logger.getLogger(New_Customer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        JOptionPane.showMessageDialog(null, "Data saved successfully", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_SAVEActionPerformed
 
     /**
@@ -195,7 +238,11 @@ public class New_Customer extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new New_Customer().setVisible(true);
+                try {
+                    new New_Customer().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(New_Customer.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
