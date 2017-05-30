@@ -33,19 +33,24 @@ public class New_Order extends javax.swing.JFrame {
         setIconImage(new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
 
         con.AbrirConexion();  //ABRIR LA CONEXIÓN
-
-        String query2 = "select * from fabricantes";
+        
+        /**
+         * Llamada al método combobox
+         */
+       
+        
+        String query2 = "SELECT * FROM Workers";
         ResultSet r2;
-
         Statement s2 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         r2 = s2.executeQuery(query2);
+        
         DefaultComboBoxModel value1 = new DefaultComboBoxModel();
         while (r2.next()) {
-            value1.addElement(r2.getString("NOMBRE"));
+            value1.addElement(r2.getString("Name"));
         }
-
+        
         ComboBox_worker.setModel(value1);
-        ComboBox_worker.setSelectedItem(getNombreFabricante(r.getInt("FABRICANTE")));
+        
     }
 
     /**
@@ -167,7 +172,7 @@ public class New_Order extends javax.swing.JFrame {
         String Work, Product, Buyer, Fecha, Phone;
 
         Work = (String) ComboBox_worker.getSelectedItem();
-        int Worker = getCodWorker(work);
+        int Worker = getCodWorker(Work);
         Product = txt_product.getText();
         Buyer = txt_buyer.getText();
         Fecha = txt_date.getText();
@@ -233,7 +238,7 @@ public class New_Order extends javax.swing.JFrame {
      * @return codigo - variable que contiene el código del worker.
      *
      */
-    public static int getCodFabricante(String nombre) {
+    public static int getCodWorker(String nombre) {
 
         int codigo = 0;
 

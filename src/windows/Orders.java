@@ -177,7 +177,12 @@ public class Orders extends javax.swing.JFrame {
 
     private void NEWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NEWActionPerformed
         // NEW ORDER
-        New_Order nuevo = new New_Order();
+        New_Order nuevo = null;
+        try {
+            nuevo = new New_Order();
+        } catch (SQLException ex) {
+            Logger.getLogger(Orders.class.getName()).log(Level.SEVERE, null, ex);
+        }
         nuevo.setVisible(true);
     }//GEN-LAST:event_NEWActionPerformed
 
