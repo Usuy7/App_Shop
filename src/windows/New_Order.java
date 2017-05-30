@@ -5,6 +5,13 @@
  */
 package windows;
 
+import DAO.ConectDB;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -14,13 +21,31 @@ import javax.swing.JOptionPane;
  */
 public class New_Order extends javax.swing.JFrame {
 
+    // LLAMAR A LA CLASE ConectDB
+    static ConectDB con = new ConectDB();
+
     /**
      * Creates new form New_Order
      */
-    public New_Order() {
+    public New_Order() throws SQLException {
         initComponents();
         this.setLocationRelativeTo(null);
-        setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
+
+        con.AbrirConexion();  //ABRIR LA CONEXIÓN
+
+        String query2 = "select * from fabricantes";
+        ResultSet r2;
+
+        Statement s2 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        r2 = s2.executeQuery(query2);
+        DefaultComboBoxModel value1 = new DefaultComboBoxModel();
+        while (r2.next()) {
+            value1.addElement(r2.getString("NOMBRE"));
+        }
+
+        ComboBox_worker.setModel(value1);
+        ComboBox_worker.setSelectedItem(getNombreFabricante(r.getInt("FABRICANTE")));
     }
 
     /**
@@ -138,8 +163,94 @@ public class New_Order extends javax.swing.JFrame {
 
     private void SAVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SAVEActionPerformed
         // SAVE
-        JOptionPane.showMessageDialog(null,"Data saved successfully", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+
+        String Work, Product, Buyer, Fecha, Phone;
+
+        Work = (String) ComboBox_worker.getSelectedItem();
+        int Worker = getCodWorker(work);
+        Product = txt_product.getText();
+        Buyer = txt_buyer.getText();
+        Fecha = txt_date.getText();
+        Phone = txt_phone.getText();
+
+        try {
+
+            Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+            ResultSet.CONCUR_UPDATABLE);
+            String query = "INSERT INTO Orders (Worker, Product, Buyer, Fecha, Phone) VALUES (' + Worker + ','" + Product + "','" + Buyer + "','" + Fecha + "','" + Phone + "')";
+            int resultado = s.executeUpdate(query);
+
+            query = "SELECT * FROM Orders";
+            ResultSet r = s.executeQuery(query);
+            r.first();
+            ComboBox_worker.setSelectedItem(getNombreWorker(r.getInt("Worker")));
+            txt_product.setText(r.getString("Product"));
+            txt_buyer.setText(r.getString("Buyer"));
+            txt_date.setText(r.getString("Fecha"));
+            txt_phone.setText(r.getString("Phone"));
+
+        } catch (SQLException ex) {
+            Logger.getLogger(New_Customer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        JOptionPane.showMessageDialog(null, "Data saved successfully", "INFORMATION",
+                JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_SAVEActionPerformed
+
+    /**
+     * Metodo que coje el código del worker y devuelve su nombre.
+     *
+     * @param codigo - variable que contiene el código del worker.
+     * @return nombre - variable que contiene el nombre del worker.
+     */
+    
+    public static String getNombreWorker(int codigo) {
+
+        String nombre;
+
+        nombre = "";
+
+        try {
+
+            ResultSet r2;
+            Statement s2 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT Name FROM Workers WHERE IdWorker =" + codigo;
+            r2 = s2.executeQuery(queryNombre);
+            r2.first();
+            nombre = r2.getString("Name");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Orders.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return nombre;
+    }
+    
+    /**
+     * Método que coje el nombre del worker y devuelve su código.
+     *
+     * @param nombre - variable que contiene el nombre del worker.
+     * @return codigo - variable que contiene el código del worker.
+     *
+     */
+    public static int getCodFabricante(String nombre) {
+
+        int codigo = 0;
+
+        try {
+            ResultSet r2;
+            Statement s2 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT IdWorker FROM Workers WHERE Name='" + nombre + "'";
+            r2 = s2.executeQuery(queryNombre);
+            r2.first();
+            codigo = r2.getInt("IdWorker");
+        } catch (SQLException ex) {
+            Logger.getLogger(Workers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return codigo;
+    }
+
 
     /**
      * @param args the command line arguments
@@ -171,7 +282,11 @@ public class New_Order extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new New_Order().setVisible(true);
+                try {
+                    new New_Order().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(New_Order.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
