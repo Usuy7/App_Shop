@@ -6,7 +6,9 @@
 package windows;
 
 import DAO.ConectDB;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -41,7 +43,28 @@ public class Workers extends javax.swing.JFrame {
         jTable1.getColumnModel().getColumn(0).setCellRenderer(t);
         jTable1.getColumnModel().getColumn(3).setCellRenderer(t);
         jTable1.getColumnModel().getColumn(5).setCellRenderer(t);
-        jTable1.getColumnModel().getColumn(6).setCellRenderer(t); 
+        jTable1.getColumnModel().getColumn(6).setCellRenderer(t);
+        
+        Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        String query = "SELECT * FROM Workers";
+        ResultSet rs = s.executeQuery(query);
+
+        Object datosTabla[] = new Object[11];
+
+        while (rs.next()) {
+            datosTabla[0] = rs.getInt("IdWorker");
+            datosTabla[1] = rs.getString("Name");
+            datosTabla[2] = rs.getString("Surname");
+            datosTabla[3] = rs.getInt("Position");
+            datosTabla[4] = rs.getString("DContract");
+            datosTabla[5] = rs.getInt("Salary");
+            datosTabla[6] = rs.getInt("Workday");
+            datosTabla[7] = rs.getString("Birthdate");
+            datosTabla[8] = rs.getString("Phone");
+            datosTabla[9] = rs.getString("Login");
+            datosTabla[10] = rs.getString("Password");
+            columnModel.addRow(datosTabla);
+        }
     }
 
     /**

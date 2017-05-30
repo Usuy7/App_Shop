@@ -6,7 +6,9 @@
 package windows;
 
 import DAO.ConectDB;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -43,6 +45,21 @@ public class SalesLines extends javax.swing.JFrame {
         jTable1.getColumnModel().getColumn(2).setCellRenderer(t);
         jTable1.getColumnModel().getColumn(3).setCellRenderer(t);
         jTable1.getColumnModel().getColumn(4).setCellRenderer(t);
+        
+        Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        String query = "SELECT * FROM SalesLines";
+        ResultSet rs = s.executeQuery(query);
+
+        Object datosTabla[] = new Object[5];
+
+        while (rs.next()) {
+            datosTabla[0] = rs.getInt("IdSale");
+            datosTabla[1] = rs.getInt("IdLine");
+            datosTabla[2] = rs.getInt("Product");
+            datosTabla[3] = rs.getInt("Cantity");
+            datosTabla[4] = rs.getInt("Price");
+            columnModel.addRow(datosTabla);
+        }
     }
 
     /**
