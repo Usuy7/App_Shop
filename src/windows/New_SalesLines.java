@@ -71,7 +71,7 @@ public class New_SalesLines extends javax.swing.JFrame {
          * Llamada al método combobox para el Precio del Producto
          */
        
-        String query3 = "SELECT Price FROM Products Where IdProduct ='" + num + "'";
+        String query3 = "SELECT * FROM Products";
         ResultSet r3;
         Statement s3 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         r3 = s3.executeQuery(query3);
@@ -201,13 +201,13 @@ public class New_SalesLines extends javax.swing.JFrame {
         
         String IdS, Prod, Cantity, Pri;
         
-        IdS= (String) ComboBox_idSale.getSelectedItem();
-        int IdSale = getCodProduct(Prod);
+        IdS = (String) ComboBox_idSale.getSelectedItem();
+        int IdSale = getCodSale();
         Prod = (String) ComboBox_product.getSelectedItem();
         int Product = getCodProduct(Prod);
         Cantity = txt_cantity.getText();
         Pri = (String) ComboBox_price.getSelectedItem();
-        int Price = getCodProduct(Pri);
+        int Price = getCodPrice(num);
         
         
         try {
@@ -236,6 +236,30 @@ public class New_SalesLines extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,"Data saved successfully", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_SAVEActionPerformed
 
+    /**
+     * Método que coje el nombre de la venta y devuelve su código.
+     *
+     * @return codigo - variable que contiene el código de la venta.
+     *
+     */
+    public static int getCodSale() {
+
+        int codigo = 0;
+
+        try {
+            ResultSet r;
+            Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT IdSale FROM Sales";
+            r = s.executeQuery(queryNombre);
+            r.first();
+            codigo = r.getInt("IdSale");
+        } catch (SQLException ex) {
+            Logger.getLogger(SalesLines.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return codigo;
+    } 
+    
     /**
      * Metodo que coje el código del producto y devuelve su nombre.
      *
@@ -286,6 +310,30 @@ public class New_SalesLines extends javax.swing.JFrame {
             num = codigo;
         } catch (SQLException ex) {
             Logger.getLogger(SalesLines.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return codigo;
+    }
+    
+    /**
+     * Método que coje el nombre de la trademark y devuelve su código.
+     *
+     * @return codigo - variable que contiene el código del trademark.
+     *
+     */
+    public static int getCodPrice (int num) {
+
+        int codigo = 0;
+
+        try {
+            ResultSet r3;
+            Statement s3 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT Price FROM Products WHERE IdProduct ='" + num + "'";
+            r3 = s3.executeQuery(queryNombre);
+            r3.first();
+            codigo = r3.getInt("Price");
+        } catch (SQLException ex) {
+            Logger.getLogger(Workers.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return codigo;
