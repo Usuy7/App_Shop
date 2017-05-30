@@ -5,22 +5,131 @@
  */
 package windows;
 
+import DAO.ConectDB;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import static windows.New_Order.con;
 
 /**
  *
  * @author Javier
  */
 public class New_Product extends javax.swing.JFrame {
+    
+    // LLAMAR A LA CLASE ConectDB
+    static ConectDB con = new ConectDB();
 
     /**
      * Creates new form New_Product
      */
-    public New_Product() {
+    public New_Product() throws SQLException {
         initComponents();
         this.setLocationRelativeTo(null);
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
+        
+        con.AbrirConexion();  //ABRIR LA CONEXIÓN
+        
+        /**
+         * Llamada al método combobox provider
+         */
+       
+        String query = "SELECT * FROM Providers";
+        ResultSet r;
+        Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        r = s.executeQuery(query);
+        
+        DefaultComboBoxModel value = new DefaultComboBoxModel();
+        while (r.next()) {
+            value.addElement(r.getString("Name"));
+        }
+        
+        ComboBox_provider.setModel(value);
+        
+        /**
+         * Llamada al método combobox category 2
+         */
+        
+        String query2 = "SELECT * FROM Categories";
+        ResultSet r2;
+        Statement s2 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        r2 = s2.executeQuery(query2);
+        
+        DefaultComboBoxModel value2 = new DefaultComboBoxModel();
+        while (r2.next()) {
+            value2.addElement(r2.getString("Name"));
+        }
+        
+        ComboBox_provider.setModel(value2);
+        
+        /**
+         * Llamada al método combobox trademark 3
+         */
+        
+        String query3 = "SELECT * FROM Trademarks";
+        ResultSet r3;
+        Statement s3 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        r3 = s3.executeQuery(query3);
+        
+        DefaultComboBoxModel value3 = new DefaultComboBoxModel();
+        while (r3.next()) {
+            value3.addElement(r3.getString("Name"));
+        }
+        
+        ComboBox_provider.setModel(value3);
+        
+        /**
+         * Llamada al método combobox sizes 4
+         */
+        
+        String query4 = "SELECT * FROM Sizes";
+        ResultSet r4;
+        Statement s4 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        r4 = s4.executeQuery(query4);
+        
+        DefaultComboBoxModel value4 = new DefaultComboBoxModel();
+        while (r4.next()) {
+            value4.addElement(r4.getString("Name"));
+        }
+        
+        ComboBox_provider.setModel(value4);
+        
+        /**
+         * Llamada al método combobox colors 5
+         */
+        
+        String query5 = "SELECT * FROM Colors";
+        ResultSet r5;
+        Statement s5 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        r5 = s5.executeQuery(query5);
+        
+        DefaultComboBoxModel value5 = new DefaultComboBoxModel();
+        while (r5.next()) {
+            value5.addElement(r5.getString("Name"));
+        }
+        
+        ComboBox_provider.setModel(value5);
+        
+        /**
+         * Llamada al método combobox material 6
+         */
+        
+        String query6 = "SELECT * FROM Materials";
+        ResultSet r6;
+        Statement s6 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        r6 = s6.executeQuery(query6);
+        
+        DefaultComboBoxModel value6 = new DefaultComboBoxModel();
+        while (r6.next()) {
+            value6.addElement(r6.getString("Name"));
+        }
+        
+        ComboBox_provider.setModel(value6);
     }
 
     /**
@@ -41,12 +150,14 @@ public class New_Product extends javax.swing.JFrame {
         ComboBox_category = new javax.swing.JComboBox<>();
         Trademark = new javax.swing.JLabel();
         ComboBox_trademark = new javax.swing.JComboBox<>();
-        PRICE = new javax.swing.JLabel();
-        txt_price = new javax.swing.JTextField();
+        COLOR = new javax.swing.JLabel();
+        ComboBox_color = new javax.swing.JComboBox<>();
         SIZE = new javax.swing.JLabel();
         ComboBox_size = new javax.swing.JComboBox<>();
         MATERIAL = new javax.swing.JLabel();
         ComboBox_material = new javax.swing.JComboBox<>();
+        PRICE = new javax.swing.JLabel();
+        txt_price = new javax.swing.JTextField();
         SAVE = new javax.swing.JButton();
         CANCEL = new javax.swing.JButton();
         Background = new javax.swing.JLabel();
@@ -91,7 +202,7 @@ public class New_Product extends javax.swing.JFrame {
         Trademark.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         Trademark.setForeground(new java.awt.Color(255, 255, 255));
         Trademark.setText("Trademark");
-        getContentPane().add(Trademark, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 70, 30));
+        getContentPane().add(Trademark, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 70, 30));
 
         ComboBox_trademark.setBackground(new java.awt.Color(51, 51, 51));
         ComboBox_trademark.setForeground(new java.awt.Color(255, 255, 255));
@@ -101,21 +212,17 @@ public class New_Product extends javax.swing.JFrame {
                 ComboBox_trademarkActionPerformed(evt);
             }
         });
-        getContentPane().add(ComboBox_trademark, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 100, 30));
+        getContentPane().add(ComboBox_trademark, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 100, 30));
 
-        PRICE.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        PRICE.setForeground(new java.awt.Color(255, 255, 255));
-        PRICE.setText("Price");
-        getContentPane().add(PRICE, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 70, 30));
+        COLOR.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        COLOR.setForeground(new java.awt.Color(255, 255, 255));
+        COLOR.setText("Color");
+        getContentPane().add(COLOR, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 70, 30));
 
-        txt_price.setBackground(new java.awt.Color(51, 51, 51));
-        txt_price.setForeground(new java.awt.Color(255, 255, 255));
-        txt_price.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_priceActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txt_price, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 100, 30));
+        ComboBox_color.setBackground(new java.awt.Color(51, 51, 51));
+        ComboBox_color.setForeground(new java.awt.Color(255, 255, 255));
+        ComboBox_color.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(ComboBox_color, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 100, 30));
 
         SIZE.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         SIZE.setForeground(new java.awt.Color(255, 255, 255));
@@ -136,6 +243,20 @@ public class New_Product extends javax.swing.JFrame {
         ComboBox_material.setForeground(new java.awt.Color(255, 255, 255));
         ComboBox_material.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(ComboBox_material, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, 100, 30));
+
+        PRICE.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        PRICE.setForeground(new java.awt.Color(255, 255, 255));
+        PRICE.setText("Price");
+        getContentPane().add(PRICE, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 70, 30));
+
+        txt_price.setBackground(new java.awt.Color(51, 51, 51));
+        txt_price.setForeground(new java.awt.Color(255, 255, 255));
+        txt_price.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_priceActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txt_price, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 100, 30));
 
         SAVE.setBackground(new java.awt.Color(25, 25, 25));
         SAVE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar-A.png"))); // NOI18N
@@ -182,9 +303,379 @@ public class New_Product extends javax.swing.JFrame {
 
     private void SAVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SAVEActionPerformed
         // SAVE
+        
+        String Name, Prov, Cat, Mark, Si, Col, Mat, Price;
+        Name = txt_name.getText();
+        Prov = (String) ComboBox_provider.getSelectedItem();
+        int Provider = getCodProvider(Prov);
+        Cat = (String) ComboBox_category.getSelectedItem();
+        int Category = getCodCategory(Cat);
+        Mark = (String) ComboBox_trademark.getSelectedItem();
+        int Trademark = getCodTrademark(Mark);
+        Si = (String) ComboBox_size.getSelectedItem();
+        int Size = getCodSize(Si);
+        Col = (String) ComboBox_color.getSelectedItem();
+        int Color = getCodColor(Col);
+        Mat = (String) ComboBox_material.getSelectedItem();
+        int Material = getCodMaterial(Mat);
+        Price = txt_price.getText();
+        
+        
+        try {
+            
+            Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+            ResultSet.CONCUR_UPDATABLE);
+            String query = "INSERT INTO Products (Name, Provider, Category, Trademark, Size, Color, Material, Price) VALUES ('" + Name + "','" + Provider + "','" + Category + "','" + Trademark + "','" + Size + "','" + Color + "','" + Material + "','" + Price + "')";
+            int resultado = s.executeUpdate(query);
+            
+            query = "SELECT * FROM Orders";
+            ResultSet r = s.executeQuery(query);
+            r.first();
+            txt_name.setText(r.getString("Name"));
+            ComboBox_provider.setSelectedItem(getNombreProvider(r.getInt("Provider")));
+            ComboBox_category.setSelectedItem(getNombreCategory(r.getInt("Category")));
+            ComboBox_trademark.setSelectedItem(getNombreTrademark(r.getInt("Trademark")));
+            ComboBox_size.setSelectedItem(getNombreSize(r.getInt("Size")));
+            ComboBox_color.setSelectedItem(getNombreColor(r.getInt("Color")));
+            ComboBox_material.setSelectedItem(getNombreMaterial(r.getInt("Material")));
+            txt_price.setText(r.getString("Price"));
+            
+            Products product = new Products();
+            product.setVisible(true);
+            this.setVisible(false);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(New_Customer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         JOptionPane.showMessageDialog(null,"Data saved successfully", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_SAVEActionPerformed
 
+    /**
+     * Metodo que coje el código del provider y devuelve su nombre.
+     *
+     * @param codigo - variable que contiene el código del provider.
+     * @return nombre - variable que contiene el nombre del provider.
+     */
+    
+    public static String getNombreProvider(int codigo) {
+
+        String nombre;
+
+        nombre = "";
+
+        try {
+
+            ResultSet r;
+            Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT Name FROM Providers WHERE IdProvider =" + codigo;
+            r = s.executeQuery(queryNombre);
+            r.first();
+            nombre = r.getString("Name");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Orders.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return nombre;
+    }
+    
+    /**
+     * Método que coje el nombre del provider y devuelve su código.
+     *
+     * @param nombre - variable que contiene el nombre del provider.
+     * @return codigo - variable que contiene el código del provider.
+     *
+     */
+    public static int getCodProvider(String nombre) {
+
+        int codigo = 0;
+
+        try {
+            ResultSet r;
+            Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT IdProvider FROM Providers WHERE Name ='" + nombre + "'";
+            r = s.executeQuery(queryNombre);
+            r.first();
+            codigo = r.getInt("IdProvider");
+        } catch (SQLException ex) {
+            Logger.getLogger(Workers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return codigo;
+    }
+    
+    /**
+     * Metodo que coje el código de la categoria y devuelve su nombre.
+     *
+     * @param codigo - variable que contiene el código del categoria.
+     * @return nombre - variable que contiene el nombre del categoria.
+     */
+    
+    public static String getNombreCategory(int codigo) {
+
+        String nombre;
+
+        nombre = "";
+
+        try {
+
+            ResultSet r2;
+            Statement s2 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT Name FROM Categories WHERE IdCategory =" + codigo;
+            r2 = s2.executeQuery(queryNombre);
+            r2.first();
+            nombre = r2.getString("Name");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Orders.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return nombre;
+    }
+    
+    /**
+     * Método que coje el nombre de la categoria y devuelve su código.
+     *
+     * @param nombre - variable que contiene el nombre del categoria.
+     * @return codigo - variable que contiene el código del categoria.
+     *
+     */
+    public static int getCodCategory(String nombre) {
+
+        int codigo = 0;
+
+        try {
+            ResultSet r2;
+            Statement s2 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT IdCategory FROM Categories WHERE Name ='" + nombre + "'";
+            r2 = s2.executeQuery(queryNombre);
+            r2.first();
+            codigo = r2.getInt("IdCategory");
+        } catch (SQLException ex) {
+            Logger.getLogger(Workers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return codigo;
+    }
+    
+    /**
+     * Metodo que coje el código de la trademark y devuelve su nombre.
+     *
+     * @param codigo - variable que contiene el código del trademark.
+     * @return nombre - variable que contiene el nombre del trademark.
+     */
+    
+    public static String getNombreTrademark(int codigo) {
+
+        String nombre;
+
+        nombre = "";
+
+        try {
+
+            ResultSet r3;
+            Statement s3 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT Name FROM Trademarks WHERE IdTrademark =" + codigo;
+            r3 = s3.executeQuery(queryNombre);
+            r3.first();
+            nombre = r3.getString("Name");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Orders.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return nombre;
+    }
+    
+    /**
+     * Método que coje el nombre de la trademark y devuelve su código.
+     *
+     * @param nombre - variable que contiene el nombre del trademark.
+     * @return codigo - variable que contiene el código del trademark.
+     *
+     */
+    public static int getCodTrademark(String nombre) {
+
+        int codigo = 0;
+
+        try {
+            ResultSet r3;
+            Statement s3 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT IdTrademark FROM Trademarks WHERE Name ='" + nombre + "'";
+            r3 = s3.executeQuery(queryNombre);
+            r3.first();
+            codigo = r3.getInt("IdTrademark");
+        } catch (SQLException ex) {
+            Logger.getLogger(Workers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return codigo;
+    }
+    
+    /**
+     * Metodo que coje el código del tamaño y devuelve su nombre.
+     *
+     * @param codigo - variable que contiene el código del tamaño.
+     * @return nombre - variable que contiene el nombre del tamaño.
+     */
+    
+    public static String getNombreSize(int codigo) {
+
+        String nombre;
+
+        nombre = "";
+
+        try {
+
+            ResultSet r4;
+            Statement s4 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT Name FROM Sizes WHERE IdSize =" + codigo;
+            r4 = s4.executeQuery(queryNombre);
+            r4.first();
+            nombre = r4.getString("Name");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Orders.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return nombre;
+    }
+    
+    /**
+     * Método que coje el nombre del tamaño y devuelve su código.
+     *
+     * @param nombre - variable que contiene el nombre del tamaño.
+     * @return codigo - variable que contiene el código del tamaño.
+     *
+     */
+    public static int getCodSize(String nombre) {
+
+        int codigo = 0;
+
+        try {
+            ResultSet r4;
+            Statement s4 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT IdSize FROM Sizes WHERE Name ='" + nombre + "'";
+            r4 = s4.executeQuery(queryNombre);
+            r4.first();
+            codigo = r4.getInt("IdSize");
+        } catch (SQLException ex) {
+            Logger.getLogger(Workers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return codigo;
+    }
+    
+    /**
+     * Metodo que coje el código del color y devuelve su nombre.
+     *
+     * @param codigo - variable que contiene el código del color.
+     * @return nombre - variable que contiene el nombre del color.
+     */
+    
+    public static String getNombreColor(int codigo) {
+
+        String nombre;
+
+        nombre = "";
+
+        try {
+
+            ResultSet r5;
+            Statement s5 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT Name FROM Colors WHERE IdColor =" + codigo;
+            r5 = s5.executeQuery(queryNombre);
+            r5.first();
+            nombre = r5.getString("Name");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Orders.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return nombre;
+    }
+    
+    /**
+     * Método que coje el nombre del color y devuelve su código.
+     *
+     * @param nombre - variable que contiene el nombre del color.
+     * @return codigo - variable que contiene el código del color.
+     *
+     */
+    public static int getCodColor(String nombre) {
+
+        int codigo = 0;
+
+        try {
+            ResultSet r5;
+            Statement s5 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT IdColor FROM Colors WHERE Name ='" + nombre + "'";
+            r5 = s5.executeQuery(queryNombre);
+            r5.first();
+            codigo = r5.getInt("IdColor");
+        } catch (SQLException ex) {
+            Logger.getLogger(Workers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return codigo;
+    }
+    
+    /**
+     * Metodo que coje el código del Material y devuelve su nombre.
+     *
+     * @param codigo - variable que contiene el código del Material.
+     * @return nombre - variable que contiene el nombre del Material.
+     */
+    
+    public static String getNombreMaterial(int codigo) {
+
+        String nombre;
+
+        nombre = "";
+
+        try {
+
+            ResultSet r6;
+            Statement s6 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT Name FROM Materials WHERE IdMaterial =" + codigo;
+            r6 = s6.executeQuery(queryNombre);
+            r6.first();
+            nombre = r6.getString("Name");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Orders.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return nombre;
+    }
+    
+    /**
+     * Método que coje el nombre del Material y devuelve su código.
+     *
+     * @param nombre - variable que contiene el nombre del Material.
+     * @return codigo - variable que contiene el código del Material.
+     *
+     */
+    public static int getCodMaterial(String nombre) {
+
+        int codigo = 0;
+
+        try {
+            ResultSet r6;
+            Statement s6 = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String queryNombre = "SELECT IdMaterial FROM Materials WHERE Name ='" + nombre + "'";
+            r6 = s6.executeQuery(queryNombre);
+            r6.first();
+            codigo = r6.getInt("IdMaterial");
+        } catch (SQLException ex) {
+            Logger.getLogger(Workers.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return codigo;
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -215,7 +706,11 @@ public class New_Product extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new New_Product().setVisible(true);
+                try {
+                    new New_Product().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(New_Product.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -224,7 +719,9 @@ public class New_Product extends javax.swing.JFrame {
     private javax.swing.JLabel Background;
     private javax.swing.JButton CANCEL;
     private javax.swing.JLabel CATEGORY;
+    private javax.swing.JLabel COLOR;
     private javax.swing.JComboBox<String> ComboBox_category;
+    private javax.swing.JComboBox<String> ComboBox_color;
     private javax.swing.JComboBox<String> ComboBox_material;
     private javax.swing.JComboBox<String> ComboBox_provider;
     private javax.swing.JComboBox<String> ComboBox_size;

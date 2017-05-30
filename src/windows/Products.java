@@ -195,7 +195,12 @@ public class Products extends javax.swing.JFrame {
 
     private void NEWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NEWActionPerformed
         // NEW PRODUCT
-        New_Product nuevo = new New_Product();
+        New_Product nuevo = null;
+        try {
+            nuevo = new New_Product();
+        } catch (SQLException ex) {
+            Logger.getLogger(Products.class.getName()).log(Level.SEVERE, null, ex);
+        }
         nuevo.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_NEWActionPerformed
