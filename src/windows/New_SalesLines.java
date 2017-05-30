@@ -35,6 +35,8 @@ public class New_SalesLines extends javax.swing.JFrame {
         Title = new javax.swing.JLabel();
         ID_SALE = new javax.swing.JLabel();
         ComboBox_idSale = new javax.swing.JComboBox<>();
+        ID_LINE = new javax.swing.JLabel();
+        ComboBox_idLine = new javax.swing.JComboBox<>();
         PRODUCT = new javax.swing.JLabel();
         ComboBox_product = new javax.swing.JComboBox<>();
         SIZE = new javax.swing.JLabel();
@@ -65,20 +67,35 @@ public class New_SalesLines extends javax.swing.JFrame {
         ComboBox_idSale.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(ComboBox_idSale, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 100, 30));
 
+        ID_LINE.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        ID_LINE.setForeground(new java.awt.Color(255, 255, 255));
+        ID_LINE.setText("ID Line");
+        getContentPane().add(ID_LINE, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 70, 30));
+
+        ComboBox_idLine.setBackground(new java.awt.Color(51, 51, 51));
+        ComboBox_idLine.setForeground(new java.awt.Color(255, 255, 255));
+        ComboBox_idLine.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboBox_idLine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBox_idLineActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ComboBox_idLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 100, 30));
+
         PRODUCT.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         PRODUCT.setForeground(new java.awt.Color(255, 255, 255));
         PRODUCT.setText("Product");
-        getContentPane().add(PRODUCT, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 70, 30));
+        getContentPane().add(PRODUCT, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 70, 30));
 
         ComboBox_product.setBackground(new java.awt.Color(51, 51, 51));
         ComboBox_product.setForeground(new java.awt.Color(255, 255, 255));
         ComboBox_product.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(ComboBox_product, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 100, 30));
+        getContentPane().add(ComboBox_product, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 100, 30));
 
         SIZE.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         SIZE.setForeground(new java.awt.Color(255, 255, 255));
         SIZE.setText("Size");
-        getContentPane().add(SIZE, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 70, 30));
+        getContentPane().add(SIZE, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 70, 30));
 
         ComboBox_size.setBackground(new java.awt.Color(51, 51, 51));
         ComboBox_size.setForeground(new java.awt.Color(255, 255, 255));
@@ -88,25 +105,25 @@ public class New_SalesLines extends javax.swing.JFrame {
                 ComboBox_sizeActionPerformed(evt);
             }
         });
-        getContentPane().add(ComboBox_size, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 100, 30));
+        getContentPane().add(ComboBox_size, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 100, 30));
 
         PRICE.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         PRICE.setForeground(new java.awt.Color(255, 255, 255));
         PRICE.setText("Price");
-        getContentPane().add(PRICE, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 70, 30));
+        getContentPane().add(PRICE, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 70, 30));
 
         txt_price.setBackground(new java.awt.Color(51, 51, 51));
         txt_price.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txt_price, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, 100, 30));
+        getContentPane().add(txt_price, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 100, 30));
 
         CANTITY.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         CANTITY.setForeground(new java.awt.Color(255, 255, 255));
         CANTITY.setText("Cantity");
-        getContentPane().add(CANTITY, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 70, 30));
+        getContentPane().add(CANTITY, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 70, 30));
 
         txt_cantity.setBackground(new java.awt.Color(51, 51, 51));
         txt_cantity.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txt_cantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 100, 30));
+        getContentPane().add(txt_cantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 100, 30));
 
         SAVE.setBackground(new java.awt.Color(25, 25, 25));
         SAVE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_guardar-A.png"))); // NOI18N
@@ -151,6 +168,10 @@ public class New_SalesLines extends javax.swing.JFrame {
         // SAVE
         JOptionPane.showMessageDialog(null,"Data saved successfully", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_SAVEActionPerformed
+
+    private void ComboBox_idLineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBox_idLineActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboBox_idLineActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,9 +219,11 @@ public class New_SalesLines extends javax.swing.JFrame {
     private javax.swing.JLabel Background;
     private javax.swing.JButton CANCEL;
     private javax.swing.JLabel CANTITY;
+    private javax.swing.JComboBox<String> ComboBox_idLine;
     private javax.swing.JComboBox<String> ComboBox_idSale;
     private javax.swing.JComboBox<String> ComboBox_product;
     private javax.swing.JComboBox<String> ComboBox_size;
+    private javax.swing.JLabel ID_LINE;
     private javax.swing.JLabel ID_SALE;
     private javax.swing.JLabel PRICE;
     private javax.swing.JLabel PRODUCT;
