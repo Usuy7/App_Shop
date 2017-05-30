@@ -1,7 +1,6 @@
 package windows;
 
 import DAO.ConectDB;
-import com.mysql.jdbc.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -111,25 +110,25 @@ public class Login extends javax.swing.JFrame {
         // BOTON LOGIN
         
         // LLAMAR A LA CLASE ConectDB Y ABRIR LA CONEXIÓN
-        ConectDB app_shop = new ConectDB();
-        Connection con;
+        ConectDB con = new ConectDB();
         
         try {
-            
-            con = app_shop.AbrirConexion(); 
-            
+            con.AbrirConexion();
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         String user, password;
         String capturaDato = null; // CAPTURA EL ID DE LOS USUARIOS
-        
         user = txt_user.getText(); // OBTENEMOS EL USER
+        
         password = new String(txt_password.getPassword()); // OBTENEMOS LA PASSWORD
         user_logeado = user;
         
         String sql = "SELECT * FROM Workers WHERE Login = '"+user+"' AND Password = '"+password+"'";
-        
         try { // MEDIDA PARA ERRORES
             
-            Statement st = con.createStatement();
+            Statement st = con.getCon().prepareStatement(sql);
             ResultSet rs = st.executeQuery(sql); // EJECUTAMOS LA SENTENCIA SQL Y SE ALMACENAN EN EL rs
             
             while (rs.next()){
@@ -148,12 +147,6 @@ public class Login extends javax.swing.JFrame {
             
         } catch (Exception e) {
             System.out.println(e.getMessage()); // EN CASO DE ERROR, IMPRIMIRLO EN LA CONSOLA
-        }
-            
-            
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
  
         

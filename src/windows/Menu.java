@@ -5,6 +5,9 @@
  */
 package windows;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import static windows.Login.user_logeado;
@@ -238,7 +241,7 @@ public class Menu extends javax.swing.JFrame {
 
         int answer = JOptionPane.showConfirmDialog(null, "You are closing session, do you want to continue?", "SIGNAL", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (JOptionPane.OK_OPTION == answer) {
-            System.exit(0);
+             this.setVisible(false);
         } else {
         }
     }//GEN-LAST:event_LOG_OUTActionPerformed
@@ -263,7 +266,12 @@ public class Menu extends javax.swing.JFrame {
 
     private void CUSTOMERSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CUSTOMERSActionPerformed
         // CUSTOMERS
-        Customers customers = new Customers();
+        Customers customers = null;
+        try {
+            customers = new Customers();
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
         customers.setVisible(true);
     }//GEN-LAST:event_CUSTOMERSActionPerformed
 
