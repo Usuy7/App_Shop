@@ -5,26 +5,34 @@
  */
 package windows;
 
+import DAO.ConectDB;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumnModel;
 
 /**
  *
  * @author Javier
  */
 public class Workers extends javax.swing.JFrame {
+    
+    // LLAMAR A LA CLASE ConectDB
+    ConectDB con = new ConectDB();
 
     /**
      * Creates new form Personal
      */
-    public Workers() {
+    public Workers() throws SQLException {
         initComponents();
         this.setLocationRelativeTo(null);
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
+        
+        con.AbrirConexion();  //ABRIR LA CONEXIÓN
         
         // ALIGN DATA TABLE LEFT
         DefaultTableModel columnModel = (DefaultTableModel) jTable1.getModel();
@@ -115,26 +123,7 @@ public class Workers extends javax.swing.JFrame {
         jTable1.setForeground(new java.awt.Color(219, 219, 219));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "Name", "Surname", "Position", "DContract", "Salary", "Workday", "Birthdate ", "Phone", "Login", "Password"
@@ -210,7 +199,11 @@ public class Workers extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Workers().setVisible(true);
+                try {
+                    new Workers().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Workers.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

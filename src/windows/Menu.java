@@ -259,13 +259,23 @@ public class Menu extends javax.swing.JFrame {
 
     private void SALESActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SALESActionPerformed
         // SALES
-        Sales sales = new Sales();
+        Sales sales = null;
+        try {
+            sales = new Sales();
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
         sales.setVisible(true);
     }//GEN-LAST:event_SALESActionPerformed
 
     private void SALESLINESActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SALESLINESActionPerformed
         // SALES LINES
-        SalesLines lSale = new SalesLines();
+        SalesLines lSale = null;
+        try {
+            lSale = new SalesLines();
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
         lSale.setVisible(true);
     }//GEN-LAST:event_SALESLINESActionPerformed
 
@@ -304,7 +314,12 @@ public class Menu extends javax.swing.JFrame {
 
     private void WORKERSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WORKERSActionPerformed
         // WORKERS
-        Workers worker = new Workers();
+        Workers worker = null;
+        try {
+            worker = new Workers();
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
         worker.setVisible(true);
     }//GEN-LAST:event_WORKERSActionPerformed
 

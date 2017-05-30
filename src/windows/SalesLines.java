@@ -5,26 +5,34 @@
  */
 package windows;
 
+import DAO.ConectDB;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumnModel;
 
 /**
  *
  * @author AlumMati
  */
 public class SalesLines extends javax.swing.JFrame {
+    
+    // LLAMAR A LA CLASE ConectDB
+    ConectDB con = new ConectDB();
 
     /**
      * Creates new form Lines_Sale
      */
-    public SalesLines() {
+    public SalesLines() throws SQLException {
         initComponents();
         this.setLocationRelativeTo(null);
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
+        
+        con.AbrirConexion();  //ABRIR LA CONEXIÓN
         
         // ALIGN DATA TABLE LEFT
         DefaultTableModel columnModel = (DefaultTableModel) jTable1.getModel();
@@ -112,26 +120,7 @@ public class SalesLines extends javax.swing.JFrame {
         jTable1.setForeground(new java.awt.Color(219, 219, 219));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "ID Sale", "ID Line", "Product", "Cantity", "Price"
@@ -209,7 +198,11 @@ public class SalesLines extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SalesLines().setVisible(true);
+                try {
+                    new SalesLines().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(SalesLines.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

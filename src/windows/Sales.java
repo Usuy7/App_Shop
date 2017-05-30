@@ -5,26 +5,36 @@
  */
 package windows;
 
+import DAO.ConectDB;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumnModel;
 
 /**
  *
  * @author AlumMati
  */
 public class Sales extends javax.swing.JFrame {
+    
+    // LLAMAR A LA CLASE ConectDB
+    ConectDB con = new ConectDB();
 
     /**
      * Creates new form Ventas
      */
-    public Sales() {
+    public Sales() throws SQLException {
         initComponents();
         this.setLocationRelativeTo(null);
         setIconImage (new ImageIcon(getClass().getResource("../img/icono_app.png")).getImage());
+        
+        con.AbrirConexion();  //ABRIR LA CONEXIÓN
         
         // ALIGN DATA TABLE LEFT
         DefaultTableModel columnModel = (DefaultTableModel) jTable1.getModel();
@@ -34,6 +44,21 @@ public class Sales extends javax.swing.JFrame {
         jTable1.getColumnModel().getColumn(1).setCellRenderer(t);
         jTable1.getColumnModel().getColumn(2).setCellRenderer(t);
         jTable1.getColumnModel().getColumn(3).setCellRenderer(t);
+        
+        Statement s = con.getCon().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        String query = "SELECT * FROM Sales";
+        ResultSet rs = s.executeQuery(query);
+
+        Object datosTabla[] = new Object[5];
+
+        while (rs.next()) {
+            datosTabla[0] = rs.getInt("IdSale");
+            datosTabla[1] = rs.getInt("Worker");
+            datosTabla[2] = rs.getInt("Customer");
+            datosTabla[3] = rs.getInt("Payment");
+            datosTabla[4] = rs.getString("Fecha");
+            columnModel.addRow(datosTabla);
+        }
     }
 
     /**
@@ -111,26 +136,7 @@ public class Sales extends javax.swing.JFrame {
         jTable1.setForeground(new java.awt.Color(219, 219, 219));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "Worker", "Payment", "Customer", "Date"
@@ -206,7 +212,11 @@ public class Sales extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Sales().setVisible(true);
+                try {
+                    new Sales().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Sales.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
