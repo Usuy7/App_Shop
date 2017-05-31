@@ -224,7 +224,7 @@ public class Menu extends javax.swing.JFrame {
         Background.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Background.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Background.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, -1));
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
